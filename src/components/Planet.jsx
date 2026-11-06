@@ -1,87 +1,115 @@
-import React, { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Environment } from "@react-three/drei";
-import * as THREE from "three";
+import React, { useRef, useLayoutEffect } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Float, MeshTransmissionMaterial, Environment, PresentationControls } from '@react-three/drei';
+import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// 1. The Raw 3D Geometry (Where the hooks run)
-function PlanetScene(props) {
-  const groupRef = useRef();
-  const coreRef = useRef();
-  const ring1Ref = useRef();
-  const ring2Ref = useRef();
-  const ring3Ref = useRef();
+gsap.registerPlugin(ScrollTrigger);
 
-  useFrame((state, delta) => {
-    const { x, y } = state.pointer;
+function ArchitecturalCore() {
+  const masterGroup = useRef();
 
-    // Pro-level frame-independent pointer tracking
-    if (groupRef.current) {
-      groupRef.current.rotation.y = THREE.MathUtils.damp(groupRef.current.rotation.y, x * 0.5, 4, delta);
-      groupRef.current.rotation.x = THREE.MathUtils.damp(groupRef.current.rotation.x, -y * 0.5, 4, delta);
-    }
+  useLayoutEffect(() => {
+    // Architectural Scroll Choreography
+    const ctx = gsap.context(() => {
+      gsap.to(masterGroup.current.rotation, {
+        x: 0.8,
+        y: -1.2,
+        z: 0.4,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero-container',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.2,
+        },
+      });
 
-    // Complex, layered counter-rotations using delta for flawless syncing
-    if (coreRef.current) {
-      coreRef.current.rotation.y += delta * 0.15;
-      coreRef.current.rotation.x += delta * 0.1;
-    }
-    if (ring1Ref.current) {
-      ring1Ref.current.rotation.x += delta * 0.3;
-      ring1Ref.current.rotation.y += delta * 0.15;
-    }
-    if (ring2Ref.current) {
-      ring2Ref.current.rotation.y += delta * 0.25;
-      ring2Ref.current.rotation.z += delta * 0.1;
-    }
-    if (ring3Ref.current) {
-      ring3Ref.current.rotation.z += delta * 0.35;
-      ring3Ref.current.rotation.x += delta * 0.2;
-    }
-  });
+      gsap.to(masterGroup.current.position, {
+        z: -3,
+        y: -1.5,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero-container',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.2,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <group ref={groupRef} {...props} dispose={null}>
-      <Float speed={2.5} rotationIntensity={0.8} floatIntensity={1.2}>
-        {/* Central Obsidian Core */}
-        <mesh ref={coreRef} castShadow receiveShadow>
-          <icosahedronGeometry args={[1.35, 0]} />
-          <meshStandardMaterial color="#080807" metalness={0.95} roughness={0.1} />
-        </mesh>
-
-        {/* Kingston Gold Inner Ring */}
-        <mesh ref={ring1Ref}>
-          <torusGeometry args={[2.0, 0.04, 16, 100]} />
-          <meshStandardMaterial color="#F5B800" metalness={1} roughness={0.05} />
-        </mesh>
-
-        {/* Brushed Titanium Mid Ring */}
-        <mesh ref={ring2Ref}>
-          <torusGeometry args={[2.55, 0.05, 16, 100]} />
-          <meshStandardMaterial color="#11110F" metalness={0.9} roughness={0.3} />
-        </mesh>
-
-        {/* Kingston Gold Outer Orbit Ring */}
-        <mesh ref={ring3Ref}>
-          <torusGeometry args={[3.1, 0.025, 16, 100]} />
-          <meshStandardMaterial color="#F5B800" metalness={1} roughness={0.1} />
+    <group ref={masterGroup}>
+      {/* The Obsidian Slab: High Refraction, Dark Glass */}
+      <Float speed={2.5} rotationIntensity={0.6} floatIntensity={1.2}>
+        <mesh rotation={[0.2, 0.5, 0]}>
+          <boxGeometry args={[2.5, 3.5, 0.4]} />
+          <MeshTransmissionMaterial
+            backside
+            samples={16}
+            thickness={0.4}
+            chromaticAberration={0.03}
+            anisotropy={0.2}
+            distortion={0.15}
+            distortionScale={0.2}
+            temporalPersistence={0.2}
+            color="#080807"
+          />
         </mesh>
       </Float>
 
-      {/* Premium Studio Lighting Setup */}
-      <ambientLight intensity={1.5} />
-      <directionalLight position={[10, 10, 5]} intensity={3} castShadow />
-      <directionalLight position={[-10, -10, -5]} intensity={1.5} color="#F5B800" />
-      <Environment preset="city" />
+      {/* The Gold Logic-Lines */}
+      <Float speed={3.5} rotationIntensity={1.2} floatIntensity={2}>
+        <mesh position={[1.1, 0, -0.4]} rotation={[0, 0, Math.PI / 2]}>
+          <boxGeometry args={[0.08, 4.5, 0.08]} />
+          <meshStandardMaterial
+            color="#F5B800"
+            emissive="#F5B800"
+            emissiveIntensity={2.5}
+            toneMapped={false}
+          />
+        </mesh>
+        <mesh position={[-1.1, 0, 0.4]} rotation={[0, 0, Math.PI / 2]}>
+          <boxGeometry args={[0.08, 4.5, 0.08]} />
+          <meshStandardMaterial
+            color="#F5B800"
+            emissive="#F5B800"
+            emissiveIntensity={2.5}
+            toneMapped={false}
+          />
+        </mesh>
+      </Float>
     </group>
   );
 }
 
-// 2. The Exported Canvas Shell
 export default function Planet() {
   return (
     <div className="w-full h-full cursor-grab active:cursor-grabbing">
-      <Canvas camera={{ position: [0, 0, 7.5], fov: 55 }} dpr={[1, 2]}>
-        <PlanetScene />
+      <Canvas shadows camera={{ position: [0, 0, 7.5], fov: 35 }}>
+        <Environment preset="city" />
+        <spotLight position={[10, 10, 10]} intensity={2} />
+        <pointLight position={[-10, -10, -10]} color="#F5B800" intensity={1.5} />
+
+        <PresentationControls
+          global
+          rotation={[0, 0.3, 0]}
+          polar={[-0.2, 0.2]}
+          azimuth={[-0.2, 0.2]}
+          config={{ mass: 2, tension: 170, friction: 26 }}
+        >
+          <ArchitecturalCore />
+        </PresentationControls>
+
+        <EffectComposer disableNormalPass>
+          <Bloom intensity={1.2} luminanceThreshold={0.8} mipmapBlur />
+          <Noise opacity={0.035} />
+          <Vignette esdp={0.5} offset={0.1} darkness={1.1} />
+        </EffectComposer>
       </Canvas>
     </div>
   );
