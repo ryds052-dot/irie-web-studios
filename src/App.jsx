@@ -18,4 +18,4 @@ export default function App() {
       </main>
     </ReactLenis>
   );
-}s
+}
