@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Float, Environment } from "@react-three/drei";
 import * as THREE from "three";
 
-export function Planet(props) {
+// 1. The Raw 3D Geometry (Where the hooks run)
+function PlanetScene(props) {
   const groupRef = useRef();
   const coreRef = useRef();
   const ring1Ref = useRef();
@@ -44,41 +45,25 @@ export function Planet(props) {
         {/* Central Obsidian Core */}
         <mesh ref={coreRef} castShadow receiveShadow>
           <icosahedronGeometry args={[1.35, 0]} />
-          <meshStandardMaterial
-            color="#080807"
-            metalness={0.95}
-            roughness={0.1}
-          />
+          <meshStandardMaterial color="#080807" metalness={0.95} roughness={0.1} />
         </mesh>
 
         {/* Kingston Gold Inner Ring */}
         <mesh ref={ring1Ref}>
           <torusGeometry args={[2.0, 0.04, 16, 100]} />
-          <meshStandardMaterial
-            color="#F5B800"
-            metalness={1}
-            roughness={0.05}
-          />
+          <meshStandardMaterial color="#F5B800" metalness={1} roughness={0.05} />
         </mesh>
 
         {/* Brushed Titanium Mid Ring */}
         <mesh ref={ring2Ref}>
           <torusGeometry args={[2.55, 0.05, 16, 100]} />
-          <meshStandardMaterial
-            color="#11110F"
-            metalness={0.9}
-            roughness={0.3}
-          />
+          <meshStandardMaterial color="#11110F" metalness={0.9} roughness={0.3} />
         </mesh>
 
         {/* Kingston Gold Outer Orbit Ring */}
         <mesh ref={ring3Ref}>
           <torusGeometry args={[3.1, 0.025, 16, 100]} />
-          <meshStandardMaterial
-            color="#F5B800"
-            metalness={1}
-            roughness={0.1}
-          />
+          <meshStandardMaterial color="#F5B800" metalness={1} roughness={0.1} />
         </mesh>
       </Float>
 
@@ -86,8 +71,18 @@ export function Planet(props) {
       <ambientLight intensity={1.5} />
       <directionalLight position={[10, 10, 5]} intensity={3} castShadow />
       <directionalLight position={[-10, -10, -5]} intensity={1.5} color="#F5B800" />
+      <Environment preset="city" />
     </group>
   );
 }
 
-export default Planet;
+// 2. The Exported Canvas Shell
+export default function Planet() {
+  return (
+    <div className="w-full h-full cursor-grab active:cursor-grabbing">
+      <Canvas camera={{ position: [0, 0, 7.5], fov: 55 }} dpr={[1, 2]}>
+        <PlanetScene />
+      </Canvas>
+    </div>
+  );
+}
