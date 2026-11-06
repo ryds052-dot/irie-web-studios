@@ -8,7 +8,7 @@ const projects = [
     tagline: "Direct-to-consumer booking funnel, high-performance static rendering, and brand immersion for a 100-acre estate.",
     stack: ["Next.js", "Tailwind CSS", "Vercel Edge", "SEO Architecture"],
     status: "PRODUCTION LIVE",
-    link: "https://earthfamilyfarms.vercel.app", // update if needed
+    link: "https://earth-family-farms.vercel.app",
   },
   {
     num: "02",
