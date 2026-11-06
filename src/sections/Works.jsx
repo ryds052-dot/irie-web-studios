@@ -10,14 +10,14 @@ const projects = [
     status: "PRODUCTION LIVE",
     link: "https://earth-family-farms.vercel.app",
   },
-  {
+{
     num: "02",
     client: "Trini-Yaad",
     title: "Culinary Brand Infrastructure & Digital Menu Engine",
     tagline: "High-conversion localized ordering funnel engineered for sub-second mobile loads and zero-friction customer UX.",
     stack: ["React", "Tailwind CSS", "Edge CDN", "Interactive UI"],
     status: "SYSTEM ACTIVE",
-    link: "#",
+    link: "https://trini-yaad.vercel.app", // swap with your custom domain if configured
   },
   {
     num: "03",
