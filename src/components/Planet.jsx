@@ -30,7 +30,8 @@ function DiagnosticCore() {
 
 export default function Planet() {
   return (
-    <div className="w-full h-full min-h-[500px] relative cursor-grab">
+    {/* If you do not see a massive red box with a yellow border, your layout is broken. */}
+    <div className="w-full h-[500px] bg-red-600 border-4 border-yellow-400 relative z-50">
       <Canvas camera={{ position: [0, 0, 6] }}>
         <ambientLight intensity={1} />
         <directionalLight position={[5, 5, 5]} intensity={2} />
