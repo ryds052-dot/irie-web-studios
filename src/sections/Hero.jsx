@@ -1,76 +1,125 @@
 import React from 'react';
+import { motion } from 'framer-motion'; // Ensure you run: npm install framer-motion
 
 export default function Hero() {
   return (
     <section 
       id="hero-container" 
-      className="relative w-full min-h-screen bg-[#080807] text-[#F4F3EF] pt-16 sm:pt-20 flex flex-col overflow-hidden"
+      className="relative w-full min-h-screen bg-[#080807] text-[#F4F3EF] pt-16 sm:pt-20 flex flex-col overflow-hidden selection:bg-[#F5B800] selection:text-[#080807]"
     >
-      {/* Top Status Bar */}
-      <div className="w-full border-b border-white/10 px-4 sm:px-6 py-3 flex justify-between items-center bg-[#080807] z-10">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#F5B800] animate-pulse"></span>
-          <span className="font-mono text-[8px] sm:text-[10px] tracking-widest text-[#F5B800] uppercase">
-            System Online // Kingston, JA
+      {/* Top Status Bar - Refined to look like a System Terminal */}
+      <div className="w-full border-b border-white/5 px-4 sm:px-6 py-3 flex justify-between items-center bg-[#080807]/80 backdrop-blur-md z-20">
+        <div className="flex items-center gap-3">
+          <div className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F5B800] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F5B800]"></span>
+          </div>
+          <span className="font-mono text-[9px] sm:text-[11px] tracking-[0.2em] text-[#F5B800] uppercase font-medium">
+            System State: Optimal // Location: Kingston, JA
           </span>
         </div>
-        <span className="font-mono text-[8px] sm:text-[10px] tracking-widest text-[#8E8C84] uppercase hidden sm:block">
-          Irie Web Studios — 2D Fallback Mode
-        </span>
+        <div className="hidden sm:flex items-center gap-6">
+            <span className="font-mono text-[9px] tracking-widest text-white/30 uppercase">
+              Est. 2024
+            </span>
+            <span className="font-mono text-[9px] tracking-widest text-[#8E8C84] uppercase">
+              Digital Architecture Division
+            </span>
+        </div>
       </div>
 
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-white/10 relative z-10">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 relative z-10">
         
         {/* Left: Heavy Editorial Typography */}
-        <div className="lg:col-span-7 flex flex-col justify-center p-6 py-12 lg:p-16 relative">
-          <div className="max-w-2xl">
-            <h1 className="text-[12.5vw] sm:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-6 sm:mb-8">
-              Engineered <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#F4F3EF] to-[#8E8C84]">
+        <div className="lg:col-span-7 flex flex-col justify-center p-6 py-12 lg:p-20 relative">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-[11vw] sm:text-7xl lg:text-[8.5rem] font-black uppercase tracking-tighter leading-[0.8] mb-8">
+              <span className="block">Engineered</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#F4F3EF] via-[#8E8C84] to-[#444]">
                 To Convert.
               </span>
             </h1>
             
-            <p className="font-mono text-xs sm:text-sm leading-relaxed text-[#8E8C84] max-w-md uppercase tracking-widest border-l-2 border-[#F5B800] pl-4 sm:pl-6">
-              We build brutalist digital architecture and bespoke web platforms. Zero templates. Engineered from the metal up.
-            </p>
-          </div>
+            <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+                <p className="font-mono text-xs sm:text-sm leading-relaxed text-[#8E8C84] max-w-xs uppercase tracking-widest border-l-2 border-[#F5B800] pl-4">
+                  Specializing in brutalist digital architecture and high-conversion platforms. We build systems, not just websites.
+                </p>
+                <div className="flex flex-col gap-2">
+                    <span className="font-mono text-[10px] text-white/20 uppercase tracking-tighter">Technical Specs</span>
+                    <span className="font-mono text-[10px] text-[#F5B800] uppercase">v2.0.1 // Stable</span>
+                </div>
+            </div>
+          </motion.div>
 
-          <div className="mt-10 sm:mt-16 flex flex-col sm:flex-row gap-4">
-            <a href="#works" className="w-full sm:w-auto text-center px-8 py-4 bg-[#F5B800] text-[#080807] font-mono text-xs uppercase tracking-[0.2em] font-bold hover:bg-white transition-colors">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="mt-16 flex flex-wrap gap-4"
+          >
+            <a href="#works" className="group relative px-8 py-4 bg-[#F5B800] text-[#080807] font-mono text-xs uppercase tracking-[0.2em] font-bold transition-all hover:scale-105 active:scale-95">
               [ View Architecture ]
             </a>
-            <a href="#contact" className="w-full sm:w-auto text-center px-8 py-4 border border-white/20 text-[#F4F3EF] font-mono text-xs uppercase tracking-[0.2em] hover:border-[#F5B800] hover:text-[#F5B800] transition-colors">
+            <a href="#contact" className="px-8 py-4 border border-white/10 text-[#F4F3EF] font-mono text-xs uppercase tracking-[0.2em] transition-all hover:bg-white hover:text-[#080807] hover:border-white">
               [ Initialize ]
             </a>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Right: Pure CSS Kinetic Engine (No WebGL) */}
-        <div className="lg:col-span-5 relative h-[350px] sm:h-[450px] lg:min-h-full lg:h-auto bg-[#0a0a09] flex items-center justify-center overflow-hidden">
+        {/* Right: The "Kinetic Fragment" (The Agency Flex) */}
+        <div className="lg:col-span-5 relative h-[400px] lg:h-auto bg-[#0a0a09] flex items-center justify-center overflow-hidden border-l border-white/5">
           
-          {/* Ambient Glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,184,0,0.08)_0%,transparent_60%)]"></div>
+          {/* Deep ambient gold glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(245,184,0,0.15)_0%,transparent_70%)]"></div>
 
-          {/* CSS Rotating Wireframe Core */}
-          <div className="relative w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px] flex items-center justify-center">
-            {/* Outer Track */}
-            <div className="absolute inset-0 border border-white/10 rounded-full animate-[spin_12s_linear_infinite]">
-              <div className="absolute top-0 left-1/2 w-1.5 h-1.5 lg:w-2 lg:h-2 bg-[#F5B800] -translate-x-1/2 -translate-y-1/2 rounded-full shadow-[0_0_10px_#F5B800]"></div>
-            </div>
+          {/* Abstract Brutalist Sculpture (CSS Based) */}
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center">
+            {/* Layered Angular Slabs instead of circles */}
+            <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute w-full h-full border border-white/10 rotate-45"
+            />
+            <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute w-3/4 h-3/4 border border-white/20 rotate-12"
+            />
+            <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute w-1/2 h-1/2 border-2 border-[#F5B800] rotate-[-45deg] shadow-[0_0_30px_rgba(245,184,0,0.3)]"
+            />
             
-            {/* Middle Dashed Track */}
-            <div className="absolute inset-6 lg:inset-8 border border-dashed border-[#F5B800]/40 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-            
-            {/* Inner Solid Ring */}
-            <div className="absolute inset-12 lg:inset-16 border-2 border-[#F5B800] rounded-full opacity-80 shadow-[0_0_30px_rgba(245,184,0,0.2)] animate-[pulse_3s_ease-in-out_infinite]"></div>
-            
-            {/* Center Core */}
-            <div className="absolute w-8 h-8 lg:w-12 lg:h-12 bg-[#F5B800] rounded-sm rotate-45 shadow-[0_0_40px_rgba(245,184,0,0.6)] animate-[spin_8s_linear_infinite]"></div>
+            {/* The Core Monolith */}
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.1, 1],
+                rotate: [0, 90, 180, 270, 360] 
+              }}
+              transition={{ 
+                duration: 10, 
+                repeat: Infinity, 
+                ease: "linear" 
+              }}
+              className="absolute w-12 h-12 bg-[#F5B800] rotate-45 shadow-[0_0_50px_rgba(245,184,0,0.6)] z-10"
+            ></motion.div>
           </div>
 
-          {/* Technical Grid Overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px] lg:bg-[size:40px_40px] pointer-events-none"></div>
+          {/* Tech Data Overlay (Right Edge) */}
+          <div className="absolute right-6 bottom-10 font-mono text-[9px] text-white/20 uppercase text-right leading-loose pointer-events-none">
+            <div>Coord: 17.9714° N, 76.7936° W</div>
+            <div>System: R3F_FALLBACK</div>
+            <div>Engine: Kinetic_v2</div>
+          </div>
+
+          {/* The "Engineering" Grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
         </div>
 
       </div>
