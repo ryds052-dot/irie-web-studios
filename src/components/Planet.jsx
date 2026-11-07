@@ -1,88 +1,66 @@
-import React, { useRef, useLayoutEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshTransmissionMaterial, Environment, PresentationControls } from '@react-three/drei';
-import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing';
 
-gsap.registerPlugin(ScrollTrigger);
+function CrystalCore() {
+  const outerCrystal = useRef();
+  const innerCore = useRef();
 
-function ArchitecturalCore() {
-  const masterGroup = useRef();
-
-  useLayoutEffect(() => {
-    // Architectural Scroll Choreography
-    const ctx = gsap.context(() => {
-      gsap.to(masterGroup.current.rotation, {
-        x: 0.8,
-        y: -1.2,
-        z: 0.4,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#hero-container',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.2,
-        },
-      });
-
-      gsap.to(masterGroup.current.position, {
-        z: -3,
-        y: -1.5,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#hero-container',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.2,
-        },
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
+  useFrame((_, delta) => {
+    // Smooth, continuous cinematic rotation
+    if (outerCrystal.current) {
+      outerCrystal.current.rotation.y += delta * 0.15;
+      outerCrystal.current.rotation.x += delta * 0.1;
+    }
+    if (innerCore.current) {
+      innerCore.current.rotation.y -= delta * 0.2;
+    }
+  });
 
   return (
-    <group ref={masterGroup}>
-      {/* The Obsidian Slab: High Refraction, Dark Glass */}
-      <Float speed={2.5} rotationIntensity={0.6} floatIntensity={1.2}>
-        <mesh rotation={[0.2, 0.5, 0]}>
-          <boxGeometry args={[2.5, 3.5, 0.4]} />
-          <MeshTransmissionMaterial
-            backside
-            samples={16}
-            thickness={0.4}
-            chromaticAberration={0.03}
-            anisotropy={0.2}
-            distortion={0.15}
-            distortionScale={0.2}
-            temporalPersistence={0.2}
-            color="#080807"
-          />
-        </mesh>
-      </Float>
+    <group>
+      {/* The Molten Gold Inner Core */}
+      <mesh ref={innerCore}>
+        <octahedronGeometry args={[1.2, 0]} />
+        <meshStandardMaterial
+          color="#F5B800"
+          emissive="#F5B800"
+          emissiveIntensity={4}
+          wireframe
+          transparent
+          opacity={0.8}
+        />
+      </mesh>
 
-      {/* The Gold Logic-Lines */}
-      <Float speed={3.5} rotationIntensity={1.2} floatIntensity={2}>
-        <mesh position={[1.1, 0, -0.4]} rotation={[0, 0, Math.PI / 2]}>
-          <boxGeometry args={[0.08, 4.5, 0.08]} />
-          <meshStandardMaterial
-            color="#F5B800"
-            emissive="#F5B800"
-            emissiveIntensity={2.5}
-            toneMapped={false}
-          />
-        </mesh>
-        <mesh position={[-1.1, 0, 0.4]} rotation={[0, 0, Math.PI / 2]}>
-          <boxGeometry args={[0.08, 4.5, 0.08]} />
-          <meshStandardMaterial
-            color="#F5B800"
-            emissive="#F5B800"
-            emissiveIntensity={2.5}
-            toneMapped={false}
-          />
-        </mesh>
-      </Float>
+      <mesh ref={innerCore} scale={0.8}>
+        <icosahedronGeometry args={[1, 1]} />
+        <meshStandardMaterial
+          color="#F5B800"
+          emissive="#F5B800"
+          emissiveIntensity={2}
+          toneMapped={false}
+        />
+      </mesh>
+
+      {/* The Refractive Obsidian Outer Shell */}
+      <mesh ref={outerCrystal}>
+        <icosahedronGeometry args={[2.8, 0]} />
+        <MeshTransmissionMaterial
+          backside
+          samples={16}
+          thickness={1.5}
+          roughness={0.1}
+          transmission={1}
+          ior={1.5}
+          chromaticAberration={0.04}
+          anisotropy={0.3}
+          distortion={0.2}
+          distortionScale={0.3}
+          temporalPersistence={0.1}
+          color="#080807"
+        />
+      </mesh>
     </group>
   );
 }
@@ -90,25 +68,37 @@ function ArchitecturalCore() {
 export default function Planet() {
   return (
     <div className="w-full h-full cursor-grab active:cursor-grabbing">
-      <Canvas shadows camera={{ position: [0, 0, 7.5], fov: 35 }}>
+      <Canvas camera={{ position: [0, 0, 7], fov: 45 }} gl={{ antialias: true }}>
+        <ambientLight intensity={0.1} />
+        
+        {/* Dynamic Studio Lighting */}
+        <directionalLight position={[10, 10, 5]} intensity={2} />
+        <pointLight position={[-5, -5, -5]} color="#F5B800" intensity={5} distance={15} />
+
         <Environment preset="city" />
-        <spotLight position={[10, 10, 10]} intensity={2} />
-        <pointLight position={[-10, -10, -10]} color="#F5B800" intensity={1.5} />
 
         <PresentationControls
           global
-          rotation={[0, 0.3, 0]}
+          snap={{ mass: 1, tension: 150 }}
+          rotation={[0, 0, 0]}
           polar={[-0.2, 0.2]}
           azimuth={[-0.2, 0.2]}
-          config={{ mass: 2, tension: 170, friction: 26 }}
         >
-          <ArchitecturalCore />
+          <Float speed={1.5} rotationIntensity={0.6} floatIntensity={1}>
+            <CrystalCore />
+          </Float>
         </PresentationControls>
 
+        {/* High-End Post-Processing */}
         <EffectComposer disableNormalPass>
-          <Bloom intensity={1.2} luminanceThreshold={0.8} mipmapBlur />
-          <Noise opacity={0.035} />
-          <Vignette esdp={0.5} offset={0.1} darkness={1.1} />
+          <Bloom
+            intensity={1.5}
+            luminanceThreshold={0.5}
+            luminanceOffset={0.1}
+            mipmapBlur
+          />
+          <Noise opacity={0.04} />
+          <Vignette offset={0.3} darkness={0.9} />
         </EffectComposer>
       </Canvas>
     </div>
