@@ -1,12 +1,11 @@
 ﻿import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 
-const SECTIONS = [
-  ["home", "#hero-container"],
-  ["services", "#services"],
-  ["about", "#about"],
-  ["works", "#works"],
-  ["contact", "#contact"],
+const DESTINATIONS = [
+  ["home", "/"],
+  ["pricing", "/pricing"],
+  ["contact", "/contact"],
 ];
 
 const fine = () =>
@@ -149,8 +148,9 @@ export function CommandPalette() {
   const [q, setQ] = useState("");
   const [i, setI] = useState(0);
   const inputRef = useRef(null);
+  const navigate = useNavigate();
 
-  const hits = SECTIONS.filter((s) => s[0].includes(q.toLowerCase()));
+  const hits = DESTINATIONS.filter((d) => d[0].includes(q.trim().toLowerCase()));
 
   useEffect(() => {
     const on = (e) => {
@@ -174,10 +174,9 @@ export function CommandPalette() {
 
   if (!open) return null;
 
-  const go = (hash) => {
+  const go = (path) => {
     setOpen(false);
-    const el = document.querySelector(hash);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    navigate(path);
   };
 
   return createPortal(
@@ -185,7 +184,7 @@ export function CommandPalette() {
       className="fixed inset-0 z-[9996] flex items-start justify-center bg-black/70 px-4 pt-[18vh] backdrop-blur-sm"
       onClick={() => setOpen(false)}
     >
-      <div className="w-full max-w-lg border border-white/15 bg-[#0a0a09]" onClick={(e) => e.stopPropagation()}>
+      <div className="w-full max-w-sm border border-white/15 bg-[#0a0a09]" onClick={(e) => e.stopPropagation()}>
         <input
           ref={inputRef}
           value={q}
@@ -195,20 +194,20 @@ export function CommandPalette() {
             if (e.key === "ArrowUp") { e.preventDefault(); setI((v) => (v - 1 + hits.length) % Math.max(hits.length, 1)); }
             if (e.key === "Enter" && hits[i]) go(hits[i][1]);
           }}
-          placeholder="Jump to section..."
+          placeholder="Jump to"
           className="w-full border-b border-white/10 bg-transparent px-5 py-4 font-mono text-sm text-[#F4F3EF] outline-none placeholder:text-[#5c5a55]"
         />
-        <ul className="max-h-64 overflow-y-auto p-2">
-          {hits.map((s, idx) => (
-            <li key={s[1]}>
+        <ul className="p-2">
+          {hits.map((d, idx) => (
+            <li key={d[1]}>
               <button
                 onMouseEnter={() => setI(idx)}
-                onClick={() => go(s[1])}
+                onClick={() => go(d[1])}
                 className={`flex w-full items-center justify-between px-4 py-3 text-left font-mono text-xs uppercase tracking-[0.2em] ${
                   idx === i ? "bg-[#F5B800] text-[#080807]" : "text-[#8E8C84]"
                 }`}
               >
-                {s[0]}
+                {d[0]}
                 <span aria-hidden="true">↵</span>
               </button>
             </li>
