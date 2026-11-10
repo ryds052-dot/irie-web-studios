@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 
 const VERT = `attribute vec2 a;void main(){gl_Position=vec4(a,0.0,1.0);}`;
 
@@ -51,17 +51,21 @@ void main(){
 
 export default function HeroVisual() {
   const ref = useRef(null);
+  const [useGL, setUseGL] = useState(false);
 
   useEffect(() => {
+    const desktop = window.innerWidth >= 768;
+    const motion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setUseGL(desktop && motion);
+  }, []);
+
+  useEffect(() => {
+    if (!useGL) return;
     const canvas = ref.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext("webgl", {
-      antialias: false,
-      alpha: false,
-      powerPreference: "high-performance",
-    });
-    if (!gl) return;
+    const gl = canvas.getContext("webgl", { antialias: false, alpha: false, powerPreference: "high-performance" });
+    if (!gl) { setUseGL(false); return; }
 
     const compile = (type, src) => {
       const s = gl.createShader(type);
@@ -74,7 +78,7 @@ export default function HeroVisual() {
     gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
     gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
     gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { setUseGL(false); return; }
     gl.useProgram(prog);
 
     const buf = gl.createBuffer();
@@ -88,18 +92,18 @@ export default function HeroVisual() {
     const uTime = gl.getUniformLocation(prog, "uTime");
     const uMouse = gl.getUniformLocation(prog, "uMouse");
 
-    const small = window.innerWidth < 768;
-    const dpr = Math.min(window.devicePixelRatio || 1, small ? 1.25 : 1.75);
-
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
     const resize = () => {
       const w = Math.floor(canvas.clientWidth * dpr);
       const h = Math.floor(canvas.clientHeight * dpr);
+      if (w === 0 || h === 0) return false;
       if (canvas.width !== w || canvas.height !== h) {
         canvas.width = w;
         canvas.height = h;
         gl.viewport(0, 0, w, h);
       }
       gl.uniform2f(uRes, canvas.width, canvas.height);
+      return true;
     };
 
     let mx = 0, my = 0, tx = 0, ty = 0;
@@ -109,49 +113,57 @@ export default function HeroVisual() {
     };
     window.addEventListener("pointermove", onMove, { passive: true });
 
-    const reduced = small;
-
     let raf = 0;
+    let visible = true;
     const start = performance.now();
 
     const frame = (now) => {
+      if (!visible) return;
       mx += (tx - mx) * 0.045;
       my += (ty - my) * 0.045;
-      resize();
-      gl.uniform1f(uTime, (now - start) / 1000);
-      gl.uniform2f(uMouse, mx, my);
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-      if (!reduced) raf = requestAnimationFrame(frame);
+      if (resize()) {
+        gl.uniform1f(uTime, (now - start) / 1000);
+        gl.uniform2f(uMouse, mx, my);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+      }
+      raf = requestAnimationFrame(frame);
     };
     raf = requestAnimationFrame(frame);
 
-    const ro = new ResizeObserver(() => {
-      resize();
-      if (reduced) frame(performance.now());
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible) { cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); }
     });
-    ro.observe(canvas);
+    io.observe(canvas);
 
     const onVis = () => {
-      if (document.hidden) cancelAnimationFrame(raf);
-      else if (!reduced) raf = requestAnimationFrame(frame);
+      if (document.hidden) { visible = false; cancelAnimationFrame(raf); }
+      else { visible = true; raf = requestAnimationFrame(frame); }
     };
     document.addEventListener("visibilitychange", onVis);
 
     return () => {
+      visible = false;
       cancelAnimationFrame(raf);
-      ro.disconnect();
+      io.disconnect();
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("visibilitychange", onVis);
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      const ext = gl.getExtension("WEBGL_lose_context");
+      if (ext) ext.loseContext();
     };
-  }, []);
+  }, [useGL]);
 
   return (
-    <canvas
-      ref={ref}
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-55 md:opacity-70"
-    />
+    <>
+      <div className="aurora" aria-hidden="true" />
+      <div className="aurora-grid" aria-hidden="true" />
+      {useGL && (
+        <canvas
+          ref={ref}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-70"
+        />
+      )}
+    </>
   );
 }
-

@@ -182,3 +182,39 @@ textarea.field { resize: none; font-family: var(--font-mono); }
   .reveal { opacity: 1; transform: none; transition: none; }
   .marquee-track { animation: none; }
 }
+
+/* ---------- hero aurora ---------- */
+.aurora { position: absolute; inset: 0; overflow: hidden; background: #080807; }
+.aurora::before, .aurora::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(42% 36% at 28% 38%, rgba(245,184,0,0.62), transparent 70%),
+    radial-gradient(34% 30% at 72% 62%, rgba(214,88,14,0.5), transparent 70%),
+    radial-gradient(28% 28% at 52% 84%, rgba(245,184,0,0.32), transparent 70%);
+  filter: blur(28px);
+  will-change: transform;
+  animation: aurora 20s ease-in-out infinite alternate;
+}
+.aurora::after {
+  opacity: 0.65;
+  animation-duration: 29s;
+  animation-direction: alternate-reverse;
+}
+@keyframes aurora {
+  from { transform: translate3d(-6%, -4%, 0) rotate(0deg) scale(1); }
+  to   { transform: translate3d(6%, 5%, 0) rotate(7deg) scale(1.12); }
+}
+.aurora-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(70% 70% at 50% 60%, #000 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 60%, #000 30%, transparent 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora::before, .aurora::after { animation: none; }
+}
