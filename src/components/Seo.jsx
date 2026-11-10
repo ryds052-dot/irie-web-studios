@@ -1,28 +1,42 @@
 ﻿import { useEffect } from "react";
+import { SITE_URL } from "../lib/site";
 
-const META = (name, content) => {
-  let el = document.head.querySelector(`meta[name="${name}"]`);
+const setMeta = (attr, key, value) => {
+  let el = document.head.querySelector(`meta[${attr}="${key}"]`);
   if (!el) {
     el = document.createElement("meta");
-    el.setAttribute("name", name);
+    el.setAttribute(attr, key);
     document.head.appendChild(el);
   }
-  el.setAttribute("content", content);
+  el.setAttribute("content", value);
 };
 
-export default function Seo({ title, description }) {
+const setLink = (rel, href) => {
+  let el = document.head.querySelector(`link[rel="${rel}"]`);
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", rel);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("href", href);
+};
+
+export default function Seo({ title, description, path = "/" }) {
   useEffect(() => {
+    const url = `${SITE_URL}${path}`;
     if (title) document.title = title;
     if (description) {
-      META("description", description);
-      let og = document.head.querySelector('meta[property="og:description"]');
-      if (!og) {
-        og = document.createElement("meta");
-        og.setAttribute("property", "og:description");
-        document.head.appendChild(og);
-      }
-      og.setAttribute("content", description);
+      setMeta("name", "description", description);
+      setMeta("property", "og:description", description);
+      setMeta("name", "twitter:description", description);
     }
-  }, [title, description]);
+    if (title) {
+      setMeta("property", "og:title", title);
+      setMeta("name", "twitter:title", title);
+    }
+    setMeta("property", "og:url", url);
+    setLink("canonical", url);
+  }, [title, description, path]);
+
   return null;
 }

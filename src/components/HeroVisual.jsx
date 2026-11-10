@@ -109,9 +109,7 @@ export default function HeroVisual() {
     };
     window.addEventListener("pointermove", onMove, { passive: true });
 
-    const reduced =
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      (small && window.innerWidth < 380);
+    const reduced = small;
 
     let raf = 0;
     const start = performance.now();
@@ -156,3 +154,4 @@ export default function HeroVisual() {
     />
   );
 }
+
