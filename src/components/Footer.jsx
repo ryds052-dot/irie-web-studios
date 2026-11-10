@@ -29,8 +29,8 @@ export default function Footer() {
             <p className="font-mono text-xs uppercase leading-relaxed tracking-widest text-[#F4F3EF]/75">
               Kingston 6, Jamaica<br />UTC-5<br />Remote worldwide
             </p>
-            <a href="tel:+18765550142" className="mt-4 inline-block font-mono text-xs tracking-widest text-[#8E8C84] hover:text-[#F5B800]">
-              +1 876 555 0142
+            <a href="tel:+18765206119" className="mt-4 inline-block font-mono text-xs tracking-widest text-[#8E8C84] hover:text-[#F5B800]">
+              +1 876 520 6119
             </a>
           </div>
         </div>
@@ -45,5 +45,7 @@ export default function Footer() {
     </footer>
   );
 }
+
+
 
 

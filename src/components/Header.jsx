@@ -31,7 +31,7 @@ export default function Header() {
     <>
       <header
         className={`safe-top fixed inset-x-0 top-0 z-[9500] border-b transition-colors duration-500 ${
-          solid || open ? "border-white/10 bg-[#080807]/95 backdrop-blur-xl" : "border-transparent"
+          solid || open ? "border-white/10 bg-[#080807] md:bg-[#080807]/95 md:backdrop-blur-xl" : "border-transparent"
         }`}
       >
         <div className="flex items-center justify-between px-5 pb-3 md:px-12">
@@ -108,3 +108,4 @@ export default function Header() {
     </>
   );
 }
+

@@ -159,3 +159,8 @@ img, canvas, video { max-width: 100%; }
   html { scroll-behavior: auto; }
 }
 
+
+@media (max-width: 767px) {
+  .grain::after { opacity: .035; }
+  .grain { contain: strict; }
+}

@@ -22,7 +22,7 @@ export default function Marquee({
         {row.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="flex shrink-0 items-center gap-6 pr-6 font-mono text-xs uppercase tracking-[0.3em] text-[#F4F3EF]/70"
+            className="flex shrink-0 items-center gap-5 whitespace-nowrap pr-5 font-mono text-xs uppercase tracking-[0.3em] text-[#F4F3EF]/70"
           >
             {item}
             <span className="text-[#F5B800]">{separator}</span>
@@ -32,3 +32,4 @@ export default function Marquee({
     </div>
   );
 }
+

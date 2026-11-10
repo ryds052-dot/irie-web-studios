@@ -25,7 +25,7 @@ function Fallback() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ReactLenis root options={{ lerp: 0.06, duration: 1.2, smoothWheel: true }}>
+      <ReactLenis root options={{ lerp: 0.06, duration: 1.2, smoothWheel: true, smoothTouch: false }}>
         <FxLayer />
         <ViewTransition />
         <Layout>
@@ -46,4 +46,5 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
 

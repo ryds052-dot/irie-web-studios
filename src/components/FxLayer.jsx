@@ -63,7 +63,7 @@ export function ScrollProgress() {
   );
 }
 
-export function Magnetic({ children, strength = 0.28 }) {
+export function Magnetic({ children, strength = 0.28, className = "" }) {
   const ref = useRef(null);
   useEffect(() => {
     if (!fine()) return;
@@ -84,7 +84,7 @@ export function Magnetic({ children, strength = 0.28 }) {
     };
   }, [strength]);
   return (
-    <span ref={ref} className="inline-block transition-transform duration-300 ease-out will-change-transform">
+    <span ref={ref} className={`inline-block transition-transform duration-300 ease-out will-change-transform ${className}`}>
       {children}
     </span>
   );
@@ -115,7 +115,7 @@ export function Preloader() {
   const [n, setN] = useState(0);
   const [gone, setGone] = useState(false);
   useEffect(() => {
-    if (sessionStorage.getItem("irie:loaded")) { setGone(true); return; }
+    if (sessionStorage.getItem("irie:loaded") || window.innerWidth < 768) { sessionStorage.setItem("irie:loaded", "1"); setGone(true); return; }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       sessionStorage.setItem("irie:loaded", "1");
       setGone(true);
@@ -233,3 +233,7 @@ export default function FxLayer() {
     </>
   );
 }
+
+
+
+
