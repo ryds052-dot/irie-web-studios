@@ -21,10 +21,11 @@ export default function Layout({ children }) {
         Skip to content
       </a>
       <Header />
-      <main id="main" ref={main} tabIndex={-1} key={pathname} className="page-in outline-none">
+      <main id="main" ref={main} tabIndex={-1} key={pathname} className="page-in outline-none pb-24 md:pb-0">
         {children}
       </main>
       <Footer />
     </>
   );
 }
+

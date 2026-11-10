@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 px-6 pt-20 md:px-12">
+    <footer className="safe-bottom border-t border-white/10 px-5 pt-16 md:px-12 md:pt-20">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 pb-16 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
@@ -18,9 +18,9 @@ export default function Footer() {
           </div>
           <div>
             <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84]">Navigate</p>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-1 text-sm">
               {[["Work", "/work"], ["Services", "/services"], ["Studio", "/studio"], ["Pricing", "/pricing"], ["Contact", "/contact"]].map(([l, to]) => (
-                <li key={to}><Link to={to} className="text-[#F4F3EF]/75 hover:text-[#F5B800]">{l}</Link></li>
+                <li key={to}><Link to={to} className="flex min-h-11 items-center text-[#F4F3EF]/75 hover:text-[#F5B800]">{l}</Link></li>
               ))}
             </ul>
           </div>
@@ -45,3 +45,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+

@@ -123,3 +123,38 @@ code, pre, .font-mono {
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 }
+
+/* ================= MOBILE HARDENING ================= */
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
+html, body { max-width: 100%; overflow-x: clip; }
+body { overscroll-behavior-y: none; }
+* { -webkit-tap-highlight-color: transparent; }
+h1, h2, h3 { text-wrap: balance; }
+img, canvas, video { max-width: 100%; }
+
+.safe-top { padding-top: max(0.75rem, env(safe-area-inset-top)); }
+.safe-bottom { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+.safe-x { padding-left: max(1.5rem, env(safe-area-inset-left)); padding-right: max(1.5rem, env(safe-area-inset-right)); }
+
+@media (max-width: 767px) {
+  button, select, input, textarea, summary { min-height: 48px; }
+  nav a, footer a, .tap-link { min-height: 44px; display: inline-flex; align-items: center; }
+  input, textarea, select { font-size: 16px !important; }
+  #hero-container h1 { font-size: clamp(2.3rem, 12.4vw, 3.4rem); }
+  #hero-container { min-height: 100svh; }
+  .fx-marquee-track { animation-duration: 60s; }
+  .page-in { animation-duration: 0.3s; }
+  h1, h2 { letter-spacing: -0.035em; }
+}
+
+@media (max-width: 380px) {
+  #hero-container h1 { font-size: 2.1rem; }
+}
+
+@media (hover: none) {
+  .group:hover .group-hover\:translate-x-1 { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

@@ -107,7 +107,7 @@ export default function HeroVisual() {
     };
     window.addEventListener("pointermove", onMove, { passive: true });
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches || (small && window.innerWidth < 380);
     let raf = 0;
     const start = performance.now();
 
@@ -147,7 +147,8 @@ export default function HeroVisual() {
     <canvas
       ref={ref}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-70"
+      className="pointer-events-none absolute inset-0 h-full w-full opacity-55 md:opacity-70"
     />
   );
 }
+

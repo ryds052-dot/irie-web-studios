@@ -72,7 +72,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center px-6 py-16 md:px-12 md:py-20">
+      <div className="relative z-10 flex flex-1 flex-col justify-center px-5 py-10 md:px-12 md:py-20">
         <div className="flex items-center gap-3">
           <span className="h-px w-12 bg-[#F5B800]" />
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#F5B800]">
@@ -104,7 +104,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        <div className="mt-12 grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="mt-8 grid gap-8 md:mt-12 md:grid-cols-[1fr_auto] md:items-end">
           <p
             className="hero-fade max-w-md border-l-2 border-[#F5B800] pl-6 font-mono text-[11px] uppercase leading-relaxed tracking-widest text-[#8E8C84]"
             style={{ animationDelay: "520ms" }}
@@ -159,4 +159,5 @@ export default function Hero() {
     </section>
   );
 }
+
 
