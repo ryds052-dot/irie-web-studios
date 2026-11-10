@@ -32,22 +32,6 @@ export default function Home() {
 
       <Hero />
 
-      <section className="overflow-hidden border-y border-white/10 bg-[#0b0b0a]">
-        <div className="fx-marquee">
-          <div className="fx-marquee-track py-3">
-            {[0, 1].map((k) => (
-              <div key={k} className="flex shrink-0 items-center">
-                {["Two slots this quarter", "Fixed fee", "Written scope", "Code is yours", "Kingston, JA", "No templates", "Reply in one day"].map((t) => (
-                  <span key={t + k} className="flex items-center gap-6 pr-6 font-mono text-[10px] uppercase tracking-[0.3em] text-[#8E8C84]">
-                    {t}<span className="text-[#F5B800]">✦</span>
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="px-6 py-24 md:px-12 md:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="flex items-end justify-between gap-6 border-b border-white/10 pb-6">
@@ -152,3 +136,4 @@ export default function Home() {
     </>
   );
 }
+

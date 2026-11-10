@@ -88,7 +88,9 @@ export default function HeroVisual() {
     const uTime = gl.getUniformLocation(prog, "uTime");
     const uMouse = gl.getUniformLocation(prog, "uMouse");
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+    const small = window.innerWidth < 768;
+    const dpr = Math.min(window.devicePixelRatio || 1, small ? 1.25 : 1.75);
+
     const resize = () => {
       const w = Math.floor(canvas.clientWidth * dpr);
       const h = Math.floor(canvas.clientHeight * dpr);
@@ -107,7 +109,10 @@ export default function HeroVisual() {
     };
     window.addEventListener("pointermove", onMove, { passive: true });
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches || (small && window.innerWidth < 380);
+    const reduced =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      (small && window.innerWidth < 380);
+
     let raf = 0;
     const start = performance.now();
 
@@ -151,4 +156,3 @@ export default function HeroVisual() {
     />
   );
 }
-

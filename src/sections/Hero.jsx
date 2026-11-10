@@ -52,7 +52,7 @@ export default function Hero() {
   return (
     <section
       id="hero-container"
-      className="scanlines relative flex min-h-[100svh] w-full flex-col overflow-hidden bg-[#080807] text-[#F4F3EF]"
+      className="scanlines relative flex min-h-[100svh] w-full flex-col overflow-hidden pt-14 md:pt-16 bg-[#080807] text-[#F4F3EF]"
     >
       <HeroVisual />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,rgba(8,8,7,0.94)_8%,rgba(8,8,7,0.62)_48%,rgba(8,8,7,0.2)_85%)]" />
@@ -72,7 +72,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center px-5 py-10 md:px-12 md:py-20">
+      <div className="relative z-10 flex flex-1 flex-col justify-center px-5 py-6 md:px-12 md:py-20">
         <div className="flex items-center gap-3">
           <span className="h-px w-12 bg-[#F5B800]" />
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#F5B800]">
@@ -89,7 +89,7 @@ export default function Hero() {
           <span className="hero-line">
             <span style={{ animationDelay: "230ms" }}>
               <Scramble text="To" delay={220} />
-              <span className="ml-[0.18em] align-middle font-mono text-[0.16em] font-normal uppercase tracking-[0.35em] text-[#8E8C84]">
+              <span className="ml-[0.18em] hidden align-middle md:inline-block font-mono text-[0.16em] font-normal uppercase tracking-[0.35em] text-[#8E8C84]">
                 / 001
               </span>
             </span>
@@ -104,7 +104,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        <div className="mt-8 grid gap-8 md:mt-12 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-[1fr_auto] md:items-end">
           <p
             className="hero-fade max-w-md border-l-2 border-[#F5B800] pl-6 font-mono text-[11px] uppercase leading-relaxed tracking-widest text-[#8E8C84]"
             style={{ animationDelay: "520ms" }}
@@ -159,5 +159,6 @@ export default function Hero() {
     </section>
   );
 }
+
 
 
