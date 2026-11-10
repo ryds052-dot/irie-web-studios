@@ -2,7 +2,6 @@
 import Seo from "../components/Seo";
 import Hero from "../sections/Hero";
 import Works from "../sections/Works";
-import { Testimonials } from "../sections/Proof";
 
 const SERVICES = [
   ["01", "Brand identity", "Naming, logo systems, type, colour, voice."],
@@ -37,7 +36,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <Testimonials />
       <section className="border-t border-white/10 px-6 py-28 text-center md:px-12">
         <h2 className="mx-auto max-w-3xl text-5xl font-black uppercase leading-[0.9] tracking-tighter sm:text-7xl">
           Ready to be<br /><span className="text-[#F5B800]">the next one?</span>
@@ -52,3 +50,4 @@ export default function Home() {
     </>
   );
 }
+

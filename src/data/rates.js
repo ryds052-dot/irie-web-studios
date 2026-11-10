@@ -1,13 +1,11 @@
-﻿export const MULTIPLIER = 1;
-
-const p = (v) => `$${Math.round(v * MULTIPLIER).toLocaleString("en-US")}`;
+﻿const p = (v) => `$${v.toLocaleString("en-US")}`;
 
 export const GROUPS = [
   {
     id: "web",
     label: "Web & build",
     items: [
-      ["Landing page", `${p(100)} deposit / ${p(250)}`, "Single page, art-directed, 10 days."],
+      ["Landing page", `${p(100)} deposit / ${p(250)}`, "Single page, art-directed, live in 10 days."],
       ["Brochure site, 5–8 pages", `${p(480)}–${p(800)}`],
       ["Ecommerce build", `${p(950)}–${p(1275)}`],
       ["Booking / reservation site", `${p(480)}–${p(800)}`],
@@ -50,7 +48,7 @@ export const GROUPS = [
     label: "Social & ads",
     items: [
       ["Social management, monthly", `${p(160)}–${p(445)}`],
-      ["Paid ads management, monthly", `12–15% of spend, min ${p(225)}`],
+      ["Paid ads management, monthly", `12–15% of spend, minimum ${p(225)}`],
       ["Ad creative pack, 5 pieces", `${p(90)}–${p(205)}`],
       ["Campaign setup", `${p(135)}–${p(310)}`],
       ["Influencer brief + outreach", `${p(115)}–${p(270)}`],
@@ -58,13 +56,13 @@ export const GROUPS = [
   },
   {
     id: "hosting",
-    label: "Hosting & infrastructure",
+    label: "Hosting & infrastructure, monthly",
     items: [
-      ["Managed hosting, monthly", `${p(25)}–${p(65)}`],
-      ["Domain + DNS management, monthly", `${p(10)}–${p(22)}`],
+      ["Managed hosting", `${p(25)}–${p(65)}`],
+      ["Domain + DNS management", `${p(10)}–${p(22)}`],
       ["Business email setup", `${p(65)}–${p(135)}`],
-      ["Backup + monitoring, monthly", `${p(38)}–${p(90)}`],
-      ["Uptime + integrity monitoring, monthly", `${p(115)}–${p(310)}`],
+      ["Backup + monitoring", `${p(38)}–${p(90)}`],
+      ["Uptime + integrity monitoring", `${p(115)}–${p(310)}`],
       ["SSL + certificates", "included"],
     ],
   },
@@ -141,14 +139,14 @@ export const RETAINERS = [
 ];
 
 export const PACKAGES = [
-  ["Launch", p(285), ["Landing page", "Business email setup", "Analytics", "1 month Care Basic"], false],
-  ["Presence", p(985), ["Brochure site", "Google Business Profile", "3 months local SEO"], true],
-  ["Store", p(2165), ["Ecommerce build", "Payments", "Staff training", "3 months Care Standard"], false],
+  ["Launch", p(285), "For a single offer and a hard deadline.", ["Landing page", "Business email setup", "Analytics", "1 month Care Basic"], false],
+  ["Presence", p(985), "For a business that needs to look established.", ["Brochure site", "Google Business Profile", "3 months local SEO"], true],
+  ["Store", p(2165), "For selling product without a marketplace cut.", ["Ecommerce build", "Payments", "Staff training", "3 months Care Standard"], false],
 ];
 
 export const TERMS = [
   "50% deposit, non-refundable on start. Balance on launch.",
-  "Three revision rounds included, then " + p(45) + " each.",
+  `Three revision rounds included, then ${p(45)} each.`,
   "Hosting and domain registered in our name, licensed for the term.",
   "Work is per written scope. Anything outside it is a change order at hourly rate.",
   "Rush under 7 days: +30%.",
