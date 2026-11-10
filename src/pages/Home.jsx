@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Hero from "../sections/Hero";
 import Testimonials from "../sections/Testimonials";
-import Testimonials from "../sections/Testimonials";
 import { Reveal } from "../components/FxLayer";
 import { PROJECTS } from "../data/projects";
 import { PACKAGES } from "../data/rates";
@@ -88,8 +87,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <Testimonials />
 
       <Testimonials />
 
@@ -232,6 +229,7 @@ export default function Home() {
     </>
   );
 }
+
 
 
 
