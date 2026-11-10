@@ -1,7 +1,27 @@
 ﻿export const PROJECTS = [
   {
-    slug: "trini-yaad",
+    slug: "earth-family-farms",
     index: "01",
+    status: "PRODUCTION LIVE",
+    title: "Earth Family Farms",
+    sector: "Private estate / Pre-development land",
+    year: "2026",
+    outcome: "Pre-development land. Private viewings only.",
+    brief:
+      "A 100-acre highland estate in Ocho Rios selling parcels before anything is built. No public checkout and no marketplace listing - viewings are arranged privately, so the site has to make the land legible before anyone drives up the hill.",
+    approach: [
+      "Phasing plan and parcel map presented without putting prices on the open web.",
+      "Enquiry-gated lot detail, so every viewing arrives qualified rather than curious.",
+      "Static rendering so the map and terrain hold up on a phone with one bar of signal.",
+    ],
+    stack: ["Next.js", "Tailwind CSS", "Vercel Edge", "SEO"],
+    results: [["100", "Acres"], ["Pre-dev", "Phase"], ["Enquiry", "Only"]],
+    quote: ["The site does the walking for us. People arrive already serious.", "Michael Lee", "Owner"],
+    href: "https://earth-family-farms.vercel.app/",
+  },
+  {
+    slug: "trini-yaad",
+    index: "02",
     status: "SYSTEM ACTIVE",
     title: "Trini-Yaad",
     sector: "Street food / Hospitality",
@@ -16,12 +36,12 @@
     ],
     stack: ["React", "Tailwind CSS", "Edge CDN", "Interactive UI"],
     results: [["2 taps", "To cart"], ["0.8s", "Mobile load"], ["0", "App installs"]],
-    quote: ["Enquiries went from a trickle to a waitlist.", "Devon Cole", "Owner"],
+    quote: ["The queue does not wait for a slow page.", "Misir Ramberran", "Founder"],
     href: "https://trini-yaad.vercel.app/",
   },
   {
     slug: "irie-core",
-    index: "02",
+    index: "03",
     status: "CURRENT BUILD",
     title: "Irie Web Studios Core",
     sector: "Internal / Design system",
