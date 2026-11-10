@@ -5,24 +5,29 @@ import { LOCATION } from "../lib/site";
 
 const FACTS = [
   ["Based", "Kingston 6, Jamaica"],
-  ["Discipline", "Full-stack, WebGL"],
-  ["Years in JS", "Nine"],
-  ["Years in WebGL", "Four"],
-  ["Builds shipped", "60+"],
+  ["Does", "Everything technical"],
+  ["House style", "Tropical brutalist"],
   ["Languages", "EN, Patois"],
+  ["Team", "Two, by name"],
 ];
 
 const BUYS = [
-  ["It opens before they leave", "Static rendering and a sub-second budget on 3G, not on your office wifi."],
-  ["It gets found", "Schema, crawl rules and internal linking set correctly at build, not patched in later."],
-  ["It holds", "Security headers, hardened forms and auth done properly the first time."],
-  ["You keep it", "Code, files, domains and accounts handed over at launch. No hostage clause."],
+  ["It opens instantly", "Built for a bad phone signal, not your office wifi."],
+  ["It gets found", "Search setup done at build, not bolted on after."],
+  ["It holds up", "Forms, logins and security done properly the first time."],
+  ["You keep it", "Code, files and accounts are yours at launch."],
+];
+
+const FIT = [
+  ["You have a real business and a site that undersells it.", "You want the cheapest quote on the internet."],
+  ["You want one person accountable, not a committee.", "You want to art-direct by group chat."],
+  ["You can decide inside one meeting.", "You need it live in five days."],
 ];
 
 const PRINCIPLES = [
   ["Write it down first", "Scope before pixels. If it is not in the brief it does not get built."],
-  ["Budget the bytes", "Every build ships with a performance ceiling attached. Not optional."],
-  ["Read the output", "Nothing merges because it looked plausible. It merges because it was checked."],
+  ["Budget the bytes", "Every build ships with a speed target attached. Not optional."],
+  ["Read the output", "Nothing merges because it looked fine. It merges because it was checked."],
   ["Fixed fee or nothing", "Hourly billing rewards slowness. Ours does not."],
   ["Say no early", "If we are wrong for the job you hear it on the first call, not week three."],
 ];
@@ -47,10 +52,9 @@ export default function Studio() {
 
           <Reveal delay={80}>
             <p className="lede mt-6">
-              Irie Web Studios is one engineer and one communicator, working out of{" "}
-              {LOCATION}. Ryder writes every line of code. Nelson runs everything around
-              it. There is no third person to relay a message to, and nobody junior
-              inheriting your project after the pitch.
+              One engineer, one communicator, working out of {LOCATION}. Ryder writes
+              every line. Nelson runs everything around it. No third person relaying
+              messages, and nobody junior taking over your project once the pitch is done.
             </p>
           </Reveal>
 
@@ -64,39 +68,34 @@ export default function Studio() {
               <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-bone/80 md:text-base">
                 <Reveal delay={60}>
                   <p>
-                    Ryder wrote his first shader before he had a client to use one on.
-                    Nine years into JavaScript, the last four of them spent almost
-                    entirely in WebGL and React Three Fiber, building the kind of motion
-                    that gets a page forwarded rather than scrolled past.
+                    Ryder builds the whole thing. The 3D on the front, the server
+                    settings behind it, the database in the middle. Most studios split
+                    that across three people and lose a week to handoffs. Here it is one
+                    person who already knows the whole shape.
                   </p>
                 </Reveal>
 
                 <Reveal delay={110}>
                   <p>
-                    The engineering under the surface is the part clients actually feel.
-                    Transmission materials and instanced geometry, so a scene stays at
-                    sixty frames on a mid-range Android. Subsetted fonts and precomputed
-                    image sets, so nothing stalls on first paint. Static rendering,
-                    schema and crawl rules configured at the start, because retrofitting
-                    them costs four times as much and never quite works.
+                    He cares about speed the way most designers care about looks. Your
+                    customers are on a cheap phone with two bars, not a laptop on fibre,
+                    so every page is built to open anyway. Images sized right, fonts cut
+                    down, nothing running that does not need to.
                   </p>
                 </Reveal>
 
                 <Reveal delay={160}>
                   <p>
-                    He thinks about code the way a chess player thinks about openings.
-                    The branching is the point, not the first move, and the position you
-                    leave behind matters more than the one you found. That is also why
-                    nothing generated gets past him unread. A build that compiles is not
-                    the same as a build that holds.
+                    He also reads every line. Tools help, but a build that compiles is
+                    not the same as a build that holds, and the difference only shows up
+                    on your site at the worst moment. Nothing ships here unchecked.
                   </p>
                 </Reveal>
 
                 <Reveal delay={210}>
                   <p>
-                    He is direct to the point of bluntness, which is the useful kind. If
-                    your idea has a cheaper version that does the same job, he will say so
-                    before you spend money finding out.
+                    Blunt, in the useful way. If your idea has a cheaper version that
+                    does the same job, you hear it before you spend money finding out.
                   </p>
                 </Reveal>
               </div>
@@ -145,14 +144,36 @@ export default function Studio() {
             </div>
             <div>
               <p className="text-[15px] leading-relaxed text-mute md:text-base">
-                Nelson runs the side of the business that keeps work arriving and keeps
-                it moving once it does. Outreach, first replies, the brief, the schedule,
-                the follow-up nobody else remembers to send. Every project has exactly
-                one person to talk to, and that person is never mid-compile.
+                Nelson runs the side that keeps work arriving and keeps it moving once it
+                does. Outreach, first replies, the brief, the schedule, the follow-up
+                nobody else remembers. Every project has one person to talk to, and that
+                person is never mid-build.
               </p>
               <div className="mt-5 flex flex-wrap gap-1.5">
                 {["Client comms", "Outreach", "Briefing", "Scheduling"].map((t) => (
                   <span key={t} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{t}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="rule mt-16 pt-12">
+            <p className="label label-amber">Who this is for</p>
+            <div className="mt-5 grid gap-px bg-line md:grid-cols-2">
+              <div className="bg-ink md:pr-8">
+                <p className="label mb-2">Good fit</p>
+                {FIT.map(([yes]) => (
+                  <p key={yes} className="flex gap-2.5 border-b border-line py-3 text-sm leading-relaxed text-bone/80">
+                    <span className="amber">+</span>{yes}
+                  </p>
+                ))}
+              </div>
+              <div className="bg-ink md:pl-8">
+                <p className="label mb-2">Not a fit</p>
+                {FIT.map(([, no]) => (
+                  <p key={no} className="flex gap-2.5 border-b border-line py-3 text-sm leading-relaxed text-mute">
+                    <span className="text-dim">x</span>{no}
+                  </p>
                 ))}
               </div>
             </div>

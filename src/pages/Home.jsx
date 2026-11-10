@@ -32,7 +32,7 @@ const COMPARE = [
 ];
 
 const FAQS = [
-  ["How long does a build take?", "A landing page is 10 days. A full site runs 4 to 6 weeks. You get exact dates in writing before paying."],
+  ["How long does a build take?", "A landing page is a fixed fee and a fixed date, agreed in writing before you pay. A full site gets scoped the same way."],
   ["What if I have a small budget?", "There is a $285 landing page package. If you are under that, we will still point you somewhere useful."],
   ["Who actually does the work?", "Two people. Ryder builds, Nelson directs. No account managers, no juniors inheriting your project."],
   ["Do I own everything?", "Completely. Code, files, domains and accounts transfer to you at launch."],
@@ -226,3 +226,4 @@ export default function Home() {
     </>
   );
 }
+
