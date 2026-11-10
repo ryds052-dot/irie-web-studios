@@ -1,8 +1,6 @@
 ﻿import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import FxLayer from "./components/FxLayer";
 import ViewTransition from "./components/ViewTransition";
 import Layout from "./components/Layout";
@@ -44,9 +42,8 @@ export default function App() {
             </Routes>
           </Suspense>
         </Layout>
-        <Analytics />
-        <SpeedInsights />
       </ReactLenis>
     </BrowserRouter>
   );
 }
+
