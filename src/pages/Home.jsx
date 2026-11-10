@@ -2,14 +2,16 @@
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Hero from "../sections/Hero";
+import Testimonials from "../sections/Testimonials";
+import Testimonials from "../sections/Testimonials";
 import { Reveal } from "../components/FxLayer";
 import { PROJECTS } from "../data/projects";
 import { PACKAGES } from "../data/rates";
 
 const LEAKS = [
-  ["53%", "of mobile visitors abandon a page that takes over three seconds."],
-  ["75%", "judge credibility on design alone, before reading a word."],
-  ["68%", "never come back after one bad experience with a site."],
+  ["53%", "of mobile visitors abandon a page that takes over three seconds. Google."],
+  ["75%", "judge credibility on design alone, before reading a word. Stanford."],
+  ["68%", "never come back after one bad experience with a site. Industry survey."],
 ];
 
 const PILLARS = [
@@ -54,7 +56,7 @@ export default function Home() {
 
       <section className="rule pad py-8">
         <div className="wrap grid grid-cols-3 gap-4">
-          {[["60+", "Sites shipped"], ["4.9/5", "Client rating"], ["14 days", "Average build"]].map(([v, l]) => (
+          {[["2", "Live builds"], ["10 days", "Fastest build"], ["0", "Templates"]].map(([v, l]) => (
             <div key={l}>
               <p className="font-display text-xl font-extrabold md:text-2xl">{v}</p>
               <p className="label mt-1 !text-[9px] md:!text-[10px]">{l}</p>
@@ -86,6 +88,10 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <Testimonials />
+
+      <Testimonials />
 
       <section className="rule pad py-16 md:py-24">
         <div className="wrap">
@@ -226,4 +232,6 @@ export default function Home() {
     </>
   );
 }
+
+
 
