@@ -1,3 +1,4 @@
+﻿import FxLayer from './components/FxLayer';
 import { ReactLenis } from 'lenis/react';
 import React from "react";
 import Navbar from "./sections/Navbar";
@@ -19,3 +20,4 @@ export default function App() {
     </ReactLenis>
   );
 }
+
