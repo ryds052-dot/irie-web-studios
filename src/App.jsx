@@ -1,27 +1,34 @@
-﻿import FxLayer from './components/FxLayer';
-import { ReactLenis } from 'lenis/react';
-import React from "react";
-import Navbar from "./sections/Navbar";
-import Hero from "./sections/Hero";
-import About from "./sections/About";
-import Works from "./sections/Works";
-import Contact from "./sections/Contact";
+﻿import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ReactLenis } from "lenis/react";
+import FxLayer from "./components/FxLayer";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import WorkIndex from "./pages/WorkIndex";
+import CaseStudy from "./pages/CaseStudy";
+import Services from "./pages/Services";
+import Studio from "./pages/Studio";
+import PricingPage from "./pages/Pricing";
+import ContactPage from "./pages/ContactPage";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <ReactLenis root options={{ lerp: 0.06, duration: 1.2, smoothWheel: true }}>
-      <main className="relative z-0 bg-[#080807] overflow-x-hidden selection:bg-[#F5B800] selection:text-[#080807]">
-        <Navbar />
-        <Hero />
-        <About />
-        <Works />
-        <Contact />
-      </main>
-    </ReactLenis>
+    <BrowserRouter>
+      <ReactLenis root options={{ lerp: 0.06, duration: 1.2, smoothWheel: true }}>
+        <FxLayer />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work" element={<WorkIndex />} />
+            <Route path="/work/:slug" element={<CaseStudy />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/studio" element={<Studio />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
+      </ReactLenis>
+    </BrowserRouter>
   );
 }
-
-
-
-
-

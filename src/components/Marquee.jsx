@@ -1,35 +1,34 @@
-import React from "react";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import {
-  ScrollVelocityContainer,
-  ScrollVelocityRow,
-} from "./ui/scroll-based-velocity";
+﻿const DEFAULT = [
+  "Say Hello",
+  "Start A Project",
+  "Open For Work",
+  "Let's Chat",
+  "Get In Touch",
+];
 
-const Marquee = ({
+export default function Marquee({
   items,
-  className = "text-white bg-black",
-  icon = "mdi:star-four-points",
-  iconClassName = "",
-  reverse = false,
-}) => {
-  return (
-    <ScrollVelocityContainer className={`overflow-hidden w-full h-20 md:h-[100px] flex items-center marquee-text-responsive font-light uppercase ${className}`}>
-      <ScrollVelocityRow 
-        baseVelocity={5} 
-        direction={reverse ? -1 : 1}
-        className="flex items-center"
-      >
-        {items.map((text, index) => (
-          <React.Fragment key={index}>
-            <span className="px-1 sm:px-1 md:px-4 lg:px-12 ultra-small-screen">
-              {text}
-            </span>
-            <Icon icon={icon} className={`${iconClassName} mx-1.5 sm:mx-1.5 md:mx-5 lg:mx-12`} />
-          </React.Fragment>
-        ))}
-      </ScrollVelocityRow>
-    </ScrollVelocityContainer>
-  );
-};
+  texts,
+  words,
+  separator = "✦",
+  className = "",
+}) {
+  const list = items || texts || words || DEFAULT;
+  const row = [...list, ...list];
 
-export default Marquee;
+  return (
+    <div className={`fx-marquee w-full overflow-hidden py-4 ${className}`}>
+      <div className="fx-marquee-track">
+        {row.map((item, i) => (
+          <span
+            key={`${item}-${i}`}
+            className="flex shrink-0 items-center gap-6 pr-6 font-mono text-xs uppercase tracking-[0.3em] text-[#F4F3EF]/70"
+          >
+            {item}
+            <span className="text-[#F5B800]">{separator}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
