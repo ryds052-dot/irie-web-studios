@@ -1,51 +1,52 @@
 ﻿import { Link } from "react-router-dom";
+import { EMAIL, PHONE, PHONE_DISPLAY, LOCATION, AVAILABILITY } from "../lib/site";
 
 export default function Footer() {
   return (
-    <footer className="safe-bottom border-t border-white/10 px-5 pt-16 md:px-12 md:pt-20">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 pb-16 md:grid-cols-[1.5fr_1fr_1fr]">
+    <footer className="safe-bottom rule pad pt-16 md:pt-20">
+      <div className="wrap">
+        <div className="grid gap-10 pb-14 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <p className="max-w-sm text-3xl font-black uppercase leading-[1.02] tracking-tight">
-              If your site is not<br />winning, <span className="text-[#F5B800]">it is costing.</span>
+            <p className="display h3 max-w-sm">
+              If your site is not winning, <span className="amber">it is costing.</span>
             </p>
-            <a href="mailto:hello@iriewebstudios.com" className="mt-6 inline-block font-mono text-xs uppercase tracking-[0.2em] text-[#F5B800] hover:underline">
-              hello@iriewebstudios.com
+            <a href={`mailto:${EMAIL}`} className="mt-5 inline-block font-mono text-[11px] uppercase tracking-[0.18em] amber">
+              {EMAIL}
             </a>
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[#5c5a55]">
-              Two slots this quarter
-            </p>
+            <p className="label mt-5">{AVAILABILITY}</p>
           </div>
           <div>
-            <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84]">Navigate</p>
-            <ul className="space-y-1 text-sm">
+            <p className="label mb-3">Navigate</p>
+            <ul className="space-y-1">
               {[["Work", "/work"], ["Services", "/services"], ["Studio", "/studio"], ["Pricing", "/pricing"], ["Contact", "/contact"]].map(([l, to]) => (
-                <li key={to}><Link to={to} className="flex min-h-11 items-center text-[#F4F3EF]/75 hover:text-[#F5B800]">{l}</Link></li>
+                <li key={to}>
+                  <Link to={to} className="flex min-h-10 items-center text-sm text-bone/70 hover:text-amber">{l}</Link>
+                </li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84]">Studio</p>
-            <p className="font-mono text-xs uppercase leading-relaxed tracking-widest text-[#F4F3EF]/75">
-              Kingston 6, Jamaica<br />UTC-5<br />Remote worldwide
+            <p className="label mb-3">Studio</p>
+            <p className="font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-bone/70">
+              {LOCATION}<br />UTC-5<br />Remote worldwide
             </p>
-            <a href="tel:+18765206119" className="mt-4 inline-block font-mono text-xs tracking-widest text-[#8E8C84] hover:text-[#F5B800]">
-              +1 876 520 6119
+            <a href={`tel:${PHONE}`} className="mt-3 inline-block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">
+              {PHONE_DISPLAY}
             </a>
           </div>
         </div>
-        <div className="overflow-hidden border-t border-white/10 py-8">
-          <p className="select-none text-[19vw] font-black uppercase leading-[0.78] text-transparent [-webkit-text-stroke:1px_rgba(244,243,239,0.25)]">IRIE</p>
+
+        <div className="overflow-hidden rule py-6">
+          <p className="select-none font-black uppercase leading-[0.78] tracking-tighter text-transparent text-[19vw] [-webkit-text-stroke:1px_rgba(244,243,239,0.22)]">
+            IRIE
+          </p>
         </div>
-        <div className="flex flex-col gap-2 border-t border-white/10 py-8 font-mono text-[10px] uppercase tracking-[0.2em] text-[#8E8C84] md:flex-row md:justify-between">
-          <p>© {new Date().getFullYear()} Irie Web Studios</p>
+
+        <div className="rule flex flex-col gap-1 py-6 font-mono text-[10px] uppercase tracking-[0.18em] text-dim md:flex-row md:justify-between">
+          <p>&copy; {new Date().getFullYear()} Irie Web Studios</p>
           <p>Built irie.</p>
         </div>
       </div>
     </footer>
   );
 }
-
-
-
-

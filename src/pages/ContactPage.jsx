@@ -7,8 +7,9 @@ export default function ContactPage() {
       <Seo
         title="Contact - Irie Web Studios"
         description="Tell us what you are building. Kingston, Jamaica. Replies within one business day."
+        path="/contact"
       />
-      <div className="pt-16"><Contact /></div>
+      <Contact />
     </>
   );
 }

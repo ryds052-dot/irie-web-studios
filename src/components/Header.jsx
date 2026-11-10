@@ -1,5 +1,6 @@
 ﻿import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { AVAILABILITY } from "../lib/site";
 
 const LINKS = [
   ["Work", "/work"],
@@ -14,7 +15,7 @@ export default function Header() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const on = () => setSolid(window.scrollY > 30);
+    const on = () => setSolid(window.scrollY > 20);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
@@ -30,24 +31,22 @@ export default function Header() {
   return (
     <>
       <header
-        className={`safe-top fixed inset-x-0 top-0 z-[9500] border-b transition-colors duration-500 ${
-          solid || open ? "border-white/10 bg-[#080807] md:bg-[#080807]/95 md:backdrop-blur-xl" : "border-transparent"
+        className={`safe-top fixed inset-x-0 top-0 z-50 border-b transition-colors ${
+          solid || open ? "border-line bg-ink md:bg-ink/90 md:backdrop-blur-lg" : "border-transparent"
         }`}
       >
-        <div className="flex items-center justify-between px-5 pb-3 md:px-12">
-          <Link to="/" className="font-mono text-xs font-bold uppercase tracking-[0.3em]">
-            Irie<span className="text-[#F5B800]">.</span>
+        <div className="wrap flex items-center justify-between pad py-3">
+          <Link to="/" className="font-mono text-[11px] font-bold uppercase tracking-[0.28em] text-bone">
+            Irie<span className="amber">.</span>
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-7 md:flex">
             {LINKS.map(([label, to]) => (
               <NavLink
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `font-mono text-[10px] uppercase tracking-[0.25em] transition-colors ${
-                    isActive ? "text-[#F5B800]" : "text-[#8E8C84] hover:text-[#F4F3EF]"
-                  }`
+                  `label transition-colors ${isActive ? "label-amber" : "hover:text-bone"}`
                 }
               >
                 {label}
@@ -56,10 +55,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link
-              to="/contact"
-              className="hidden min-h-11 items-center border border-[#F5B800] bg-[#F5B800] px-5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#080807] transition-colors hover:border-white hover:bg-white md:inline-flex"
-            >
+            <Link to="/contact" className="btn btn-primary hidden !min-h-11 !px-5 !text-[10px] md:inline-flex">
               Start
             </Link>
             <button
@@ -67,45 +63,36 @@ export default function Header() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className="grid h-12 w-12 place-items-center border border-white/20 md:hidden"
+              className="grid h-11 w-11 place-items-center border border-line text-bone md:hidden"
             >
-              <span className="font-mono text-base leading-none">{open ? "×" : "≡"}</span>
+              <span className="font-mono text-base leading-none">{open ? "x" : "="}</span>
             </button>
           </div>
         </div>
       </header>
 
       {open && (
-        <div
-          id="mobile-menu"
-          className="fixed inset-0 z-[9499] flex flex-col justify-between bg-[#080807] px-5 pb-8 pt-24 md:hidden"
-        >
+        <div id="mobile-menu" className="fixed inset-0 z-40 flex flex-col justify-between bg-ink px-5 pb-8 pt-24 md:hidden">
           <nav className="flex flex-col">
             {[...LINKS, ["Contact", "/contact"]].map(([label, to]) => (
               <Link
                 key={to}
                 to={to}
-                className="flex min-h-16 items-center justify-between border-b border-white/10 text-3xl font-black uppercase tracking-tight"
+                className="flex min-h-16 items-center justify-between border-b border-line text-2xl font-extrabold uppercase tracking-tight text-bone"
               >
                 {label}
-                <span className="font-mono text-sm text-[#F5B800]">→</span>
+                <span className="font-mono text-sm amber">&rarr;</span>
               </Link>
             ))}
           </nav>
           <div className="safe-bottom">
-            <Link
-              to="/contact"
-              className="flex min-h-14 w-full items-center justify-center border border-[#F5B800] bg-[#F5B800] font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#080807]"
-            >
+            <Link to="/contact" className="btn btn-primary w-full">
               Start a project
             </Link>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#5c5a55]">
-              Kingston 6, Jamaica · Two slots this quarter
-            </p>
+            <p className="label mt-4">{AVAILABILITY}</p>
           </div>
         </div>
       )}
     </>
   );
 }
-

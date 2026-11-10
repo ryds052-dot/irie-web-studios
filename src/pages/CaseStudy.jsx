@@ -13,73 +13,69 @@ export default function CaseStudy() {
 
   return (
     <>
-      <Seo title={`${p.title} - Irie Web Studios`} description={p.brief} />
-      <article className="px-6 pt-28 md:px-12">
-        <div className="mx-auto max-w-7xl">
-          <Link to="/work" className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84] hover:text-[#F5B800]">
-            ← All work
-          </Link>
+      <Seo title={`${p.title} - Irie Web Studios`} description={p.brief} path={`/work/${slug}`} />
 
-          <div className="mt-10 flex flex-wrap items-center gap-4 font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84]">
-            <span className="text-emerald-400">[{p.status}]</span>
-            <span>{p.sector}</span>
-            <span>{p.year}</span>
+      <article className="pad pt-28 md:pt-36">
+        <div className="wrap">
+          <Link to="/work" className="label hover:text-amber">&larr; All work</Link>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <span className="label label-amber">{p.status}</span>
+            <span className="label">{p.sector}</span>
+            <span className="label">{p.year}</span>
           </div>
 
-          <h1 className="mt-6 text-[13vw] font-black uppercase leading-[0.82] tracking-tighter md:text-[8vw]">{p.title}</h1>
-          <p className="mt-6 max-w-2xl text-xl font-medium leading-snug text-[#F5B800] md:text-3xl">{p.outcome}</p>
+          <h1 className="display h1 mt-5">{p.title}</h1>
+          <p className="mt-5 max-w-2xl text-lg font-medium leading-snug amber md:text-2xl">{p.outcome}</p>
 
-          <div className="mt-16 grid gap-14 border-t border-white/10 pt-14 md:grid-cols-[1fr_1.3fr]">
+          <div className="rule mt-12 grid gap-12 pt-10 md:grid-cols-[1fr_1.4fr]">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84]">Stack</p>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <p className="label">Stack</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
                 {p.stack.map((s) => (
-                  <span key={s} className="border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-[#F4F3EF]/70">{s}</span>
+                  <span key={s} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{s}</span>
                 ))}
               </div>
-              <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+
+              <div className="rule mt-8 grid grid-cols-3 gap-3 pt-5">
                 {p.results.map(([v, l]) => (
                   <div key={l}>
-                    <p className="text-2xl font-bold text-[#F5B800]">{v}</p>
-                    <p className="mt-1 font-mono text-[9px] uppercase tracking-widest text-[#8E8C84]">{l}</p>
+                    <p className="font-display text-xl font-extrabold amber md:text-2xl">{v}</p>
+                    <p className="label mt-1 !text-[9px]">{l}</p>
                   </div>
                 ))}
               </div>
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-10 inline-flex border border-white/20 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] hover:border-[#F5B800] hover:text-[#F5B800]"
-              >
-                Visit live site ↗
+
+              <a href={p.href} target="_blank" rel="noreferrer" className="btn btn-ghost mt-8">
+                Visit live site &nearr;
               </a>
             </div>
 
             <div>
-              <h2 className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84]">The brief</h2>
-              <p className="mt-4 text-lg leading-relaxed text-[#F4F3EF]/85">{p.brief}</p>
+              <h2 className="label">The brief</h2>
+              <p className="mt-3 text-base leading-relaxed text-bone/85">{p.brief}</p>
 
-              <h2 className="mt-12 font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84]">Approach</h2>
-              <ol className="mt-4 space-y-5">
+              <h2 className="label mt-10">Approach</h2>
+              <ol className="mt-3">
                 {p.approach.map((a, idx) => (
-                  <li key={a} className="flex gap-4 border-b border-white/10 pb-5">
-                    <span className="font-mono text-xs text-[#F5B800]">{String(idx + 1).padStart(2, "0")}</span>
-                    <span className="text-base leading-relaxed text-[#F4F3EF]/80">{a}</span>
+                  <li key={a} className="flex gap-4 border-b border-line py-4">
+                    <span className="font-mono text-[11px] amber">{String(idx + 1).padStart(2, "0")}</span>
+                    <span className="text-sm leading-relaxed text-bone/80">{a}</span>
                   </li>
                 ))}
               </ol>
 
-              <blockquote className="mt-12 border-l-2 border-[#F5B800] pl-6">
-                <p className="text-xl leading-snug">“{p.quote[0]}”</p>
-                <footer className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#8E8C84]">{p.quote[1]} — {p.quote[2]}</footer>
+              <blockquote className="mt-10 border-l-2 border-amber pl-5">
+                <p className="text-lg leading-snug">{p.quote[0]}</p>
+                <footer className="label mt-3">{p.quote[1]} - {p.quote[2]}</footer>
               </blockquote>
             </div>
           </div>
 
-          <Link to={`/work/${next.slug}`} className="group mt-24 block border-t border-white/10 py-12">
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#8E8C84]">Next project</p>
-            <p className="mt-3 text-4xl font-black uppercase tracking-tighter transition-colors group-hover:text-[#F5B800] md:text-6xl">
-              {next.title} <span className="inline-block transition-transform group-hover:translate-x-2">→</span>
+          <Link to={`/work/${next.slug}`} className="group rule mt-20 block py-10">
+            <p className="label">Next project</p>
+            <p className="display h3 mt-2 font-extrabold uppercase transition-colors group-hover:text-amber">
+              {next.title} <span className="inline-block transition-transform group-hover:translate-x-1.5">&rarr;</span>
             </p>
           </Link>
         </div>
