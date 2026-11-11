@@ -1,4 +1,4 @@
-﻿{
+{
   "redirects": [
     { "source": "/pricing", "destination": "/services", "permanent": true }
   ],
