@@ -1,4 +1,4 @@
-export default function GlitchMarquee({ items = ["BUILT IN KINGSTON", "FIXED FEE", "NO TEMPLATES", "NO COMMITTEE", "LIVE IN THE WILD"] }) {
+export default function GlitchMarquee({ items = ["BUILT IN KINGSTON", "FIXED FEE", "NO TEMPLATES", "NO COMMITTEE", "LIVE IN THE WILD", "PRESS ~ FOR TERMINAL"] }) {
   const row = items.join("  \u2726  ") + "  \u2726  ";
   return (
     <div className="marquee border-y border-line py-4 select-none" aria-hidden="true">

@@ -8,6 +8,7 @@ import ScrollManager from "./components/ScrollManager";
 import WorkPeek from "./components/WorkPeek";
 import Rails from "./components/Rails";
 import IrieCode from "./components/IrieCode";
+import Terminal from "./components/Terminal";
 import { GrainOverlay, ScrollSkew } from "./components/DemonLayer";
 import FxLayer from "./components/FxLayer";
 import ViewTransition from "./components/ViewTransition";
@@ -69,6 +70,7 @@ export default function App() {
             </ScrollSkew>
           </Layout>
           <StickyCTA />
+          <Terminal />
         </Premium>
       </ReactLenis>
     </BrowserRouter>
