@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const NAV = [
@@ -85,18 +85,15 @@ export default function Layout({ children }) {
       <main id="main" className="pt-16">{children}</main>
 
       {/* footer */}
-      <footer className="border-t border-[#c8a96a]/10 px-5 py-10 pb-24 md:pb-10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="font-display text-xl text-[#f4f3ef]">IRIE<span className="text-[#c8a96a]">.</span></div>
-            <p className="label mt-2">Web design Â· Kingston, Jamaica</p>
+      <footer className="foot">
+        <div className="wrap">
+          <p className="foot-k">Got a site that undersells you?</p>
+          <a href="tel:+18765206119" className="foot-big">+1 876 520 6119</a>
+          <a href="mailto:iriewebstudios@iriewebstudios.com" className="foot-mail">iriewebstudios@iriewebstudios.com</a>
+          <div className="foot-base">
+            <span>IRIE. Kingston 6, Jamaica</span>
+            <span>&copy; {new Date().getFullYear()}</span>
           </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {NAV.map((n) => (
-              <Link key={n.to} to={n.to} className="label !text-[10px]">{n.label}</Link>
-            ))}
-          </nav>
-          <p className="label !text-[10px]">Built irie. Â© {new Date().getFullYear()}</p>
         </div>
       </footer>
 
