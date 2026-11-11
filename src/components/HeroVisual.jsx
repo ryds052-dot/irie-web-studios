@@ -49,18 +49,18 @@ void main(){
 }
 `;
 
-const DPR_CAP = 1.25;
-const SCALE = 0.7;
-const FPS = 30;
+const IS_SMALL = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+const DPR_CAP = IS_SMALL ? 1 : 1.25;
+const SCALE = IS_SMALL ? 0.35 : 0.7;
+const FPS = IS_SMALL ? 24 : 30;
 
 export default function HeroVisual() {
   const ref = useRef(null);
   const [useGL, setUseGL] = useState(false);
 
   useEffect(() => {
-    const desktop = window.innerWidth >= 768;
     const motion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setUseGL(desktop && motion);
+    setUseGL(motion);
   }, []);
 
   useEffect(() => {
@@ -180,3 +180,4 @@ export default function HeroVisual() {
     </>
   );
 }
+
