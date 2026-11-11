@@ -109,6 +109,17 @@ export default function Studio() {
                 </blockquote>
               </Reveal>
 
+              <Reveal delay={260}>
+                <div className="mt-8 border-t border-line pt-5">
+                  <p className="label label-amber">Hands on</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {["React", "Vite", "Tailwind", "WebGL", "Three.js", "Node", "Hand-coded builds", "Performance budgets", "Accessibility", "Technical SEO", "JSON-LD / schema", "Analytics", "Conversion testing", "A/B testing", "CRM setup", "WhatsApp automation", "Payment gateways", "POS integration", "Managed hosting", "DNS", "Backups", "SPF / DKIM / DMARC", "MFA rollout", "Hardening", "Malware recovery", "Cloud config review", "PCI scope reduction", "Smart contract review"].map((t) => (
+                      <span key={t} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+
               <Reveal delay={300}>
                 <div className="rule mt-12 pt-8">
                   <p className="label label-amber">What that buys you</p>
@@ -207,3 +218,4 @@ export default function Studio() {
     </>
   );
 }
+
