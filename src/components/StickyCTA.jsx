@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { track } from "@vercel/analytics";
 
-const WA = "https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call.";
+const WA = "https://wa.me/18764354047?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call.";
 
 export default function StickyCTA() {
   const [show, setShow] = useState(false);

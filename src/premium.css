@@ -387,7 +387,8 @@ footer { border-top: 1px solid var(--line); padding: 40px 20px calc(104px + env(
   .foot-mail { display: inline-block; font-size: 15px; padding: 10px 0; }
   .field { margin-bottom: 16px; }
   .field label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
-  .field input, .field textarea { min-height: 48px; padding: 13px 0; }
+  .field { min-height: 48px; padding: 13px 0; }
+  .chip { min-height: 46px; }
 }
 @media (max-width: 380px) { .display { font-size: 25px; } }
 @media (prefers-reduced-motion: reduce) {
@@ -400,3 +401,17 @@ footer { border-top: 1px solid var(--line); padding: 40px 20px calc(104px + env(
   }
 }
 ::selection { background: rgba(200,169,106,.72); color: var(--ink); }
+
+
+/* ---- form polish ---- */
+.field { background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--bone); width: 100%; font: inherit; border-radius: 0; padding: 12px 0; }
+textarea.field { resize: vertical; min-height: 92px; line-height: 1.5; }
+.field:focus { outline: none; border-bottom-color: var(--gold); }
+.field:focus-visible { outline: none; }
+.field::placeholder { color: #6d6b64; }
+.form-note { font-size: 12px; color: var(--mute); margin-top: 14px; text-align: center; }
+.btn[disabled] { opacity: .55; pointer-events: none; }
+.chip { min-height: 42px; display: inline-flex; align-items: center; }
+.chip:active { transform: scale(.97); }
+
+@media (min-width: 768px) { .hero .display { font-size: clamp(2.7rem, 4.5vw, 4rem); letter-spacing: -.045em; } }

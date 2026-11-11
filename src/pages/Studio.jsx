@@ -10,12 +10,12 @@ const FACTS = [
 ];
 
 const SKILLS = [
+  "Payment gateways", "POS integration", "WhatsApp automation",
+  "Technical SEO + JSON-LD", "Speed and Core Web Vitals", "CRM architecture",
+  "React", "Node", "Cloud config review", "Managed hosting", "DNS",
+  "Performance budgets", "Security hardening", "MFA rollout", "PCI scope reduction",
+  "SPF / DKIM / DMARC", "Malware recovery", "WebGL / Three.js",
   "Wallet security audits", "Smart contract review", "Post-compromise wallet forensics",
-  "Security hardening", "Malware recovery", "SPF / DKIM / DMARC",
-  "MFA rollout", "PCI scope reduction", "Payment gateways", "POS integration",
-  "Cloud config review", "Managed hosting", "DNS", "WhatsApp automation",
-  "CRM architecture", "WebGL / Three.js", "React", "Node", "Performance budgets",
-  "Technical SEO + JSON-LD",
 ];
 
 const PROMISES = [
@@ -116,10 +116,10 @@ export default function Studio() {
           </div>
 
           <div className="mt-20">
-            <h2 className="display h2">Two slots left this month.</h2>
+            <h2 className="display h2">Two slots left for March.</h2>
             <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
-            <Link to="/contact" className="btn btn-primary btn-block mt-6">Book a free 15 min call</Link>
-            <Link to="/services" className="link mt-4">See all prices →</Link>
+            <Link to="/contact" className="btn btn-primary btn-block mt-6">Send the brief</Link>
+            <Link to="/services" className="link mt-4">See every price →</Link>
           </div>
         </div>
       </div>

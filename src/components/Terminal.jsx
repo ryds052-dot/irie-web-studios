@@ -163,7 +163,7 @@ export default function Terminal() {
         await pushMany([
           "fastest channel, always answered:",
           "",
-          "  https://wa.me/18765206119",
+          "  https://wa.me/18764354047",
           "",
           "tell us about your business. get a fixed quote same day.",
         ], 90, "gold");
@@ -273,7 +273,7 @@ export default function Terminal() {
             "checking seriousness .......... OK",
             "clearance upgraded: CLIENT",
             "",
-            "fastest next step: https://wa.me/18765206119",
+            "fastest next step: https://wa.me/18764354047",
             "routing you to /contact ...",
           ], 130, "gold");
           await sleep(500);

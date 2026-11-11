@@ -4,7 +4,7 @@ import Seo from "../components/Seo";
 import { Reveal } from "../components/FxLayer";
 import WorkTile from "../components/WorkTile";
 
-const WA = "https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call.";
+const WA = "https://wa.me/18764354047?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call.";
 
 const WORK = [
   ["Earth Family Farms", "Land enquiries booked straight off the page.", "earth-family-farms"],
@@ -58,7 +58,7 @@ export default function Home() {
             </h1>
 
             <p className="lede mt-6 max-w-[19rem]">
-              Hand-coded in Kingston, fixed price from US$285, live in seven days.
+              Hand-coded in Kingston. One fixed fee from US$285, live in seven days, nothing monthly.
             </p>
 
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-7">
@@ -82,7 +82,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap rise">
-          <div className="sec"><h2 className="display h2">Websites we built</h2><span className="sec-n">01</span></div>
+          <div className="sec"><h2 className="display h2">Three builds. All live.</h2><span className="sec-n">01</span></div>
           <ul className="index">
             {WORK.map(([name, blurb, slug], i) => (
               <li key={slug}>
@@ -99,7 +99,7 @@ export default function Home() {
 
       <section className="pad statement-wrap">
         <div className="wrap">
-          <p className="statement">Most sites lose the customer in the first four seconds.</p>
+          <p className="statement">Most sites lose the customer in the first four seconds. The next tap is a competitor.</p>
         </div>
       </section>
 

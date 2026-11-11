@@ -1,3 +1,4 @@
+import { WHATSAPP, WHATSAPP_DISPLAY, PHONE, PHONE_DISPLAY } from "../lib/site";
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
@@ -90,6 +91,8 @@ export default function Layout({ children }) {
           <p className="foot-k">Got a site that undersells you?</p>
           <a href="tel:+18765206119" className="foot-big">+1 876 520 6119</a>
           <a href="mailto:iriewebstudios@iriewebstudios.com" className="foot-mail">iriewebstudios@iriewebstudios.com</a>
+        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="foot-tel">{WHATSAPP_DISPLAY}</a>
+        <a href={`tel:${PHONE}`} className="foot-tel">{PHONE_DISPLAY}</a>
           <div className="foot-base">
             <span>IRIE. Kingston 6, Jamaica</span>
             <span>&copy; {new Date().getFullYear()}</span>

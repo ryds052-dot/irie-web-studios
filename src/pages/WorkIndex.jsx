@@ -18,7 +18,7 @@ export default function WorkIndex() {
             Built in Kingston, <span className="gold">live in the wild.</span>
           </h1>
           <p className="lede mt-6">
-            Three builds so far. Each case study has the brief, the approach and what changed.
+            Three builds, all still live. Each case study has the brief, the approach and what changed.
           </p>
 
           <div className="mt-14">
@@ -37,10 +37,10 @@ export default function WorkIndex() {
           </div>
 
           <div className="mt-20">
-            <h2 className="display h2">Two slots left this month.</h2>
+            <h2 className="display h2">Two slots left for March.</h2>
             <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
-            <Link to="/contact" className="btn btn-primary btn-block mt-6">Book a free 15 min call</Link>
-            <Link to="/services" className="link mt-4">See all prices →</Link>
+            <Link to="/contact" className="btn btn-primary btn-block mt-6">Send the brief</Link>
+            <Link to="/services" className="link mt-4">See every price →</Link>
           </div>
         </div>
       </div>

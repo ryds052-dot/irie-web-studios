@@ -1,12 +1,12 @@
-﻿import { useState } from "react";
-import { EMAIL, PHONE, PHONE_DISPLAY, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
+import { useState } from "react";
+import { EMAIL, PHONE, PHONE_DISPLAY, WHATSAPP, WHATSAPP_DISPLAY, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
 
 const ENDPOINT = "https://formspree.io/f/mljbrlzr";
 const LIVE = !ENDPOINT.includes("PASTE_ID_HERE");
 
-const BUDGETS = ["Under US$500", "US$500 - 1,500", "US$1,500 - 3,000", "US$3,000+", "Monthly", "Not sure"];
+const BUDGETS = ["Not sure", "Under US$500", "US$500 - 1,500", "US$1,500 - 3,000", "US$3,000+", "Monthly"];
 
-const WA = "https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20here%20is%20the%20scope%3A%20";
+const WA = "https://wa.me/18764354047?text=Hi%20Irie%20Web%20Studios%20-%20here%20is%20the%20scope%3A%20";
 
 const NEXT = [
   ["01", "You send the brief", "Two minutes. Scope, budget, deadline. Enough to judge fit."],
@@ -60,8 +60,8 @@ export default function Contact() {
         </h1>
 
         <p className="lede mt-5">
-          WhatsApp is fastest. {RESPONSE_TIME}. The more specific you are, the more
-          specific the answer.
+          WhatsApp gets the fastest answer. {RESPONSE_TIME}. The more you tell us, the sharper the
+          quote.
         </p>
 
         <div className="mt-6 flex flex-col gap-2.5">
@@ -82,12 +82,12 @@ export default function Contact() {
           <form onSubmit={submit} className="flex flex-col gap-4 lg:order-2 lg:col-span-7">
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="flex flex-col gap-2">
-                <span className="label">Name *</span>
-                <input name="name" required autoComplete="name" className="field" />
+                <span className="label">Your name *</span>
+                <input name="name" autoComplete="name" autoCapitalize="words" required className="field" />
               </label>
               <label className="flex flex-col gap-2">
                 <span className="label">Email *</span>
-                <input name="email" type="email" required autoComplete="email" inputMode="email" className="field" />
+                <input name="email" autoComplete="email" inputMode="email" autoCapitalize="off" spellCheck="false" type="email" required className="field" />
               </label>
             </div>
 
@@ -104,7 +104,7 @@ export default function Contact() {
             </label>
 
             <div>
-              <span className="label">Budget</span>
+              <span className="label">Rough budget</span>
               <input type="hidden" name="budget" value={budget} />
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {BUDGETS.map((b) => (
@@ -113,7 +113,7 @@ export default function Contact() {
                     type="button"
                     onClick={() => setBudget(b === budget ? "" : b)}
                     className={
-                      "border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] transition " +
+                      "chip border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] transition " +
                       (b === budget
                         ? "border-amber bg-amber text-ink"
                         : "border-line text-mute")
@@ -137,13 +137,13 @@ export default function Contact() {
                   <input name="site" type="url" autoComplete="url" placeholder="https://" className="field" />
                 </label>
                 <label className="flex flex-col gap-2 sm:col-span-2">
-                  <span className="label">Deadline</span>
+                  <span className="label">When do you need it live?</span>
                   <input name="deadline" placeholder="A date, or none yet" className="field" />
                 </label>
               </div>
             </details>
 
-            <input type="text" name="_subject" value="New project enquiry" /><input type="hidden" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
+            <input type="hidden" name="_subject" value="New project enquiry" /><input type="hidden" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
 
             <button type="submit" disabled={status === "sending"} className="btn btn-primary w-full disabled:opacity-60">
               {status === "sending" ? "Sending..." : "Send the brief"}
@@ -175,8 +175,12 @@ export default function Contact() {
 
             <div>
               <p className="label label-amber">Or go direct</p>
-              <a href={`mailto:${EMAIL}`} className="mt-3 block break-all text-sm hover:text-amber">{EMAIL}</a>
-              <a href={`tel:${PHONE}`} className="mt-1 block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">{PHONE_DISPLAY}</a>
+              <p className="label mt-4">WhatsApp</p>
+              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-1 block font-mono text-sm hover:text-amber">{WHATSAPP_DISPLAY}</a>
+              <p className="label mt-4">Call</p>
+              <a href={`tel:${PHONE}`} className="mt-1 block font-mono text-sm hover:text-amber">{PHONE_DISPLAY}</a>
+              <p className="label mt-4">Email</p>
+              <a href={`mailto:${EMAIL}`} className="mt-1 block break-all text-sm hover:text-amber">{EMAIL}</a>
             </div>
 
             <div>
