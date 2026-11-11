@@ -214,6 +214,21 @@ export default function Terminal() {
         }, 60);
         break;
       }
+      case "konami":
+        await pushMany([
+          "KONAMI CODE ACCEPTED.",
+          "granting root access to irie-os ...",
+          "",
+          "  ____  _____ ____  _   _ _____ ____",
+          " |  _ \\|  ___|  _ \\| | | | ____|  _ \\",
+          " | |_) | |_  | |_) | |_| |  _| | |_) |",
+          " |  _ <|  _| |  _ <|  _  | |___|  _ <",
+          " |_| \\_\\_|   |_| \\_\\_| |_|_____|_| \\_\\",
+          "",
+          "the site just changed. look around.",
+        ], 90, "gold");
+        document.documentElement.classList.add("root-mode");
+        break;
       case "clear":
         setLines([]);
         break;

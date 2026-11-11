@@ -9,6 +9,8 @@ import WorkPeek from "./components/WorkPeek";
 import Rails from "./components/Rails";
 import IrieCode from "./components/IrieCode";
 import Terminal from "./components/Terminal";
+import GoldCursor from "./components/GoldCursor";
+import RouteWipe from "./components/RouteWipe";
 import { GrainOverlay, ScrollSkew } from "./components/DemonLayer";
 import FxLayer from "./components/FxLayer";
 import ViewTransition from "./components/ViewTransition";
@@ -71,6 +73,8 @@ export default function App() {
           </Layout>
           <StickyCTA />
           <Terminal />
+          <GoldCursor />
+          <RouteWipe />
         </Premium>
       </ReactLenis>
     </BrowserRouter>

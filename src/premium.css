@@ -207,3 +207,10 @@ nav a:hover::after, .u-sweep:hover::after {
 @media (prefers-reduced-motion: reduce) {
   .grain, .marquee-track, .glitch::before, .glitch::after { animation: none !important; }
 }
+
+/* --- cursor + root mode --- */
+@media (pointer: fine) {
+  html.no-native-cursor, html.no-native-cursor * { cursor: none !important; }
+}
+html.root-mode .display { text-shadow: 0 0 26px rgba(200,169,106,0.35); }
+html.root-mode .btn-primary { box-shadow: 0 0 32px rgba(200,169,106,0.3); }
