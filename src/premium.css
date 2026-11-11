@@ -735,3 +735,5 @@ html.root-mode .btn-primary { box-shadow: 0 0 32px rgba(200,169,106,0.3); }
   opacity: 0;
   animation: bp-appear 1s ease calc(2.9s * var(--ts,1)) forwards;
 }
+
+.reveal{opacity:1 !important;transform:none !important;animation:none !important}
