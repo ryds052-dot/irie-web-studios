@@ -316,3 +316,97 @@ html.root-mode .btn-primary { box-shadow: 0 0 32px rgba(200,169,106,0.3); }
   animation: boot-fade 0.5s both;
 }
 @keyframes boot-fade { from { opacity: 0; } }
+
+/* --- the plate --- */
+.plate {
+  --gold: 200,169,106;
+  position: fixed; inset: 0; z-index: 100;
+  background: #050403;
+  display: flex; align-items: center; justify-content: center;
+}
+.pl-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 42%, rgba(200,169,106,0.05), transparent 55%, rgba(0,0,0,0.55) 100%);
+}
+.pl-grain {
+  position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+.pl-frame {
+  position: absolute; inset: 22px; pointer-events: none;
+  border: 1px solid rgba(var(--gold), 0.28);
+  animation: pl-fade 1.6s cubic-bezier(0.4,0,0.2,1) calc(0.15s * var(--ts,1)) both;
+}
+.pl-frame::after {
+  content: ""; position: absolute; inset: 5px;
+  border: 1px solid rgba(var(--gold), 0.12);
+}
+.pl-tick { position: absolute; width: 9px; height: 9px; border-color: rgba(var(--gold), 0.55); border-style: solid; border-width: 0; }
+.pl-tick.tl { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; }
+.pl-tick.tr { top: -1px; right: -1px; border-top-width: 1px; border-right-width: 1px; }
+.pl-tick.bl { bottom: -1px; left: -1px; border-bottom-width: 1px; border-left-width: 1px; }
+.pl-tick.br { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
+
+.pl-body { position: relative; text-align: center; }
+.pl-eyebrow {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.62em; padding-left: 0.62em;
+  color: rgba(var(--gold), 0.9);
+  background: linear-gradient(100deg, rgba(var(--gold),0.75) 0%, #f6e8c8 18%, rgba(var(--gold),0.75) 38%, rgba(var(--gold),0.75) 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    pl-settle 2s cubic-bezier(0.22,1,0.36,1) calc(0.3s * var(--ts,1)) both,
+    pl-sheen 1.6s ease-in-out calc(2.3s * var(--ts,1)) 1;
+}
+@keyframes pl-settle { from { opacity: 0; letter-spacing: 0.9em; } to { opacity: 1; letter-spacing: 0.62em; } }
+@keyframes pl-sheen { from { background-position: 120% 0; } to { background-position: -60% 0; } }
+
+.pl-seal { width: 132px; height: 132px; margin: 34px auto 30px; display: block; overflow: visible; }
+.pl-ring, .pl-ring2 {
+  fill: none; stroke: rgba(var(--gold), 0.85); stroke-width: 1;
+  stroke-dasharray: 352; stroke-dashoffset: 352;
+  transform-origin: 60px 60px; transform: rotate(-90deg);
+}
+.pl-ring   { animation: pl-engrave 1.9s cubic-bezier(0.4,0,0.2,1) calc(0.7s * var(--ts,1)) both; }
+.pl-ring2  {
+  stroke: rgba(var(--gold), 0.4);
+  stroke-dasharray: 1 7; stroke-dashoffset: 0;
+  animation: pl-fade 1.4s ease calc(1.9s * var(--ts,1)) both;
+}
+@keyframes pl-engrave { to { stroke-dashoffset: 0; } }
+.pl-mono {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px; letter-spacing: 0.08em;
+  fill: rgba(var(--gold), 0.95);
+  opacity: 0;
+  animation: pl-fade 1.2s ease calc(2s * var(--ts,1)) both;
+}
+
+.pl-line {
+  font-family: Georgia, "Times New Roman", serif; font-style: italic;
+  font-size: 14px; color: rgba(232,226,213,0.62);
+  letter-spacing: 0.04em;
+  animation: pl-rise 1.4s cubic-bezier(0.22,1,0.36,1) calc(2.2s * var(--ts,1)) both;
+}
+@keyframes pl-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.pl-progress { width: 240px; margin: 44px auto 0; }
+.pl-rule {
+  display: block; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--gold),0.9), transparent);
+  transform: scaleX(0); transform-origin: 50% 50%;
+  animation: pl-rule 2.6s cubic-bezier(0.4,0,0.2,1) calc(0.5s * var(--ts,1)) both;
+}
+@keyframes pl-rule { to { transform: scaleX(1); } }
+.pl-meta {
+  display: flex; justify-content: space-between; margin-top: 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 9px; text-transform: uppercase; letter-spacing: 0.3em;
+  color: rgba(var(--gold), 0.45);
+  animation: pl-fade 1.4s ease calc(1.1s * var(--ts,1)) both;
+}
+@keyframes pl-fade { from { opacity: 0; } to { opacity: 1; } }
