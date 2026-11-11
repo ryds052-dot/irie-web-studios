@@ -667,3 +667,71 @@ html.root-mode .btn-primary { box-shadow: 0 0 32px rgba(200,169,106,0.3); }
 @media (min-width: 640px) {
   .hero-ctas { flex-direction: row; justify-content: center; }
 }
+
+/* --- the blueprint --- */
+.bp-load {
+  --gold: 200,169,106;
+  position: fixed; inset: 0; z-index: 100;
+  background: #030302;
+  display: flex; align-items: center; justify-content: center;
+}
+.bp-stage { text-align: center; padding: 0 24px; }
+.bp-svg {
+  width: clamp(260px, 62vw, 480px);
+  overflow: visible;
+}
+.bp-const line,
+.bp-const circle {
+  fill: none;
+  stroke: rgba(var(--gold), 0.55);
+  stroke-width: 0.75;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation:
+    bp-draw 0.5s ease-out forwards,
+    bp-const-out 0.6s ease calc(2.45s * var(--ts,1)) forwards;
+}
+.bp-const circle {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  opacity: 0;
+  animation: bp-appear 0.4s ease forwards, bp-const-out 0.6s ease calc(2.45s * var(--ts,1)) forwards;
+}
+.bp-letters path {
+  fill: none;
+  stroke: #ece7db;
+  stroke-width: 11;
+  stroke-linecap: square;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: bp-draw 0.72s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.bp-ruler line {
+  fill: none;
+  stroke: rgba(var(--gold), 0.7);
+  stroke-width: 1;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: bp-draw 0.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+@keyframes bp-draw { to { stroke-dashoffset: 0; } }
+@keyframes bp-appear { to { opacity: 1; } }
+@keyframes bp-const-out { to { opacity: 0; } }
+
+.bp-cap {
+  margin-top: 34px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.34em; padding-left: 0.34em;
+  color: rgba(var(--gold), 0.75);
+  opacity: 0;
+  animation: bp-appear 1s ease calc(2.7s * var(--ts,1)) forwards;
+}
+.bp-meta {
+  position: absolute; bottom: 40px; left: 0; right: 0;
+  display: flex; justify-content: space-between; padding: 0 36px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px; text-transform: uppercase; letter-spacing: 0.24em;
+  color: rgba(236,231,219,0.32);
+  opacity: 0;
+  animation: bp-appear 1s ease calc(2.9s * var(--ts,1)) forwards;
+}
