@@ -171,7 +171,7 @@ export default function Home() {
               <p className="label label-amber">Packages</p>
               <h2 className="display h2 mt-3">Start somewhere concrete.</h2>
             </div>
-            <Link to="/pricing" className="label whitespace-nowrap hover:text-amber">Every price</Link>
+            <Link to="/services" className="label whitespace-nowrap hover:text-amber">Every price</Link>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {PACKAGES.map(([name, price, who, , hot]) => (
@@ -222,13 +222,14 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-col justify-center gap-2.5 sm:flex-row sm:gap-3">
             <Link to="/contact" className="btn btn-primary btn-block">Start a project</Link>
-            <Link to="/pricing" className="btn btn-ghost btn-block">See every price</Link>
+            <Link to="/services" className="btn btn-ghost btn-block">See every price</Link>
           </div>
         </div>
       </section>
     </>
   );
 }
+
 
 
 

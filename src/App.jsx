@@ -1,5 +1,5 @@
 ﻿import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
 import FxLayer from "./components/FxLayer";
 import ViewTransition from "./components/ViewTransition";
@@ -10,7 +10,7 @@ const WorkIndex = lazy(() => import("./pages/WorkIndex"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 const Services = lazy(() => import("./pages/Services"));
 const Studio = lazy(() => import("./pages/Studio"));
-const PricingPage = lazy(() => import("./pages/Pricing"));
+
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -36,7 +36,7 @@ export default function App() {
               <Route path="/work/:slug" element={<CaseStudy />} />
               <Route path="/services" element={<Services />} />
               <Route path="/studio" element={<Studio />} />
-              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/pricing" element={<Navigate to="/services" replace />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
@@ -46,6 +46,7 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
 
 
 
