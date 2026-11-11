@@ -50,9 +50,9 @@ void main(){
 `;
 
 const IS_SMALL = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
-const DPR_CAP = IS_SMALL ? 1 : 1.25;
-const SCALE = IS_SMALL ? 0.35 : 0.7;
-const FPS = IS_SMALL ? 24 : 30;
+const DPR_CAP = IS_SMALL ? 1.5 : 1.25;
+const SCALE = IS_SMALL ? 0.6 : 0.7;
+const FPS = IS_SMALL ? 20 : 30;
 
 export default function HeroVisual() {
   const ref = useRef(null);
@@ -180,4 +180,6 @@ export default function HeroVisual() {
     </>
   );
 }
+
+
 
