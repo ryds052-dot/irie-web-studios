@@ -1,4 +1,8 @@
-﻿import { lazy, Suspense } from "react";
+﻿import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
+import Preloader from "./components/Preloader";
+import Cursor from "./components/Cursor";
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
 import FxLayer from "./components/FxLayer";
