@@ -3,7 +3,7 @@
     { "source": "/pricing", "destination": "/services", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/((?!.*\\.).*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
