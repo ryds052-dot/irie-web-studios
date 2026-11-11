@@ -137,7 +137,11 @@ section:first-of-type { border-top: 0; }
 .tile-blurb { margin: 4px 0 0; font-size: 14px; color: var(--mute); }
 
 /* ---- hero ---- */
-.hero { padding-bottom: 104px; }
+/* Explicit top padding (wins over the unlayered `section { padding-block }`
+   that overrides Tailwind pt-24) so the label, headline and lede clear the
+   fixed 60px header. Bottom padding removed to kill the stacked dead space
+   against the next section's top padding. */
+.hero { padding-top: 28px; padding-bottom: 0; }
 .hero-top { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(200,169,106,.2); padding-bottom: 12px; }
 .hero-panel { display: none; }
 .panel-k { font-size: 11px; color: var(--mute); margin: 0; }
@@ -159,6 +163,8 @@ section:first-of-type { border-top: 0; }
   margin-top: 28px; aspect-ratio: 4 / 3;
   border: 1px solid var(--line);
 }
+/* Square logo source fills the 4/3 frame instead of letterboxing on black. */
+.hero-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-media::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(8,8,7,0) 42%, rgba(8,8,7,.72) 100%);
@@ -235,9 +241,11 @@ main { padding-top: calc(60px + env(safe-area-inset-top)); padding-bottom: calc(
 }
 .mbar a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 50px; font-size: 11px; color: var(--mute); }
 .mbar a.active { color: var(--gold); }
-.mbar-book {
+/* `.mbar a` (0,1,1) beats a bare `.mbar-book` (0,1,0); scope it to win so the
+   pill is dark ink on gold instead of muted-on-gold. */
+.mbar a.mbar-book {
   flex: 0 0 auto; min-height: 36px; padding-inline: 22px;
-  border-radius: 9999px; background: var(--gold); color: var(--ink);
+  border-radius: 9999px; background: var(--gold); color: #080807;
   font-size: 11px; font-weight: 700;
 }
 
@@ -330,6 +338,8 @@ footer { border-top: 1px solid var(--line); padding: 40px 20px calc(104px + env(
 /* === bar clearance === */
  @media (max-width: 767px) {
   a[aria-label="Chat with Irie Web Studios on WhatsApp"] { display: none; }
-  main { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
-  section { padding-bottom: 72px; }
+  main { padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
+  /* Keep a heading off the fixed bottom bar both when scrolled to (scroll-margin)
+     and when it is the last section in view (padding-bottom). */
+  section { padding-bottom: calc(96px + env(safe-area-inset-bottom)); scroll-margin-bottom: calc(112px + env(safe-area-inset-bottom)); }
 }
