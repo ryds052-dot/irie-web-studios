@@ -2,7 +2,7 @@
 import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
 
 const ENDPOINT = "https://formspree.io/f/PASTE_ID_HERE";
-const LIVE = !ENDPOINT.includes("YOUR_FORM_ID");
+const LIVE = !ENDPOINT.includes("PASTE_ID_HERE");
 
 const BUDGETS = ["Under $500", "$500 - $1,500", "$1,500 - $3,000", "$3,000+", "Monthly retainer", "Not sure yet"];
 const TIMELINES = ["This month", "Next 1-2 months", "This quarter", "No fixed date"];
@@ -154,6 +154,7 @@ export default function Contact() {
     </div>
   );
 }
+
 
 
 
