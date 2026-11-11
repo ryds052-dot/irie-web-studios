@@ -187,22 +187,14 @@ export default function Studio() {
                 </Reveal>
               ))}
             </div>
-          </div>
-
-          <div className="rule mt-16 grid gap-6 py-14 md:grid-cols-2 md:items-center">
-            <h2 className="display h2">
-              Read the work, <span className="amber">then judge us.</span>
-            </h2>
-            <div className="flex flex-col gap-2.5 sm:flex-row md:justify-end">
-              <Link to="/work" className="btn btn-primary btn-block">See the work</Link>
-              <Link to="/contact" className="btn btn-ghost btn-block">Book a free call</Link>
-            </div>
-          </div>
-        </div>
+          </div></div>
       </div>
     </>
   );
 }
+
+
+
 
 
 

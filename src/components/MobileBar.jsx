@@ -6,7 +6,11 @@ export default function MobileBar() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const on = () => setShow(window.scrollY > 500);
+    const on = () => {
+      const foot = document.querySelector("footer");
+      const far = foot ? foot.getBoundingClientRect().top > window.innerHeight : true;
+      setShow(window.scrollY > 500 && far);
+    };
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
@@ -26,4 +30,5 @@ export default function MobileBar() {
     </div>
   );
 }
+
 

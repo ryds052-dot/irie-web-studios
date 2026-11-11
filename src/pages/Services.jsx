@@ -33,7 +33,7 @@ export default function Services() {
 
           <div className="rule mt-8 grid gap-6 pb-8 md:grid-cols-[1.3fr_1fr] md:items-end">
             <p className="lede">
-              Most studios sell hours and hide the numbers until you are invested. We sell the reason a stranger picks you over the cheaper option, and we publish what it costs.
+              Every figure is on this page, in USD, grouped by discipline. No discovery call before you see a number.
             </p>
             <p className="label md:text-right">Fixed fee. Written scope. No hourly drift.</p>
           </div>
@@ -143,6 +143,7 @@ export default function Services() {
     </>
   );
 }
+
 
 
 
