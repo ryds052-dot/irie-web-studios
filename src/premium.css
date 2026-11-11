@@ -326,3 +326,10 @@ footer { border-top: 1px solid var(--line); padding: 40px 20px calc(104px + env(
   .index-meta { text-align: right; }
   .foot { padding-block: 96px 48px; }
 }
+
+/* === bar clearance === */
+ @media (max-width: 767px) {
+  a[aria-label="Chat with Irie Web Studios on WhatsApp"] { display: none; }
+  main { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+  section { padding-bottom: 72px; }
+}
