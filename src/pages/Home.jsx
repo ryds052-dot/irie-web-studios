@@ -58,7 +58,7 @@ export default function Home() {
             </h1>
 
             <p className="lede mt-6 max-w-[19rem]">
-              Hand-coded in Kingston. One fixed fee from US$285, live in seven days, nothing monthly.
+              Hand-coded in Kingston. One fixed fee from US$285, agreed in writing before you pay. Live in seven days, nothing monthly.
             </p>
 
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-7">

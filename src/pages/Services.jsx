@@ -28,11 +28,11 @@ export default function Services() {
             Every price, <span className="gold">in the open.</span>
           </h1>
           <p className="lede mt-6">
-            Websites from US$285, live in 7 days. Every other figure is printed below too.
+            Websites from US, live in 7 days. Every figure we charge is on this page — no 'contact us for pricing'.
           </p>
 
           <div className="mt-14">
-            <div className="sec"><h2 className="display h2">Packages</h2><span className="sec-n">01</span></div>
+            <div className="sec"><h2 className="display h2">Three ways in</h2><span className="sec-n">01</span></div>
             <ul className="index">
               {PACKAGES.map(([name, price, who, hot], i) => (
                 <li key={name}>
@@ -48,6 +48,10 @@ export default function Services() {
             </ul>
             <p className="mt-4 text-sm text-mute">Nothing gets added once you choose.</p>
           </div>
+
+          <p className="mt-10 max-w-[46ch] text-sm leading-relaxed text-mute">
+            Everything below is a range or a starting figure, because the work varies. Your written quote turns it into one number, agreed before you pay, and it does not move after.
+          </p>
 
           {GROUPS.map((g, gi) => (
             <div key={g.id} className="mt-14">

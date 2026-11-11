@@ -44,22 +44,22 @@ export default function Studio() {
             Two people. <span className="gold">No committee.</span>
           </h1>
           <p className="lede mt-6">
-            One engineer, one communicator, working out of {LOCATION}. When you message, you reach the person doing the work.
+            One engineer, one person answering the phone. Both of us in {LOCATION}. Message us and you're talking to whoever's doing the work.
           </p>
 
           <div className="mt-14">
             <p className="label">Co-founder / Engineering</p>
             <div className="sec mt-2"><h2 className="display h2">Ryder Lee</h2><span className="sec-n">01</span></div>
             <p className="lede mt-4">
-              Your site gets built by one person, start to finish. The pages, the server, the database in the middle.
+              I build the whole thing. The pages, the server, the database in the middle. Nothing gets passed to a junior.
             </p>
             <p className="lede mt-4">
-              Before anything ships, it is tested on a real phone on local data, because that is how your customers will meet it.
+              Before anything ships I test it on a real phone on mobile data, because that's how your customers will meet it.
             </p>
           </div>
 
           <div className="mt-14">
-            <div className="sec"><h2 className="display h2">Disciplines</h2><span className="sec-n">02</span></div>
+            <div className="sec"><h2 className="display h2">What we actually do</h2><span className="sec-n">02</span></div>
             <ul className="index">
               {SKILLS.slice(0, 6).map((s, i) => (
                 <li key={s}>
@@ -89,10 +89,10 @@ export default function Studio() {
             <p className="label">Co-founder / Communications</p>
             <div className="sec mt-2"><h2 className="display h2">Nelson Denny</h2><span className="sec-n">03</span></div>
             <p className="lede mt-4">
-              Nelson is who you talk to. First reply, the brief, the schedule.
+              Nelson answers. First reply, the brief, the schedule.
             </p>
             <p className="lede mt-4">
-              One point of contact for the whole project, never juggling your build against someone else's.
+              One number for the whole project. You're never waiting behind someone else's build.
             </p>
           </div>
 
@@ -109,7 +109,7 @@ export default function Studio() {
           </div>
 
           <div className="mt-14">
-            <div className="sec"><h2 className="display h2">Our promises</h2><span className="sec-n">05</span></div>
+            <div className="sec"><h2 className="display h2">What we promise</h2><span className="sec-n">05</span></div>
             <div>
               {PROMISES.map((g) => <p key={g} className="promise">{g}</p>)}
             </div>
@@ -117,7 +117,7 @@ export default function Studio() {
 
           <div className="mt-20">
             <h2 className="display h2">Two slots left for March.</h2>
-            <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
+            <p className="lede mt-4">Send a message. You get a price in writing the same day, because we'd rather you knew the number before you commit to anything.</p>
             <Link to="/contact" className="btn btn-primary btn-block mt-6">Send the brief</Link>
             <Link to="/services" className="link mt-4">See every price →</Link>
           </div>

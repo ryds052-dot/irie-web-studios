@@ -89,10 +89,20 @@ export default function Layout({ children }) {
       <footer className="foot">
         <div className="wrap">
           <p className="foot-k">Got a site that undersells you?</p>
-          <a href="tel:+18765206119" className="foot-big">+1 876 520 6119</a>
-          <a href="mailto:iriewebstudios@iriewebstudios.com" className="foot-mail">iriewebstudios@iriewebstudios.com</a>
-        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="foot-tel">{WHATSAPP_DISPLAY}</a>
-        <a href={`tel:${PHONE}`} className="foot-tel">{PHONE_DISPLAY}</a>
+          <div className="foot-contact">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="foot-row">
+              <span className="foot-lab">WhatsApp</span>
+              <span className="foot-val">{WHATSAPP_DISPLAY}</span>
+            </a>
+            <a href={`tel:${PHONE}`} className="foot-row">
+              <span className="foot-lab">Call</span>
+              <span className="foot-val">{PHONE_DISPLAY}</span>
+            </a>
+            <a href="mailto:iriewebstudios@iriewebstudios.com" className="foot-row">
+              <span className="foot-lab">Email</span>
+              <span className="foot-val">iriewebstudios@iriewebstudios.com</span>
+            </a>
+          </div>
           <div className="foot-base">
             <span>IRIE. Kingston 6, Jamaica</span>
             <span>&copy; {new Date().getFullYear()}</span>
@@ -105,7 +115,7 @@ export default function Layout({ children }) {
   {NAV.filter(n => ["/", "/work", "/services"].includes(n.to)).map((n) => (
     <NavLink key={n.to} to={n.to} className={({ isActive }) => (isActive ? "active" : "")}>{n.label}</NavLink>
   ))}
-  <a href="https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call." target="_blank" rel="noreferrer" className="mbar-book">Book</a>
+  <a href="https://wa.me/18764354047?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call." target="_blank" rel="noreferrer" className="mbar-book">Book</a>
 </nav>
     </>
   );
