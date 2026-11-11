@@ -26,7 +26,7 @@ export default function Preloader({ children }) {
     canvas.style.height = H + "px";
     ctx.scale(dpr, dpr);
 
-    // --- sample IRIE letter-by-letter for wave choreography ---
+    // sample IRIE letter-by-letter for the assembly wave
     const off = document.createElement("canvas");
     off.width = W; off.height = H;
     const octx = off.getContext("2d");
@@ -57,7 +57,6 @@ export default function Preloader({ children }) {
     const parts = targets.map(([tx, ty, ord]) => {
       const r = Math.random();
       const tier = r < 0.55 ? 0 : r < 0.88 ? 1 : 2;
-      // spawn on a big ring around the screen edge
       const ang = Math.random() * Math.PI * 2;
       const rad = Math.max(W, H) * (0.6 + Math.random() * 0.35);
       return {
@@ -69,11 +68,7 @@ export default function Preloader({ children }) {
         sz: [1.1, 2.0, 3.2][tier],
         alpha: [0.55, 0.8, 1][tier],
         tw: Math.random() * Math.PI * 2,
-        col: [
-          `rgba(236,214,168,`,
-          `rgba(${GOLD},`,
-          `rgba(186,141,58,`,
-        ][tier],
+        col: [`rgba(236,214,168,`, `rgba(${GOLD},`, `rgba(186,141,58,`][tier],
         hot: Math.random() < 0.04,
         ignite: 0,
       };
@@ -84,137 +79,142 @@ export default function Preloader({ children }) {
     window.addEventListener("pointermove", onMove, { passive: true });
 
     let v = 0, raf, last = performance.now(), lastStep = -1, mode = "gather";
-    let novaT = 0, nova = 0, shake = 0, igniteAll = false;
-    const waves = []; // shockwave rings: {r, a}
+    let novaT = 0, nova = 0, shake = 0;
+    const waves = [];
 
     const emitWave = (strength) => {
       waves.push({ r: 0, a: strength });
       shake = Math.min(1, shake + strength * 0.9);
     };
 
+    // failsafe: nothing can trap a visitor past 14s
+    const failsafe = setTimeout(() => { v = Math.max(v, 99.9); }, 14000);
+
+    let nextMilestone = 25;
+
     const tick = (now) => {
-      const dt = Math.min(64, now - last);
-      last = now;
-      if (!document.hidden) {
-        const f = dt / 16.7;
-        ctx.clearRect(0, 0, W, H);
-        ctx.globalCompositeOperation = "lighter";
+      try {
+        const dt = Math.min(64, now - last);
+        last = now;
+        if (!document.hidden) {
+          const f = dt / 16.7;
+          ctx.clearRect(0, 0, W, H);
+          ctx.globalCompositeOperation = "lighter";
 
-        if (mode === "gather") {
-          v += Math.max(0.02, (100 - v) * 0.0028) * f;
-          const p = v / 100;
-          const lock = p > 0.82;
+          if (mode === "gather") {
+            v += Math.max(0.02, (100 - v) * 0.0028) * f;
+            const p = v / 100;
+            const lock = p > 0.82;
 
-          // milestone shockwaves at 25 / 50 / 75 / 100
-          if (n !== undefined && Math.floor(v) !== lastStep) {
-            lastStep = Math.floor(v);
-            if (numRef.current) numRef.current.textContent = String(lastStep).padStart(3, "0");
-            if (ghostRef.current) ghostRef.current.textContent = String(lastStep).padStart(3, "0");
-            if ([25, 50, 75].includes(lastStep)) emitWave(0.55);
-          }
-
-          for (let w = waves.length - 1; w >= 0; w--) {
-            const wv = waves[w];
-            wv.r += 14 * f;
-            wv.a *= 0.955;
-            if (wv.a < 0.02) { waves.splice(w, 1); continue; }
-            ctx.beginPath();
-            ctx.arc(cx, cy, wv.r, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(${GOLD},${wv.a * 0.5})`;
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
-          }
-
-          for (const pt of parts) {
-            const gate = pt.ord * 0.7;
-            const active = Math.min(1, Math.max(0, (p - gate) / 0.18));
-            const dx = pt.tx - pt.x, dy = pt.ty - pt.y;
-            const d = Math.sqrt(dx * dx + dy * dy) + 0.001;
-            let force = 0.012 * active * (lock ? 0.5 : 1) * (0.6 + p * 0.9);
-            // shockwave push: particles near the ring get blasted outward
-            for (const wv of waves) {
-              const dist = Math.abs(d - wv.r);
-              if (dist < 60) {
-                const pw = ((60 - dist) / 60) * wv.a * 3.2 * f;
-                pt.vx += (dx / d) * pw; pt.vy += (dy / d) * pw;
+            const step = Math.floor(v);
+            if (step !== lastStep) {
+              lastStep = step;
+              const txt = String(step).padStart(3, "0");
+              if (numRef.current) numRef.current.textContent = txt;
+              if (ghostRef.current) ghostRef.current.textContent = txt;
+              if (step >= nextMilestone && nextMilestone < 100) {
+                nextMilestone += 25;
+                emitWave(0.55);
               }
             }
-            pt.vx += dx * force * f + (-(dy / d) * (lock ? 0.04 : (1 - p) * 1.4 * active)) * f;
-            pt.vy += dy * force * f + ((dx / d) * (lock ? 0.04 : (1 - p) * 1.4 * active)) * f;
-            const mx = pt.x - mouse.x, my = pt.y - mouse.y;
-            const md = Math.sqrt(mx * mx + my * my);
-            if (md < 90 && md > 0.01) {
-              const rep = ((90 - md) / 90) * 2.4 * f;
-              pt.vx += (mx / md) * rep; pt.vy += (my / md) * rep;
-            }
-            pt.vx *= 0.87; pt.vy *= 0.87;
-            pt.x += pt.vx * f; pt.y += pt.vy * f;
-          }
 
-          if (v >= 100) {
-            mode = "supernova";
-            novaT = now;
-            emitWave(1.4);
-            igniteAll = true;
+            for (let w = waves.length - 1; w >= 0; w--) {
+              const wv = waves[w];
+              wv.r += 14 * f;
+              wv.a *= 0.955;
+              if (wv.a < 0.02) { waves.splice(w, 1); continue; }
+              ctx.beginPath();
+              ctx.arc(cx, cy, wv.r, 0, Math.PI * 2);
+              ctx.strokeStyle = `rgba(${GOLD},${wv.a * 0.5})`;
+              ctx.lineWidth = 1.5;
+              ctx.stroke();
+            }
+
             for (const pt of parts) {
-              const ang = Math.atan2(pt.y - cy, pt.x - cx);
-              const power = 7 + Math.random() * 14;
-              pt.vx = Math.cos(ang) * power;
-              pt.vy = Math.sin(ang) * power;
+              const gate = pt.ord * 0.7;
+              const active = Math.min(1, Math.max(0, (p - gate) / 0.18));
+              const dx = pt.tx - pt.x, dy = pt.ty - pt.y;
+              const d = Math.sqrt(dx * dx + dy * dy) + 0.001;
+              const force = 0.012 * active * (lock ? 0.5 : 1) * (0.6 + p * 0.9) * f;
+              const sw = lock ? 0.04 : (1 - p) * 1.4 * active;
+              pt.vx += dx * force + (-(dy / d) * sw) * f;
+              pt.vy += dy * force + ((dx / d) * sw) * f;
+              const mx = pt.x - mouse.x, my = pt.y - mouse.y;
+              const md = Math.sqrt(mx * mx + my * my);
+              if (md < 90 && md > 0.01) {
+                const rep = ((90 - md) / 90) * 2.4 * f;
+                pt.vx += (mx / md) * rep; pt.vy += (my / md) * rep;
+              }
+              pt.vx *= 0.87; pt.vy *= 0.87;
+              pt.x += pt.vx * f; pt.y += pt.vy * f;
             }
+
+            if (v >= 100) {
+              mode = "supernova";
+              novaT = now;
+              emitWave(1.4);
+              for (const pt of parts) {
+                const ang = Math.atan2(pt.y - cy, pt.x - cx);
+                const power = 7 + Math.random() * 14;
+                pt.vx = Math.cos(ang) * power;
+                pt.vy = Math.sin(ang) * power;
+              }
+            }
+          } else {
+            nova = (now - novaT) / 1100;
+            if (nova > 0.25 && !waves.length) emitWave(0.9);
+            for (let w = waves.length - 1; w >= 0; w--) {
+              const wv = waves[w];
+              wv.r += 22 * f;
+              wv.a *= 0.96;
+              if (wv.a < 0.02) { waves.splice(w, 1); continue; }
+              ctx.beginPath();
+              ctx.arc(cx, cy, wv.r, 0, Math.PI * 2);
+              ctx.strokeStyle = `rgba(255,240,214,${wv.a * 0.65})`;
+              ctx.lineWidth = 2.5;
+              ctx.stroke();
+            }
+            for (const pt of parts) {
+              pt.ignite = Math.min(1, pt.ignite + 0.08 * f);
+              pt.vx *= 0.975; pt.vy *= 0.975;
+              pt.x += pt.vx * f; pt.y += pt.vy * f;
+            }
+            if (nova > 1) { setPhase("flood"); return; }
           }
-        } else if (mode === "supernova") {
-          nova = (now - novaT) / 1100;
-          // second shockwave mid-burst
-          if (nova > 0.25 && !waves.length) emitWave(0.9);
-          for (let w = waves.length - 1; w >= 0; w--) {
-            const wv = waves[w];
-            wv.r += 22 * f;
-            wv.a *= 0.96;
-            if (wv.a < 0.02) { waves.splice(w, 1); continue; }
-            ctx.beginPath();
-            ctx.arc(cx, cy, wv.r, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(255,240,214,${wv.a * 0.65})`;
-            ctx.lineWidth = 2.5;
-            ctx.stroke();
-          }
+
+          const fade = mode === "supernova" ? Math.max(0, 1 - nova * 1.05) : 1;
           for (const pt of parts) {
-            pt.ignite = Math.min(1, pt.ignite + 0.08 * f);
-            pt.vx *= 0.975; pt.vy *= 0.975;
-            pt.x += pt.vx * f; pt.y += pt.vy * f;
+            pt.tw += 0.07 * f;
+            const twinkle = 0.55 + Math.sin(pt.tw) * 0.35;
+            const a = pt.alpha * twinkle * fade;
+            const grow = mode === "supernova" ? 1 + pt.ignite * 2.5 : 1;
+            const whiteout = mode === "supernova" ? Math.min(1, pt.ignite) : 0;
+            ctx.fillStyle = whiteout
+              ? `rgba(255,244,222,${a})`
+              : (pt.hot ? `rgba(255,250,240,` : pt.col) + a + `)`;
+            ctx.fillRect(pt.x, pt.y, pt.sz * grow, pt.sz * grow);
           }
-          if (nova > 1) { setPhase("flood"); return; }
-        }
+          ctx.globalAlpha = 1;
 
-        // draw
-        const fade = mode === "supernova" ? Math.max(0, 1 - nova * 1.05) : 1;
-        for (const pt of parts) {
-          pt.tw += 0.07 * f;
-          const twinkle = 0.55 + Math.sin(pt.tw) * 0.35;
-          const a = pt.alpha * twinkle * fade;
-          const grow = mode === "supernova" ? 1 + pt.ignite * 2.5 : 1;
-          const whiteout = igniteAll ? Math.min(1, pt.ignite) : 0;
-          ctx.fillStyle = whiteout
-            ? `rgba(255,244,222,${a})`
-            : (pt.hot ? `rgba(255,250,240,` : pt.col) + a + `)`;
-          ctx.fillRect(pt.x, pt.y, pt.sz * grow, pt.sz * grow);
+          shake *= 0.9;
+          if (stageRef.current) {
+            const s = shake * 5;
+            stageRef.current.style.transform = s > 0.05
+              ? `translate(${(Math.random() - 0.5) * s}px, ${(Math.random() - 0.5) * s}px)`
+              : "none";
+          }
         }
-        ctx.globalAlpha = 1;
-
-        // screen shake decays
-        shake *= 0.9;
-        if (stageRef.current) {
-          const s = shake * 5;
-          stageRef.current.style.transform = s > 0.05
-            ? `translate(${(Math.random() - 0.5) * s}px, ${(Math.random() - 0.5) * s}px)`
-            : "none";
-        }
+      } catch (err) {
+        // any unexpected error: abandon the sim and reveal the site
+        setPhase("flood");
+        return;
       }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
 
     return () => {
+      clearTimeout(failsafe);
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onMove);
       document.body.style.overflow = "";
@@ -238,7 +238,6 @@ export default function Preloader({ children }) {
         {(phase === "run" || phase === "supernova") && (
           <div ref={stageRef} key="stage" className="fixed inset-0 z-[100] bg-ink">
             <canvas ref={canvasRef} className="absolute inset-0" />
-            {/* ghost leviathan counter behind the storm */}
             <span
               ref={ghostRef}
               className="display pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-extrabold text-bone opacity-[0.05]"
