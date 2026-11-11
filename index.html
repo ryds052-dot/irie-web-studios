@@ -42,8 +42,27 @@ if ("serviceWorker" in navigator) {
 }
 if (window.caches) { caches.keys().then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); }); }
 </script>
+    <style>
+      #boot { position: fixed; inset: 0; z-index: 10000; background: #080807; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+      #boot span { font-family: Syne, sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: -.03em; color: #f4f3ef; }
+      #boot i { display: block; width: 0; height: 1px; background: #c8a96a; animation: bootfill 1.1s cubic-bezier(.16,1,.3,1) forwards; }
+      @keyframes bootfill { to { width: 120px; } }
+      html, body { overflow: hidden; }
+      @media (prefers-reduced-motion: reduce) { #boot i { animation: none; } }
+    </style>
+    <script>
+      setTimeout(function () {
+        var b = document.getElementById("boot");
+        if (b) {
+          b.remove();
+          document.documentElement.style.overflow = "";
+          document.body.style.overflow = "";
+        }
+      }, 5000);
+    </script>
 </head>
   <body class="bg-[#080807] text-[#f4f3ef] antialiased">
+    <div id="boot" aria-hidden="true"><span>IRIE.</span><i></i></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
