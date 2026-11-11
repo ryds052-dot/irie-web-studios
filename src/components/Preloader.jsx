@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Preloader({ children }) {
-  const [phase, setPhase] = useState("run"); // run -> lift -> gone
+  const [phase, setPhase] = useState("run");
   const timers = useRef([]);
 
   useEffect(() => {
@@ -11,12 +11,13 @@ export default function Preloader({ children }) {
       return;
     }
     document.body.style.overflow = "hidden";
-    const scale = window.matchMedia("(pointer: coarse)").matches ? 0.62 : 1;
+    const scale = window.matchMedia("(pointer: coarse)").matches ? 0.6 : 1;
     const S = (ms) => Math.round(ms * scale);
 
-    const t1 = setTimeout(() => setPhase("lift"), S(3400));
-    const failsafe = setTimeout(() => setPhase("lift"), S(3400) + 900);
-    timers.current.push(t1, failsafe);
+    timers.current.push(
+      setTimeout(() => setPhase("lift"), S(3800)),
+      setTimeout(() => setPhase("lift"), S(3800) + 900)
+    );
 
     return () => {
       timers.current.forEach(clearTimeout);
@@ -27,7 +28,7 @@ export default function Preloader({ children }) {
   useEffect(() => {
     if (phase === "lift") {
       document.body.style.overflow = "";
-      const t = setTimeout(() => setPhase("gone"), 950);
+      const t = setTimeout(() => setPhase("gone"), 1200);
       return () => clearTimeout(t);
     }
   }, [phase]);
@@ -39,43 +40,20 @@ export default function Preloader({ children }) {
       <AnimatePresence>
         {phase === "run" && (
           <motion.div
-            key="plate"
-            className="plate"
-            style={{ "--ts": window.matchMedia("(pointer: coarse)").matches ? 0.62 : 1 }}
-            exit={{ opacity: 0, y: -18, filter: "blur(10px)" }}
-            transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
+            key="monolith"
+            className="mono-load"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="pl-vignette" />
-            <div className="pl-grain" />
-
-            {/* the frame — double hairline, like an engraved certificate */}
-            <div className="pl-frame">
-              <span className="pl-tick tl" /><span className="pl-tick tr" />
-              <span className="pl-tick bl" /><span className="pl-tick br" />
+            <div className="ml-center">
+              <h1 className="ml-word">IRIE</h1>
+              <span className="ml-rule" />
             </div>
-
-            <div className="pl-body">
-              <header className="pl-top">
-                <span className="pl-eyebrow">Irie Web Studios</span>
-              </header>
-
-              {/* the seal — engraved before your eyes */}
-              <svg className="pl-seal" viewBox="0 0 120 120" aria-hidden="true">
-                <circle className="pl-ring" cx="60" cy="60" r="56" />
-                <circle className="pl-ring2" cx="60" cy="60" r="49" />
-                <text className="pl-mono" x="60" y="72" textAnchor="middle">IW</text>
-              </svg>
-
-              <p className="pl-line">Every pixel hand-built. Zero templates.</p>
-
-              <div className="pl-progress">
-                <span className="pl-rule" />
-                <div className="pl-meta">
-                  <span>est. kingston jm &mdash; mmxxvi</span>
-                  <span>by appointment only</span>
-                </div>
-              </div>
-            </div>
+            <p className="ml-caption">
+              <span>Kingston</span>
+              <span className="ml-dot" />
+              <span>MMXXVI</span>
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
