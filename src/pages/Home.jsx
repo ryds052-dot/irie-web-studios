@@ -65,6 +65,11 @@ export default function Home() {
               Book a free 15 min call
             </a>
             <Link to="/work" className="link mt-4">See websites we built →</Link>
+
+            <figure className="media hero-media">
+              <img src="/work/earth-family-farms.jpg" alt="Earth Family Farms, a recent build" width="800" height="600" loading="lazy" />
+              <figcaption className="hero-cap label">Earth Family Farms — live now</figcaption>
+            </figure>
           </div>
 
           <aside className="hero-panel">
@@ -80,7 +85,7 @@ export default function Home() {
       </section>
 
       <section className="pad">
-        <div className="wrap">
+        <div className="wrap rise">
           <div className="sec"><h2 className="display h2">Websites we built</h2><span className="sec-n">01</span></div>
           <ul className="index">
             {WORK.map(([name, blurb, slug], i) => (
@@ -103,7 +108,7 @@ export default function Home() {
       </section>
 
       <section className="pad">
-        <div className="wrap">
+        <div className="wrap rise">
           <div className="sec"><h2 className="display h2">Prices</h2><span className="sec-n">02</span></div>
           <p className="lede">Pick the one that fits. The price you see is the price you pay.</p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -120,7 +125,7 @@ export default function Home() {
       </section>
 
       <section className="pad">
-        <div className="wrap">
+        <div className="wrap rise">
           <div className="sec"><h2 className="display h2">Our promises</h2><span className="sec-n">03</span></div>
           <div>
             {PROMISES.map((g) => <p key={g} className="promise">{g}</p>)}
@@ -129,7 +134,7 @@ export default function Home() {
       </section>
 
       <section className="pad">
-        <div className="wrap">
+        <div className="wrap rise">
           <div className="sec"><h2 className="display h2">Questions</h2><span className="sec-n">04</span></div>
           <div>
             {FAQS.map(([q, a], i) => (
@@ -139,7 +144,7 @@ export default function Home() {
                   <span className={`amber ${open === i ? "rotate-45" : ""}`}>+</span>
                 </button>
                 <div className={`grid transition-all duration-300 ${open === i ? "grid-rows-[1fr] pb-4 opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-                  <p className="overflow-hidden text-sm leading-relaxed text-mute">{a}</p>
+                  <p className="prose-cap overflow-hidden text-sm leading-relaxed text-mute">{a}</p>
                 </div>
               </div>
             ))}
@@ -148,7 +153,7 @@ export default function Home() {
       </section>
 
       <section className="pad py-16">
-        <div className="wrap">
+        <div className="wrap rise">
           <h2 className="display h2">Two slots left this month.</h2>
           <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
           <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-6">Book a free 15 min call</a>
