@@ -28,7 +28,7 @@ export default function Premium({ children }) {
     <Preloader>
       <Cursor />
       <Spotlight />
-      <Suspense fallback={null}><Backdrop /></Suspense>
+      {null}
       {children}
     </Preloader>
   );

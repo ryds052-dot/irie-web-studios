@@ -425,3 +425,7 @@ html, body { overflow-x: hidden; }
 .reveal{opacity:1 !important;transform:none !important;animation:none !important}
 
 .reveal{opacity:1 !important;transform:none !important;animation:none !important}
+
+[class*='fixed'][class*='inset-0']{display:none !important}
+
+[class*='fixed'][class*='inset-0']{display:none !important}
