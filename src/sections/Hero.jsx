@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import HeroVisual from "../components/HeroVisual";
 import Reveal from "../components/Reveal";
 import Magnetic from "../components/Magnetic";
@@ -19,16 +19,15 @@ export default function Hero() {
           <span className="label label-amber">Boutique studio / {LOCATION}</span>
         </div>
 
-        <Reveal delay={0.2}>
+        <Reveal delay={200}>
           <h1 className="display mt-5 text-[clamp(2.9rem,15vw,4.2rem)] leading-[0.86] tracking-[-0.03em] md:mt-6 md:text-[clamp(4.5rem,9.5vw,7.5rem)]">
-            <span className="block">Built</span>
-            <span className="block normal-case gradient-amber">fi win.</span>
+            <span className="block">Bookings</span>
+            <span className="block normal-case gradient-amber">while you sleep.</span>
           </h1>
         </Reveal>
 
         <p className="lede mt-5 max-w-[26rem] md:mt-7 md:max-w-[30rem]">
-          Websites that convert. Hand-coded, fixed fee, zero templates. If it does not
-          earn its keep, it is not finished.
+          Hand-coded in Kingston. Fixed fee, written scope, live in 7 days. Loads fast on island data, and takes bookings from tourists and diaspora while you sleep.
         </p>
 
         <div className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:items-start sm:gap-4 md:mt-9">
@@ -38,7 +37,7 @@ export default function Hero() {
           <Magnetic>
             <div>
               <Link to="/contact" className="btn btn-ghost inline-block">Book a free call</Link>
-              <p className="label mt-2 !text-[9px]">From US$285 · 15 min · no prep · no pitch</p>
+              <p className="label mt-2 !text-[9px]">From US$285 · 15 min on WhatsApp · no prep · no pitch</p>
             </div>
           </Magnetic>
         </div>
