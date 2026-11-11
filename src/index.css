@@ -218,3 +218,11 @@ textarea.field { resize: none; font-family: var(--font-mono); }
 @media (prefers-reduced-motion: reduce) {
   .aurora::before, .aurora::after { animation: none; }
 }
+
+/* --- perf overrides --- */
+.aurora:before, .aurora:after { filter: blur(10px); animation-duration: 42s; }
+header { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--color-ink); }
+.grain:after { contain: strict; }
+@media (prefers-reduced-motion: reduce) {
+  .aurora:before, .aurora:after { animation: none; }
+}
