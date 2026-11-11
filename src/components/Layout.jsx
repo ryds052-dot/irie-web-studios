@@ -1,3 +1,4 @@
+﻿import SafeTerminal from "./SafeTerminal";
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
@@ -89,14 +90,14 @@ export default function Layout({ children }) {
         <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="font-display text-xl text-[#f4f3ef]">IRIE<span className="text-[#c8a96a]">.</span></div>
-            <p className="label mt-2">Web design · Kingston, Jamaica</p>
+            <p className="label mt-2">Web design Â· Kingston, Jamaica</p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {NAV.map((n) => (
               <Link key={n.to} to={n.to} className="label !text-[10px]">{n.label}</Link>
             ))}
           </nav>
-          <p className="label !text-[10px]">Built irie. © {new Date().getFullYear()}</p>
+          <p className="label !text-[10px]">Built irie. Â© {new Date().getFullYear()}</p>
         </div>
       </footer>
 
@@ -105,11 +106,12 @@ export default function Layout({ children }) {
         {NAV.filter(n => ["/", "/work", "/services", "/contact"].includes(n.to)).map((n) => (
           <NavLink key={n.to} to={n.to}
             className={({ isActive }) => (isActive ? "active" : "")}>
-            <span>{n.label === "Home" ? "⌂" : n.label === "Work" ? "▦" : n.label === "Services" ? "◈" : "✆"}</span>
+            <span>{n.label === "Home" ? "âŒ‚" : n.label === "Work" ? "â–¦" : n.label === "Services" ? "â—ˆ" : "âœ†"}</span>
             {n.label}
           </NavLink>
         ))}
       </nav>
+      <SafeTerminal />
     </>
   );
 }
