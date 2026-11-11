@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import HeroVisual from "../components/HeroVisual";
 import Reveal from "../components/Reveal";
+import Magnetic from "../components/Magnetic";
 import { AVAILABILITY, RESPONSE_TIME, LOCATION } from "../lib/site";
 
 export default function Hero() {
@@ -30,9 +31,16 @@ export default function Hero() {
           earn its keep, it is not finished.
         </p>
 
-        <div className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:gap-3 md:mt-9">
-          <Link to="/work" className="btn btn-primary">See the work</Link>
-          <Link to="/contact" className="btn btn-ghost">Book a free call</Link>
+        <div className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:items-start sm:gap-4 md:mt-9">
+          <Magnetic>
+            <Link to="/work" className="btn btn-primary inline-block">See the work</Link>
+          </Magnetic>
+          <Magnetic>
+            <div>
+              <Link to="/contact" className="btn btn-ghost inline-block">Book a free call</Link>
+              <p className="label mt-2 !text-[9px]">15 min · no prep · no pitch</p>
+            </div>
+          </Magnetic>
         </div>
 
         <div className="rule mt-8 flex items-center justify-between gap-4 pt-4 md:mt-11">

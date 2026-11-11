@@ -102,3 +102,38 @@ img { animation: imgIn 0.6s ease both; }
   animation: shimmer 1.6s infinite;
 }
 @keyframes shimmer { to { transform: translateX(100%); } }
+
+/* --- premium motion layer --- */
+:root { --ease-expo: cubic-bezier(0.16, 1, 0.3, 1); }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* underline sweep for nav + inline links */
+nav a, .u-sweep {
+  position: relative;
+}
+nav a::after, .u-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease-expo);
+}
+nav a:hover::after, .u-sweep:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* work-list rows: arrow nudges on hover */
+.group:hover .font-mono { transform: translateX(4px); transition: transform 0.35s var(--ease-expo); }
+
+/* buttons get the shared easing */
+.btn { transition: opacity 0.3s var(--ease-expo), transform 0.3s var(--ease-expo); }

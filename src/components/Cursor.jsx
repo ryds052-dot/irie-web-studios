@@ -9,18 +9,24 @@ export default function Cursor() {
     if (window.matchMedia("(pointer: coarse)").matches) return;
     setEnabled(true);
     const d = dot.current, r = ring.current;
-    let x = -100, y = -100, rx = -100, ry = -100;
+    let x = -100, y = -100, rx = -100, ry = -100, s = 1, ts = 1;
     const move = (e) => { x = e.clientX; y = e.clientY; };
+    const over = (e) => { ts = e.target.closest("a,button,[role=button]") ? 2.2 : 1; };
     const loop = () => {
       rx += (x - rx) * 0.14;
       ry += (y - ry) * 0.14;
+      s += (ts - s) * 0.18;
       d.style.transform = `translate(${x}px,${y}px)`;
-      r.style.transform = `translate(${rx - 20}px,${ry - 20}px)`;
+      r.style.transform = `translate(${rx - 20}px,${ry - 20}px) scale(${s})`;
       requestAnimationFrame(loop);
     };
     window.addEventListener("mousemove", move);
+    window.addEventListener("mouseover", over);
     requestAnimationFrame(loop);
-    return () => window.removeEventListener("mousemove", move);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseover", over);
+    };
   }, []);
 
   if (!enabled) return null;

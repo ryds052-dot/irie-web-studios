@@ -5,6 +5,9 @@ import Premium from "./components/Premium";
 import StickyCTA from "./components/StickyCTA";
 import ChromeUI from "./components/ChromeUI";
 import ScrollManager from "./components/ScrollManager";
+import WorkPeek from "./components/WorkPeek";
+import Rails from "./components/Rails";
+import IrieCode from "./components/IrieCode";
 import FxLayer from "./components/FxLayer";
 import ViewTransition from "./components/ViewTransition";
 import Layout from "./components/Layout";
@@ -26,9 +29,7 @@ function Fallback() {
         <div className="skeleton mt-4 h-4 w-full max-w-md" />
         <div className="skeleton mt-2 h-4 w-2/3 max-w-sm" />
         <div className="mt-10 space-y-4">
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="skeleton h-14 w-full" />
-          ))}
+          {[0, 1, 2].map((i) => (<div key={i} className="skeleton h-14 w-full" />))}
         </div>
       </div>
     </div>
@@ -42,6 +43,9 @@ export default function App() {
         <Premium>
           <ScrollManager />
           <ChromeUI />
+          <WorkPeek />
+          <Rails />
+          <IrieCode />
           <FxLayer />
           <ViewTransition />
           <Layout>
