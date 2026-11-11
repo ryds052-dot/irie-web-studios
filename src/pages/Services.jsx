@@ -1,6 +1,29 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import { GROUPS, RETAINERS, TERMS } from "../data/rates";
+
+const PACKAGES = [
+  ["Launch", "$285", "One-person businesses that need to exist online properly.", [
+    "One-page or landing page, hand-coded",
+    "Mobile-first, fast on Jamaican data",
+    "Google Business + basic SEO wired in",
+    "1 revision round, 2-week build",
+  ], false],
+  ["Signature", "$985", "Growing businesses that need the site to sell, not just sit there.", [
+    "Up to 8 pages + custom case studies",
+    "Full brand refresh included",
+    "Copywriting for every page",
+    "Booking or quote form that actually converts",
+    "3 revision rounds, 4-week build",
+  ], true],
+  ["Commerce", "$2,165", "Shops and service brands taking payments directly.", [
+    "Full storefront, up to 50 products",
+    "Payment processing + delivery logic",
+    "Admin panel you can run yourself",
+    "Analytics + conversion tracking",
+    "Unlimited revisions in build window",
+  ], false],
+];
 
 const NEVER = [
   "A template with your logo dropped in.",
@@ -143,9 +166,3 @@ export default function Services() {
     </>
   );
 }
-
-
-
-
-
-

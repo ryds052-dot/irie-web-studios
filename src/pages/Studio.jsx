@@ -11,7 +11,7 @@ const FIT = [
 
 const PRINCIPLES = [
   ["Write it down first", "Scope before pixels. If it is not in the brief it does not get built."],
-  ["Fixed fee or nothing", "Hourly billing rewards slowness. Ours does not."],
+  ["Fixed fee, in writing", "You know the full price before you pay anything. No hourly drift."],
   ["Say no early", "If we are wrong for the job you hear it on the first call, not week three."],
 ];
 
@@ -42,8 +42,9 @@ export default function Studio() {
 
           <Reveal delay={80}>
             <p className="lede mt-6 max-w-xl">
-              One engineer, one communicator, working out of {LOCATION}. Nobody
-              junior taking over your project once the pitch is done.
+              One engineer, one communicator, working out of {LOCATION}. When you
+              call, you get the person doing the work — from the first message to
+              launch day.
             </p>
           </Reveal>
 
@@ -57,30 +58,22 @@ export default function Studio() {
               <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-bone/80 md:text-base">
                 <Reveal delay={60}>
                   <p>
-                    Ryder builds the whole thing — the 3D on the front, the server behind
-                    it, the database in the middle. Most studios split that across three
-                    people and lose a week to handoffs. Here one person knows the whole shape.
+                    Your site gets built by one person, start to finish — the pages your
+                    customers see, the server behind them, the database in the middle.
+                    Nothing gets lost between departments because there are no departments.
                   </p>
                 </Reveal>
                 <Reveal delay={110}>
                   <p>
-                    Your customers are on a cheap phone with two bars, not a laptop on
-                    fibre, so every page is built to open anyway. And nothing ships
-                    unchecked — a build that compiles is not the same as a build that holds.
+                    Your customers are mostly on phones, on island data — so every page
+                    is built to open fast on exactly that. And before anything ships, it
+                    gets read and tested line by line, because the problems that cost you
+                    customers are the ones that only show up after launch.
                   </p>
                 </Reveal>
               </div>
 
               <Reveal delay={160}>
-                <blockquote className="mt-9 border-l-2 border-amber pl-5">
-                  <p className="text-lg leading-snug text-bone/90 md:text-xl">
-                    Discussing more when we have not done anything is lax.
-                  </p>
-                  <footer className="label mt-2">Ryder Lee</footer>
-                </blockquote>
-              </Reveal>
-
-              <Reveal delay={200}>
                 <div className="mt-8 border-t border-line pt-5">
                   <p className="label label-amber">Hands on</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
@@ -112,9 +105,9 @@ export default function Studio() {
             </div>
             <div>
               <p className="text-[15px] leading-relaxed text-mute md:text-base">
-                Nelson runs everything around the build: first replies, the brief, the
-                schedule, the follow-up nobody else remembers. Every project has one
-                person to talk to, and that person is never mid-build.
+                Nelson is who you talk to. First replies, the brief, the schedule, and
+                the follow-up you should not have to chase. One point of contact for
+                the whole project, never juggling your project against someone else's build.
               </p>
             </div>
           </div>
@@ -142,7 +135,7 @@ export default function Studio() {
           </div>
 
           <div className="rule mt-16 pt-12">
-            <p className="label label-amber">How we hold ourselves</p>
+            <p className="label label-amber">How we work</p>
             <div className="mt-5">
               {PRINCIPLES.map(([h, b], i) => (
                 <Reveal key={h} delay={i * 50}>
@@ -158,6 +151,7 @@ export default function Studio() {
           <div className="rule mt-14 flex flex-wrap items-center justify-between gap-4 pt-8 pb-4">
             <p className="label">Fixed fee, fixed date, in writing.</p>
             <Link to="/contact" className="btn btn-primary">Book a free call</Link>
+            <p className="label w-full !text-[9px]">15 min · no prep · no pitch</p>
           </div>
         </div>
       </div>
