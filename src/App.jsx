@@ -1,4 +1,6 @@
-﻿import { Component, lazy, Suspense } from "react";
+﻿import WhatsAppFab from "./components/WhatsAppFab";
+import { Analytics } from "@vercel/analytics/react";
+import { Component, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -37,6 +39,8 @@ function Fallback() {
 export default function App() {
   return (
     <ErrorBoundary>
+      <Analytics />
+      <WhatsAppFab />
       <BrowserRouter>
         <Layout>
           <Suspense fallback={<Fallback />}>
