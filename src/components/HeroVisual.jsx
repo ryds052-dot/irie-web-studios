@@ -31,13 +31,9 @@ void main(){
   float f = fbm(p * 2.3 + q * 1.9 + t * 0.5);
 
   vec3 amber = vec3(0.961, 0.722, 0.0);
-  vec3 jungle = vec3(0.031, 0.145, 0.082);
-  vec3 sea = vec3(0.043, 0.404, 0.365);
-  vec3 coral = vec3(0.949, 0.318, 0.153);
-  vec3 col = mix(vec3(0.024, 0.043, 0.031), jungle, smoothstep(0.10, 0.52, f));
-  col = mix(col, sea, smoothstep(0.30, 0.72, q.y) * 0.55);
-  col = mix(col, amber, smoothstep(0.46, 0.88, f));
-  col = mix(col, coral, smoothstep(0.62, 1.0, q.x) * 0.45);
+  vec3 deep = vec3(0.012, 0.055, 0.058);
+  vec3 col = mix(deep, amber, smoothstep(0.28, 0.95, f));
+  col = mix(col, vec3(0.90, 0.40, 0.13), smoothstep(0.70, 1.0, q.x) * 0.28);
 
   float bands = smoothstep(0.03, 0.0, abs(fract(f * 7.0) - 0.5) - 0.455);
   col += amber * bands * 0.30;
@@ -184,6 +180,8 @@ export default function HeroVisual() {
     </>
   );
 }
+
+
 
 
 
