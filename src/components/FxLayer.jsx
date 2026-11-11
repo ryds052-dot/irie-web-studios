@@ -1,118 +1,242 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import Seo from "../components/Seo";
-import Hero from "../sections/Hero";
-import Testimonials from "../sections/Testimonials";
-import GlitchMarquee from "../components/GlitchMarquee";
-import { PROJECTS } from "../data/projects";
-import { PACKAGES } from "../data/rates";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 
-const FAQS = [
-  ["How long is a build?", "A landing page is a fixed fee and a fixed date, agreed in writing before you pay."],
-  ["Small budget?", "There is a $285 landing page package. Under that, we will point you somewhere useful."],
-  ["Who does the work?", "Two people, both named. One builds, one runs the brief."],
-  ["Do I own it?", "Completely. Code, files, domains and accounts transfer at launch."],
-  ["Changes later?", "Three revision rounds included. Then $45 a round, or a care plan."],
+const DESTINATIONS = [
+  ["home", "/"],
+  ["contact", "/contact"],
 ];
 
-export default function Home() {
-  const [open, setOpen] = useState(0);
+const fine = () =>
+  typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
+
+export function Cursor() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!fine()) return;
+    const el = ref.current;
+    if (!el) return;
+    let x = 0, y = 0, cx = 0, cy = 0, raf = 0;
+    const move = (e) => { x = e.clientX; y = e.clientY; };
+    const over = (e) => {
+      const t = e.target;
+      el.classList.toggle("is-grow", Boolean(t.closest && t.closest("a, button, [data-cursor]")));
+    };
+    const loop = () => {
+      cx += (x - cx) * 0.22;
+      cy += (y - cy) * 0.22;
+      el.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+      raf = requestAnimationFrame(loop);
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerover", over);
+    raf = requestAnimationFrame(loop);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerover", over);
+    };
+  }, []);
+  return <div ref={ref} className="fx-cursor" aria-hidden="true" />;
+}
+
+export function Grain() {
+  return <div className="grain fixed inset-0 z-[9998] pointer-events-none" aria-hidden="true" />;
+}
+
+export function ScrollProgress() {
+  const [p, setP] = useState(0);
+  useEffect(() => {
+    const on = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      setP(h > 0 ? (window.scrollY / h) * 100 : 0);
+    };
+    on();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
+  return (
+    <div className="fixed inset-x-0 top-0 z-[9997] h-[2px]" aria-hidden="true">
+      <div className="h-full bg-[#F5B800]" style={{ width: `${p}%` }} />
+    </div>
+  );
+}
+
+export function Magnetic({ children, strength = 0.28, className = "" }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!fine()) return;
+    const el = ref.current;
+    if (!el) return;
+    const move = (e) => {
+      const r = el.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width / 2)) * strength;
+      const dy = (e.clientY - (r.top + r.height / 2)) * strength;
+      el.style.transform = `translate(${dx}px, ${dy}px)`;
+    };
+    const out = () => { el.style.transform = "translate(0,0)"; };
+    el.addEventListener("pointermove", move);
+    el.addEventListener("pointerleave", out);
+    return () => {
+      el.removeEventListener("pointermove", move);
+      el.removeEventListener("pointerleave", out);
+    };
+  }, [strength]);
+  return (
+    <span ref={ref} className={`inline-block transition-transform duration-300 ease-out will-change-transform ${className}`}>
+      {children}
+    </span>
+  );
+}
+
+export function Reveal({ children, delay = 0, className = "" }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) { el.classList.add("is-in"); io.disconnect(); }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className={`reveal ${className}`} style={{ "--d": `${delay}ms` }}>
+      {children}
+    </div>
+  );
+}
+
+export function Preloader() {
+  const [n, setN] = useState(0);
+  const [gone, setGone] = useState(false);
+  useEffect(() => {
+    if (sessionStorage.getItem("irie:loaded") || window.innerWidth < 768) { sessionStorage.setItem("irie:loaded", "1"); setGone(true); return; }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      sessionStorage.setItem("irie:loaded", "1");
+      setGone(true);
+      return;
+    }
+    let v = 0;
+    const t = setInterval(() => {
+      v += Math.random() * 9 + 3;
+      if (v >= 100) {
+        v = 100;
+        clearInterval(t);
+        setTimeout(() => { sessionStorage.setItem("irie:loaded", "1"); setGone(true); }, 320);
+      }
+      setN(Math.floor(v));
+    }, 70);
+    return () => clearInterval(t);
+  }, []);
+  if (gone) return null;
+  return (
+    <div className="fixed inset-0 z-[10000] flex flex-col justify-between bg-[#080807] p-8 text-[#F4F3EF]">
+      <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#F5B800]">Irie Web Studios</span>
+      <span className="font-mono text-[18vw] leading-none tracking-tighter tabular-nums md:text-[10vw]">{n}</span>
+      <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#8E8C84]">Initializing architecture</span>
+    </div>
+  );
+}
+
+export function CommandPalette() {
+  const [open, setOpen] = useState(false);
+  const [q, setQ] = useState("");
+  const [i, setI] = useState(0);
+  const inputRef = useRef(null);
+  const navigate = useNavigate();
+
+  const hits = DESTINATIONS.filter((d) => d[0].includes(q.trim().toLowerCase()));
+
+  useEffect(() => {
+    const on = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setOpen((v) => !v);
+      }
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+  }, []);
+
+  useEffect(() => {
+    if (open) {
+      setQ("");
+      setI(0);
+      setTimeout(() => inputRef.current && inputRef.current.focus(), 20);
+    }
+  }, [open]);
+
+  if (!open) return null;
+
+  const go = (path) => {
+    setOpen(false);
+    navigate(path);
+  };
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[9996] flex items-start justify-center bg-black/70 px-4 pt-[18vh] backdrop-blur-sm"
+      onClick={() => setOpen(false)}
+    >
+      <div className="w-full max-w-sm border border-white/15 bg-[#0a0a09]" onClick={(e) => e.stopPropagation()}>
+        <input
+          ref={inputRef}
+          value={q}
+          onChange={(e) => { setQ(e.target.value); setI(0); }}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowDown") { e.preventDefault(); setI((v) => (v + 1) % Math.max(hits.length, 1)); }
+            if (e.key === "ArrowUp") { e.preventDefault(); setI((v) => (v - 1 + hits.length) % Math.max(hits.length, 1)); }
+            if (e.key === "Enter" && hits[i]) go(hits[i][1]);
+          }}
+          placeholder="Jump to"
+          className="w-full border-b border-white/10 bg-transparent px-5 py-4 font-mono text-sm text-[#F4F3EF] outline-none placeholder:text-[#5c5a55]"
+        />
+        <ul className="p-2">
+          {hits.map((d, idx) => (
+            <li key={d[1]}>
+              <button
+                onMouseEnter={() => setI(idx)}
+                onClick={() => go(d[1])}
+                className={`flex w-full items-center justify-between px-4 py-3 text-left font-mono text-xs uppercase tracking-[0.2em] ${
+                  idx === i ? "bg-[#F5B800] text-[#080807]" : "text-[#8E8C84]"
+                }`}
+              >
+                {d[0]}
+                <span aria-hidden="true">?</span>
+              </button>
+            </li>
+          ))}
+          {hits.length === 0 && (
+            <li className="px-4 py-3 font-mono text-xs text-[#5c5a55]">No match</li>
+          )}
+        </ul>
+      </div>
+    </div>,
+    document.body
+  );
+}
+
+export default function FxLayer() {
   return (
     <>
-      <Seo
-        title="Web Design Kingston Jamaica | Irie Web Studios"
-        description="Hand-coded websites for Jamaican businesses. Fixed fees, written scope, no templates."
-        path="/"
-      />
-      <Hero />
-
-      <section className="rule pad py-8">
-        <div className="wrap grid grid-cols-3 gap-4">
-          {[["2", "Live builds"], ["10 days", "Fastest"], ["0", "Templates"]].map(([v, l]) => (
-            <div key={l}>
-              <p className="font-display text-xl font-extrabold md:text-2xl">{v}</p>
-              <p className="label mt-1 !text-[9px]">{l}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section pad">
-        <div className="wrap">
-          <div className="rule flex items-end justify-between gap-4 pb-5">
-            <div>
-              <p className="label label-amber">Selected work</p>
-              <h2 className="display h2 mt-2">Recent builds</h2>
-            </div>
-            <Link to="/work" className="label whitespace-nowrap hover:text-amber">All work</Link>
-          </div>
-          {PROJECTS.map((p) => (
-            <Link key={p.slug} to={`/work/${p.slug}`} className="group flex items-center justify-between gap-4 border-b border-line py-5">
-              <div className="flex items-baseline gap-4">
-                <span className="font-mono text-[11px] amber">{p.index}</span>
-                <div>
-                  <p className="h3 font-bold uppercase group-hover:text-amber">{p.title}</p>
-                  <p className="mt-1 text-sm text-mute">{p.outcome}</p>
-                </div>
-              </div>
-              <span className="font-mono text-mute">&rarr;</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <GlitchMarquee />
-          <Testimonials />
-
-      <section className="rule bg-ink-2 pad py-16">
-        <div className="wrap">
-          <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
-            <h2 className="display h2">Start somewhere concrete.</h2>
-            <Link to="/services" className="label whitespace-nowrap hover:text-amber">Every price</Link>
-          </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {PACKAGES.map(([name, price, who, , hot]) => (
-              <div key={name} className={`card ${hot ? "!border-amber" : ""}`}>
-                <p className="font-bold uppercase">{name}</p>
-                <p className="mt-1 text-xs text-dim">{who}</p>
-                <p className="mt-3 font-display text-3xl font-extrabold">{price}</p>
-                <Link to="/contact" className="btn btn-ghost mt-5 w-full">Start</Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section pad">
-        <div className="wrap grid gap-8 md:grid-cols-[1fr_1.4fr]">
-          <h2 className="display h2">Questions</h2>
-          <div>
-            {FAQS.map(([q, a], i) => (
-              <div key={q} className="border-b border-line">
-                <button onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i} className="flex w-full items-center justify-between gap-6 py-5 text-left">
-                  <span>{q}</span>
-                  <span className={`font-mono amber ${open === i ? "rotate-45" : ""}`}>+</span>
-                </button>
-                <div className={`grid transition-all duration-300 ${open === i ? "grid-rows-[1fr] pb-5 opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-                  <p className="overflow-hidden text-sm leading-relaxed text-mute">{a}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="rule pad py-20 text-center">
-        <div className="wrap">
-          <h2 className="display h2 mx-auto max-w-3xl">Two slots left <span className="amber">this quarter.</span></h2>
-          <p className="lede mx-auto mt-5">Tell us the scope. We will tell you the figure in writing within one business day.</p>
-          <div className="mt-8 flex flex-col justify-center gap-2.5 sm:flex-row">
-            <Link to="/contact" className="btn btn-primary btn-block">Book a free call</Link>
-            <Link to="/services" className="btn btn-ghost btn-block">See every price</Link>
-          </div>
-        </div>
-      </section>
+      {null}
+      <Grain />
+      <Cursor />
+      <ScrollProgress />
+      <CommandPalette />
     </>
   );
 }
+
+
+
+
+
+
+
 
