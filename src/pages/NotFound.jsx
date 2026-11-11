@@ -4,7 +4,7 @@ import Seo from "../components/Seo";
 export default function NotFound() {
   return (
     <>
-      <Seo title="404 - Irie Web Studios" description="That page does not exist." path="/404" />
+      <Seo noindex title="404 - Irie Web Studios" description="That page does not exist." path="/404" />
       <div className="pad flex min-h-[75svh] flex-col justify-center">
         <div className="wrap">
           <p className="label label-amber">Error 404</p>
