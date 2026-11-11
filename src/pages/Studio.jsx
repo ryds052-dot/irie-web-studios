@@ -77,7 +77,7 @@ export default function Studio() {
                 <div className="mt-8 border-t border-line pt-5">
                   <p className="label label-amber">Hands on</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
-                    {["React", "Vite", "Tailwind", "WebGL / Three.js", "Node", "Performance budgets", "Technical SEO", "Payment gateways", "WhatsApp automation", "Managed hosting", "Security hardening"].map((t) => (
+                    {["Wallet security audits", "Smart contract review", "Post-compromise wallet forensics", "Security hardening", "Malware recovery", "SPF / DKIM / DMARC", "MFA rollout", "PCI scope reduction", "Payment gateways", "POS integration", "Cloud config review", "Managed hosting", "DNS", "WhatsApp automation", "CRM architecture", "WebGL / Three.js", "React", "Node", "Performance budgets", "Technical SEO · JSON-LD"].map((t) => (
                       <span key={t} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{t}</span>
                     ))}
                   </div>

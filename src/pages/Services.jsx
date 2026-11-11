@@ -3,20 +3,20 @@ import Seo from "../components/Seo";
 import { GROUPS, RETAINERS, TERMS } from "../data/rates";
 
 const PACKAGES = [
-  ["Launch", "$285", "One-person businesses that need to exist online properly.", [
+  ["Launch", "$285", "You have a business and it needs to exist online, properly, this month.", [
     "One-page or landing page, hand-coded",
-    "Mobile-first, fast on Jamaican data",
+    "Fast on Jamaican mobile data",
     "Google Business + basic SEO wired in",
     "1 revision round, 2-week build",
   ], false],
-  ["Signature", "$985", "Growing businesses that need the site to sell, not just sit there.", [
+  ["Signature", "$985", "Your site should be selling while you sleep, not just sitting there.", [
     "Up to 8 pages + custom case studies",
     "Full brand refresh included",
     "Copywriting for every page",
-    "Booking or quote form that actually converts",
+    "Booking or quote form that converts",
     "3 revision rounds, 4-week build",
   ], true],
-  ["Commerce", "$2,165", "Shops and service brands taking payments directly.", [
+  ["Commerce", "$2,165", "You are taking payments directly and need the whole machine to work.", [
     "Full storefront, up to 50 products",
     "Payment processing + delivery logic",
     "Admin panel you can run yourself",
@@ -25,18 +25,18 @@ const PACKAGES = [
   ], false],
 ];
 
-const NEVER = [
-  "A template with your logo dropped in.",
-  "An offshore handoff after the pitch call.",
-  "An account manager relaying messages.",
-  "A retainer you cannot leave.",
+const INCLUDED = [
+  "A fixed fee agreed before you pay anything.",
+  "One written scope — the price we quote is the price you pay.",
+  "Direct access to the two people building your site.",
+  "Code, accounts and files handed over at launch. All yours.",
 ];
 
-const ALWAYS = [
-  "A fixed fee agreed before you pay.",
-  "One written scope, no creeping extras.",
-  "Direct access to the two people building it.",
-  "Code, accounts and files handed over at launch.",
+const NOT_THIS = [
+  "A template with your logo pasted in.",
+  "A quote that grows after you have committed.",
+  "Waiting on a go-between to reach the person doing the work.",
+  "A monthly plan you cannot leave.",
 ];
 
 export default function Services() {
@@ -56,27 +56,29 @@ export default function Services() {
 
           <div className="rule mt-8 grid gap-6 pb-8 md:grid-cols-[1.3fr_1fr] md:items-end">
             <p className="lede">
-              Every figure is on this page, in USD, grouped by discipline. No discovery call before you see a number.
+              Every figure is on this page, in USD, grouped by discipline. No discovery
+              call before you see a number.
             </p>
             <p className="label md:text-right">Fixed fee. Written scope. No hourly drift.</p>
           </div>
+
           <div className="rule mt-12 grid gap-10 py-12 md:grid-cols-2">
             <div>
-              <h2 className="label label-amber">What none of this is</h2>
+              <h2 className="label label-amber">Every build includes</h2>
               <ul className="mt-4">
-                {NEVER.map((x) => (
-                  <li key={x} className="flex gap-3 border-b border-line py-3 text-sm text-mute">
-                    <span className="font-mono amber">x</span>{x}
+                {INCLUDED.map((x) => (
+                  <li key={x} className="flex gap-3 border-b border-line py-3 text-sm text-bone/80">
+                    <span className="font-mono amber">+</span>{x}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h2 className="label label-amber">What it always is</h2>
+              <h2 className="label label-amber">None of this is</h2>
               <ul className="mt-4">
-                {ALWAYS.map((x) => (
-                  <li key={x} className="flex gap-3 border-b border-line py-3 text-sm text-bone/80">
-                    <span className="font-mono amber">+</span>{x}
+                {NOT_THIS.map((x) => (
+                  <li key={x} className="flex gap-3 border-b border-line py-3 text-sm text-mute">
+                    <span className="font-mono text-dim">x</span>{x}
                   </li>
                 ))}
               </ul>
@@ -85,7 +87,7 @@ export default function Services() {
 
           <div className="mt-12">
             <h2 className="label label-amber">Packages</h2>
-            <p className="lede mt-2">Bundled because the parts are cheaper together. Pick the one that matches where you are.</p>
+            <p className="lede mt-2">Three ways in. Pick the one that matches where you are today.</p>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {PACKAGES.map(([name, price, who, feats, hot]) => (
                 <div key={name} className={`card flex flex-col ${hot ? "!border-amber" : ""}`}>
@@ -102,6 +104,7 @@ export default function Services() {
                 </div>
               ))}
             </div>
+            <p className="label mt-4 !text-[9px]">Not sure which fits? A 15-minute call settles it — no prep needed.</p>
           </div>
 
           <div id="rates" className="rule mt-12 pt-8">
@@ -160,6 +163,7 @@ export default function Services() {
             <h2 className="display h2 mx-auto max-w-2xl">You have seen the numbers. <span className="amber">Now talk.</span></h2>
             <p className="lede mx-auto mt-4">Tell us the scope and we will give you the exact figure in writing, inside one business day.</p>
             <Link to="/contact" className="btn btn-primary mt-8">Get a written quote</Link>
+            <p className="label mt-3 !text-[9px]">Free · 15 min · no pitch</p>
           </div>
         </div>
       </div>
