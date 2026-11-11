@@ -18,7 +18,7 @@ export default function Footer() {
           <div>
             <p className="label mb-3">Navigate</p>
             <ul className="space-y-1">
-              {[["Work", "/work"], ["Services", "/services"], ["Studio", "/studio"], ["Pricing", "/pricing"], ["Contact", "/contact"]].map(([l, to]) => (
+              {[["Work", "/work"], ["Services", "/services"], ["Studio", "/studio"], ["Contact", "/contact"]].map(([l, to]) => (
                 <li key={to}>
                   <Link to={to} className="flex min-h-10 items-center text-sm text-bone/70 hover:text-amber">{l}</Link>
                 </li>
@@ -54,4 +54,5 @@ export default function Footer() {
     </footer>
   );
 }
+
 
