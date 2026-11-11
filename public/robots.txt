@@ -1,5 +1,3 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
-
 Sitemap: https://iriewebstudios.com/sitemap.xml
-
