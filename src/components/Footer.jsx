@@ -30,13 +30,12 @@ export default function Footer() {
             <p className="font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-bone/70">
               {LOCATION}<br />UTC-5<br />Remote worldwide
             </p>
-            <a href={`tel:${PHONE}`} className="mt-3 inline-block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">
+            <a href={`tel:${PHONE}`} className="mt-3 block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">
               {PHONE_DISPLAY}
             </a>
-            <a href={`tel:${PHONE_ALT}`} className="mt-1 inline-block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">
+            <a href={`tel:${PHONE_ALT}`} className="mt-1 block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">
               {PHONE_ALT_DISPLAY}
             </a>
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-dim">{PHONE_ALT_LABEL}</p>
           </div>
         </div>
 
@@ -54,6 +53,7 @@ export default function Footer() {
     </footer>
   );
 }
+
 
 
 
