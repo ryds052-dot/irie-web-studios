@@ -61,7 +61,7 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="rule mt-14 grid gap-10 py-12 md:grid-cols-2">
+          <div className="rule mt-12 grid gap-10 py-12 md:grid-cols-2">
             <div>
               <h2 className="label label-amber">What none of this is</h2>
               <ul className="mt-4">
@@ -84,7 +84,7 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="mt-14">
+          <div className="mt-12">
             <h2 className="label label-amber">Packages</h2>
             <p className="lede mt-2">Bundled because the parts are cheaper together. Pick the one that matches where you are.</p>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
@@ -105,29 +105,28 @@ export default function Services() {
             </div>
           </div>
 
-          <div id="rates" className="rule mt-16 pt-8">
+          <div id="rates" className="rule mt-12 pt-8">
             <h2 className="label label-amber">Full rate card</h2>
-            <p className="lede mt-2">Every figure, in USD. Open a group to read it.</p>
+            <p className="lede mt-2">Every figure, in USD. Grouped by discipline.</p>
 
-            {GROUPS.map((g) => (
-              <details key={g.id} id={g.id} className="group border-b border-line py-2">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 py-4">
-                  <span className="font-bold uppercase tracking-tight">{g.label}</span>
-                  <span className="font-mono text-[11px] amber transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <div className="pb-4">
-                  {g.items.map(([name, price, note]) => (
-                    <div key={name} className="grid gap-1 border-b border-line py-3 last:border-0 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6">
-                      <div>
-                        <p className="text-sm text-bone/90">{name}</p>
-                        {note && <p className="label mt-1 !text-[9px]">{note}</p>}
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {GROUPS.map((g) => (
+                <section key={g.id} id={g.id} className="border border-line p-5">
+                  <h3 className="label label-amber">{g.label}</h3>
+                  <div className="mt-3">
+                    {g.items.map(([name, price, note]) => (
+                      <div key={name} className="grid gap-1 border-b border-line py-2.5 last:border-0 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-4">
+                        <div>
+                          <p className="text-sm text-bone/90">{name}</p>
+                          {note && <p className="label mt-1 !text-[9px]">{note}</p>}
+                        </div>
+                        <p className="font-mono text-[11px] uppercase tracking-wider amber sm:text-right">{price}</p>
                       </div>
-                      <p className="font-mono text-[11px] uppercase tracking-wider amber sm:text-right">{price}</p>
-                    </div>
-                  ))}
-                </div>
-              </details>
-            ))}
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
           </div>
 
           <div className="rule mt-12 pt-8">
@@ -158,7 +157,7 @@ export default function Services() {
             </ol>
           </div>
 
-          <div className="py-20 text-center">
+          <div className="py-16 text-center">
             <h2 className="display h2 mx-auto max-w-2xl">You have seen the numbers. <span className="amber">Now talk.</span></h2>
             <p className="lede mx-auto mt-4">Tell us the scope and we will give you the exact figure in writing, inside one business day.</p>
             <Link to="/contact" className="btn btn-primary mt-8">Get a written quote</Link>
@@ -168,3 +167,5 @@ export default function Services() {
     </>
   );
 }
+
+

@@ -381,3 +381,18 @@ a[href]:not(.btn):not(.card) { transition: color var(--dur-fast) var(--ease-out-
   .card:hover { transform: none; }
   .btn:hover::before { transform: translateY(0); }
 }
+
+/* ============ TIGHTEN ============ */
+.mt-14, .mt-16 { margin-top: 3.25rem; }
+#rates > div.grid { gap: 0.75rem; }
+#rates section { padding: 1.1rem; }
+#rates section > div > div { padding-block: 0.55rem; }
+#rates h3 { font-size: 0.6rem; letter-spacing: 0.2em; }
+@media (min-width: 1024px) {
+  #rates > div.grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.wrap > .rule { border-color: #1b1b1a; }
+.card { padding: 1.5rem; }
+@media (max-width: 767px) {
+  .display.h1 { font-size: clamp(2.3rem, 11vw, 3.2rem); line-height: 0.9; }
+}
