@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import { PROJECTS } from "../data/projects";
 
