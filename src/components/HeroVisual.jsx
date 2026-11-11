@@ -25,6 +25,7 @@ void main(){
   vec2 uv = gl_FragCoord.xy / uRes.xy;
   vec2 p = (gl_FragCoord.xy - 0.5 * uRes.xy) / uRes.y;
   p += uMouse * 0.14;
+  p.y *= 0.58;
 
   float t = uTime * 0.055;
   vec2 q = vec2(fbm(p * 1.5 + t), fbm(p * 1.5 - t + 5.0));
@@ -190,6 +191,7 @@ export default function HeroVisual() {
     </>
   );
 }
+
 
 
 
