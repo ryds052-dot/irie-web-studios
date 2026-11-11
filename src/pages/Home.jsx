@@ -49,7 +49,7 @@ export default function Home() {
           <div>
             <div className="hero-top">
               <span className="label">Kingston, Jamaica</span>
-              <span className="label">2 slots left</span>
+              <span className="label">2 slots left for March</span>
             </div>
 
             <h1 className="display mt-6">
@@ -58,18 +58,19 @@ export default function Home() {
             </h1>
 
             <p className="lede mt-6 max-w-[19rem]">
-              Hand-coded in Kingston. Fixed price, live in 7 days, from US$285.
+              Hand-coded in Kingston, fixed price from US$285, live in seven days.
             </p>
 
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-7">
               Book a free 15 min call
             </a>
-            <Link to="/work" className="link mt-4">See websites we built →</Link>
+            <p className="micro">15 min · no pitch · no prep</p>
+            <Link to="/work" className="link mt-4">See the work →</Link>
           </div>
 
           <aside className="hero-panel">
-            <p className="panel-k">Starting price</p>
-            <p className="panel-v">US$285</p>
+            <p className="panel-k">Scope</p>
+            <p className="panel-v">Written</p>
             <p className="panel-k mt-6">Live in</p>
             <p className="panel-v">7 days</p>
             <p className="panel-k mt-6">You own</p>
