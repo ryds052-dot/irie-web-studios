@@ -435,3 +435,9 @@ html, body { overflow-x: hidden; }
 .reveal{opacity:1 !important;transform:none !important;animation:none !important;filter:none !important}
 
 .marquee,.marquee-track,[class*='marquee'],[class*='Marquee']{display:none !important}
+
+html,body{background:#080807 !important}
+
+.grain::after,.grain::before{display:none !important}
+
+.reveal{opacity:1 !important;transform:none !important;animation:none !important;filter:none !important}
