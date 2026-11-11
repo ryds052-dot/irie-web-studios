@@ -11,6 +11,8 @@ import IrieCode from "./components/IrieCode";
 import Terminal from "./components/Terminal";
 import GoldCursor from "./components/GoldCursor";
 import RouteWipe from "./components/RouteWipe";
+import ViewTransitions from "./components/ViewTransitions";
+import VoiceNav from "./components/VoiceNav";
 import { GrainOverlay, ScrollSkew } from "./components/DemonLayer";
 import FxLayer from "./components/FxLayer";
 import ViewTransition from "./components/ViewTransition";
@@ -75,6 +77,8 @@ export default function App() {
           <Terminal />
           <GoldCursor />
           <RouteWipe />
+          <ViewTransitions />
+          <VoiceNav />
         </Premium>
       </ReactLenis>
     </BrowserRouter>
