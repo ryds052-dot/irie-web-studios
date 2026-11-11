@@ -1,4 +1,5 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://iriewebstudio.com/sitemap.xml
+Sitemap: https://iriewebstudios.com/sitemap.xml
+

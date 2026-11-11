@@ -57,8 +57,9 @@
     stack: ["Three.js", "R3F", "GSAP", "Lenis", "Tailwind CSS"],
     results: [["0", "Templates"], ["1", "Frame on mobile"], ["60", "FPS target"]],
     quote: ["If we would not ship it for ourselves, we will not ship it for you.", "Ryder Lee", "Co-founder"],
-    href: "https://iriewebstudio.com/work/irie-core",
+    href: "https://iriewebstudios.com/work/irie-core",
   },
 ];
 
 export const getProject = (slug) => PROJECTS.find((p) => p.slug === slug);
+
