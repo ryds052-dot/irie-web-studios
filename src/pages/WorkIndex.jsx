@@ -38,6 +38,7 @@ export default function WorkIndex() {
                   ))}
                 </div>
                 <span className="mt-4 inline-block label group-hover:text-amber">Read the case study &rarr;</span>
+                <span className="mt-2 block label text-dim">{p.href.replace("https://", "").replace(/\/$/, "")}</span>
               </Link>
             ))}
           </div>
@@ -50,3 +51,4 @@ export default function WorkIndex() {
     </>
   );
 }
+
