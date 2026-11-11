@@ -61,9 +61,7 @@ export default function Studio() {
 
           <Reveal delay={80}>
             <p className="lede mt-6 max-w-xl">
-              One engineer, one communicator, working out of {LOCATION}. When you
-              call, you get the person doing the work, from the first message to
-              launch day.
+              One engineer, one communicator, working out of {LOCATION}. When you message, you get the person doing the work. No go-between, no account manager, from first reply to launch day.
             </p>
           </Reveal>
 
@@ -84,8 +82,7 @@ export default function Studio() {
                 </Reveal>
                 <Reveal delay={110}>
                   <p>
-                    Your customers are mostly on phones, on island data, so every page
-                    is built to open fast on exactly that. And before anything ships, it
+                    Your customers are on phones, on Digicel and FLOW data, so every page is built to open fast on exactly that. And before anything ships, it
                     gets read and tested line by line, because the problems that cost you
                     customers are the ones that only show up after launch.
                   </p>

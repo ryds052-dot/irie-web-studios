@@ -1,33 +1,36 @@
 ﻿import { useState } from "react";
-import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
+import { EMAIL, PHONE, PHONE_DISPLAY, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
 
-const ENDPOINT = "https://formspree.io/f/PASTE_ID_HERE";
+const ENDPOINT = "https://formspree.io/f/mljbrlzr";
 const LIVE = !ENDPOINT.includes("PASTE_ID_HERE");
 
-const BUDGETS = ["Under $500", "$500 - $1,500", "$1,500 - $3,000", "$3,000+", "Monthly retainer", "Not sure yet"];
-const TIMELINES = ["This month", "Next 1-2 months", "This quarter", "No fixed date"];
+const BUDGETS = ["Under US$500", "US$500 - 1,500", "US$1,500 - 3,000", "US$3,000+", "Monthly", "Not sure"];
+
+const WA = "https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20here%20is%20the%20scope%3A%20";
 
 const NEXT = [
   ["01", "You send the brief", "Two minutes. Scope, budget, deadline. Enough to judge fit."],
-  ["02", "We reply in one day", "A real answer with a figure attached, not a discovery-call funnel."],
+  ["02", "We reply same day", "A real answer with a figure attached, not a discovery-call funnel."],
   ["03", "Scope gets written", "Fixed fee, dated milestones, signed before any money moves."],
 ];
 
 export default function Contact() {
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
+  const [budget, setBudget] = useState("");
 
   async function submit(e) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
     if (String(data.get("_gotcha") || "").trim() !== "") return;
-
     setStatus("sending");
     setError("");
 
     if (!LIVE) {
-      const body = encodeURIComponent([...data.entries()].filter(([k]) => !k.startsWith("_")).map(([k, v]) => k + ": " + v).join("\n"));
+      const body = encodeURIComponent(
+        [...data.entries()].filter(([k]) => !k.startsWith("_")).map(([k, v]) => k + ": " + v).join("\n")
+      );
       window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("New project enquiry") + "&body=" + body;
       setStatus("success");
       return;
@@ -37,9 +40,10 @@ export default function Contact() {
       if (!res.ok) throw new Error("failed");
       setStatus("success");
       form.reset();
+      setBudget("");
     } catch {
       setStatus("error");
-      setError(`Sending failed. Email ${EMAIL} directly and we will pick it up.`);
+      setError(`Sending failed. WhatsApp us on +1 876 520 6119 and it will be picked up.`);
     }
   }
 
@@ -52,15 +56,108 @@ export default function Contact() {
         </div>
 
         <h1 className="display h1 mt-4">
-          Tell us the <span className="amber">scope.</span>
+          Send the <span className="amber">scope.</span>
         </h1>
 
         <p className="lede mt-5">
-          The more specific you are, the more specific our answer. {RESPONSE_TIME}.
+          WhatsApp is fastest. {RESPONSE_TIME}. The more specific you are, the more
+          specific the answer.
         </p>
 
-        <div className="rule mt-12 grid gap-12 pt-10 lg:grid-cols-12">
-          <div className="flex flex-col gap-9 lg:col-span-5">
+        <div className="mt-6 flex flex-col gap-2.5">
+          <a
+            href={WA}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary btn-block"
+          >
+            Message on WhatsApp
+          </a>
+          <a href={`tel:${PHONE}`} className="btn btn-ghost btn-block">
+            Call {PHONE_DISPLAY}
+          </a>
+        </div>
+
+        <div className="rule mt-10 grid gap-10 pt-9 lg:grid-cols-12">
+          <form onSubmit={submit} className="flex flex-col gap-4 lg:order-2 lg:col-span-7">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="flex flex-col gap-2">
+                <span className="label">Name *</span>
+                <input name="name" required autoComplete="name" className="field" />
+              </label>
+              <label className="flex flex-col gap-2">
+                <span className="label">Email *</span>
+                <input name="email" type="email" required autoComplete="email" inputMode="email" className="field" />
+              </label>
+            </div>
+
+            <label className="flex flex-col gap-2">
+              <span className="label">What are you building? *</span>
+              <textarea
+                name="message"
+                rows={5}
+                required
+                minLength={10}
+                placeholder="What it is, who it is for, and what a win looks like."
+                className="field"
+              />
+            </label>
+
+            <div>
+              <span className="label">Budget</span>
+              <input type="hidden" name="budget" value={budget} />
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {BUDGETS.map((b) => (
+                  <button
+                    key={b}
+                    type="button"
+                    onClick={() => setBudget(b === budget ? "" : b)}
+                    className={
+                      "border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] transition " +
+                      (b === budget
+                        ? "border-amber bg-amber text-ink"
+                        : "border-line text-mute")
+                    }
+                  >
+                    {b}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <details className="border-t border-line pt-3">
+              <summary className="label py-1">Company, site, deadline</summary>
+              <div className="mt-3 grid gap-4 sm:grid-cols-2">
+                <label className="flex flex-col gap-2">
+                  <span className="label">Company</span>
+                  <input name="company" autoComplete="organization" className="field" />
+                </label>
+                <label className="flex flex-col gap-2">
+                  <span className="label">Current site</span>
+                  <input name="site" type="url" autoComplete="url" placeholder="https://" className="field" />
+                </label>
+                <label className="flex flex-col gap-2 sm:col-span-2">
+                  <span className="label">Deadline</span>
+                  <input name="deadline" placeholder="A date, or none yet" className="field" />
+                </label>
+              </div>
+            </details>
+
+            <input type="text" name="_subject" value="New project enquiry" /><input type="hidden" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
+
+            <button type="submit" disabled={status === "sending"} className="btn btn-primary w-full disabled:opacity-60">
+              {status === "sending" ? "Sending..." : "Send the brief"}
+            </button>
+
+            <p className="label">A person reads this, not a funnel. Fixed fee back in writing, same day.</p>
+
+            <p aria-live="polite" className="min-h-5 font-mono text-xs">
+              {status === "success" && <span className="text-emerald-400">Received. We reply same day.</span>}
+              {status === "error" && <span className="amber">{error}</span>}
+            </p>
+          </form>
+
+          <div className="flex flex-col gap-8 lg:order-1 lg:col-span-5">
             <div>
               <p className="label label-amber">What happens next</p>
               <ol className="mt-4">
@@ -78,88 +175,17 @@ export default function Contact() {
 
             <div>
               <p className="label label-amber">Or go direct</p>
-              <a href={`mailto:${EMAIL}`} className="mt-3 block break-all text-base hover:text-amber">{EMAIL}</a>
+              <a href={`mailto:${EMAIL}`} className="mt-3 block break-all text-sm hover:text-amber">{EMAIL}</a>
               <a href={`tel:${PHONE}`} className="mt-1 block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">{PHONE_DISPLAY}</a>
-              <a href={`tel:${PHONE_ALT}`} className="mt-1 block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">{PHONE_ALT_DISPLAY}</a>
-              <a href="https://wa.me/18765206119" target="_blank" rel="noreferrer" className="btn btn-ghost mt-4">WhatsApp us</a>
             </div>
 
             <div>
               <p className="label label-amber">Studio</p>
-              <p className="mt-2 font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-bone/70">{LOCATION} / UTC-5<br />Remote worldwide</p>
+              <p className="mt-2 font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-bone/70">{LOCATION} / UTC-5</p>
             </div>
           </div>
-
-          <form onSubmit={submit} className="flex flex-col gap-4 lg:col-span-7">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="flex flex-col gap-2">
-                <span className="label">Name *</span>
-                <input name="name" required autoComplete="name" className="field" />
-              </label>
-              <label className="flex flex-col gap-2">
-                <span className="label">Email *</span>
-                <input name="email" type="email" required autoComplete="email" className="field" />
-              </label>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="flex flex-col gap-2">
-                <span className="label">Company</span>
-                <input name="company" autoComplete="organization" className="field" />
-              </label>
-              <label className="flex flex-col gap-2">
-                <span className="label">Budget</span>
-                <select name="budget" defaultValue="" className="field">
-                  <option value="" disabled>Select</option>
-                  {BUDGETS.map((b) => <option key={b} value={b}>{b}</option>)}
-                </select>
-              </label>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="flex flex-col gap-2">
-                <span className="label">Timeline</span>
-                <select name="timeline" defaultValue="" className="field">
-                  <option value="" disabled>Select</option>
-                  {TIMELINES.map((t) => <option key={t} value={t}>{t}</option>)}
-                </select>
-              </label>
-              <label className="flex flex-col gap-2">
-                <span className="label">Current site</span>
-                <input name="site" type="url" autoComplete="url" placeholder="https://" className="field" />
-              </label>
-            </div>
-
-            <label className="flex flex-col gap-2">
-              <span className="label">What are you building? *</span>
-              <textarea name="message" rows={6} required minLength={20} placeholder="What it is, who it is for, and what a win looks like." className="field" />
-            </label>
-
-            <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
-
-            <div className="rule flex flex-col gap-3 pt-5 sm:flex-row sm:items-center sm:justify-between">
-              <p className="label">A person reads this, not a funnel.</p>
-              <button type="submit" disabled={status === "sending"} className="btn btn-primary w-full disabled:opacity-60 sm:w-auto">
-                {status === "sending" ? "Sending..." : "Send the brief"}
-              </button>
-            </div>
-
-            <p aria-live="polite" className="min-h-5 font-mono text-xs">
-              {status === "success" && <span className="text-emerald-400">Received. Check your inbox, we reply within one business day.</span>}
-              {status === "error" && <span className="amber">{error}</span>}
-            </p>
-          </form>
         </div>
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
