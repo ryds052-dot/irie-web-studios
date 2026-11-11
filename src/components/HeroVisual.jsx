@@ -31,19 +31,29 @@ void main(){
   float f = fbm(p * 2.3 + q * 1.9 + t * 0.5);
 
   vec3 amber = vec3(0.961, 0.722, 0.0);
-  vec3 deep = vec3(0.012, 0.055, 0.058);
-  vec3 col = mix(deep, amber, smoothstep(0.28, 0.95, f));
-  col = mix(col, vec3(0.90, 0.40, 0.13), smoothstep(0.70, 1.0, q.x) * 0.28);
+  vec3 deep  = vec3(0.010, 0.048, 0.052);
+  vec3 ember = vec3(0.92, 0.36, 0.10);
 
-  float bands = smoothstep(0.03, 0.0, abs(fract(f * 7.0) - 0.5) - 0.455);
-  col += amber * bands * 0.30;
+  float slope = (f - q.y) * 1.6 + (q.x - q.y) * 0.9;
+  float lit = clamp(0.5 + slope * 2.2, 0.0, 1.0);
+
+  vec3 col = mix(deep, amber, smoothstep(0.26, 0.92, f));
+  col = mix(col, ember, smoothstep(0.62, 1.0, q.x) * 0.34);
+  col *= 0.55 + lit * 0.85;
+
+  float b1 = smoothstep(0.030, 0.0, abs(fract(f * 7.0) - 0.5) - 0.455);
+  float b2 = smoothstep(0.012, 0.0, abs(fract(f * 19.0) - 0.5) - 0.470);
+  col += amber * (b1 * 0.34 + b2 * 0.16) * lit;
+
+  col += ember * pow(max(f - 0.72, 0.0), 1.6) * 0.9;
 
   vec2 g = abs(fract(uv * vec2(26.0, 15.0)) - 0.5);
-  col += vec3(1.0) * smoothstep(0.492, 0.5, max(g.x, g.y)) * 0.04;
+  col += vec3(1.0) * smoothstep(0.494, 0.5, max(g.x, g.y)) * 0.035;
 
-  float vig = smoothstep(1.35, 0.2, length(p * vec2(0.85, 1.15)));
+  float vig = smoothstep(1.45, 0.15, length(p * vec2(0.82, 1.12)));
   col *= vig;
-  col += (hash(gl_FragCoord.xy + uTime) - 0.5) * 0.028;
+  col = pow(col, vec3(0.94));
+  col += (hash(gl_FragCoord.xy + uTime) - 0.5) * 0.030;
 
   gl_FragColor = vec4(col, 1.0);
 }
@@ -180,6 +190,7 @@ export default function HeroVisual() {
     </>
   );
 }
+
 
 
 
