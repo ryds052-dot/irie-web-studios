@@ -1,7 +1,7 @@
 const STEPS = [
-  ["01", "The brief", "One call. You talk, we write it down. You leave with a fixed price and a fixed date in writing — before you pay anything."],
+  ["01", "The brief", "One call. You talk, we write it down. You leave with a fixed price and a fixed date in writing Â· before you pay anything."],
   ["02", "The build", "Hand-coded React, no templates. You see a live preview link from day one, not a big reveal at the end."],
-  ["03", "The handover", "Code, files, domain, accounts — all yours at launch. Three revision rounds included, then a care plan if you want one."],
+  ["03", "The handover", "Code, files, domain, accounts Â· all yours at launch. Three revision rounds included, then a care plan if you want one."],
 ];
 
 export default function Process() {

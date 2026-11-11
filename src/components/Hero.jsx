@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 
 const WA = "https://wa.me/18765206119?text=" +
-  encodeURIComponent("Hi Irie Web Studios — I need a website for my business. Which of the 2 slots is still open?");
+  encodeURIComponent("Hi Irie Web Studios Â· I need a website for my business. Which of the 2 slots is still open?");
 
 export default function Hero() {
   return (
     <section className="hero-mono">
       <div className="hero-frame">
-        <span className="hero-chip">? 1 of 2 slots left — Q4 2026</span>
+        <span className="hero-chip">? 1 of 2 slots left Â· Q4 2026</span>
       </div>
 
       <div className="hero-center">
@@ -33,7 +33,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.2 }}
         >
-          Hand-built websites for Jamaican businesses — live in days,
+          Hand-built websites for Jamaican businesses Â· live in days,
           found on Google, priced in plain numbers. Zero templates.
         </motion.p>
 
@@ -44,7 +44,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 1.5 }}
         >
           <a className="hero-cta-primary" href={WA} target="_blank" rel="noreferrer">
-            WhatsApp us — replies in hours
+            WhatsApp us Â· replies in hours
           </a>
           <a className="hero-cta-ghost" href="#/work">See the work ?</a>
         </motion.div>
@@ -55,11 +55,11 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.8 }}
         >
-          Launch $285 · Momentum $985 · Flagship $2,165 — fixed fee, written scope
+          Launch $285 Â· Momentum $985 Â· Flagship $2,165 Â· fixed fee, written scope
         </motion.p>
       </div>
 
-      <p className="hero-foot">15 min · no prep · no pitch — Trusted by Earth Family Farms · Trini-Yaad</p>
+      <p className="hero-foot">15 min Â· no prep Â· no pitch Â· Trusted by Earth Family Farms Â· Trini-Yaad</p>
     </section>
   );
 }

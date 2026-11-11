@@ -43,7 +43,7 @@ export default function Studio() {
           <Reveal delay={80}>
             <p className="lede mt-6 max-w-xl">
               One engineer, one communicator, working out of {LOCATION}. When you
-              call, you get the person doing the work — from the first message to
+              call, you get the person doing the work Â· from the first message to
               launch day.
             </p>
           </Reveal>
@@ -58,14 +58,14 @@ export default function Studio() {
               <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-bone/80 md:text-base">
                 <Reveal delay={60}>
                   <p>
-                    Your site gets built by one person, start to finish — the pages your
+                    Your site gets built by one person, start to finish Â· the pages your
                     customers see, the server behind them, the database in the middle.
                     Nothing gets lost between departments because there are no departments.
                   </p>
                 </Reveal>
                 <Reveal delay={110}>
                   <p>
-                    Your customers are mostly on phones, on island data — so every page
+                    Your customers are mostly on phones, on island data Â· so every page
                     is built to open fast on exactly that. And before anything ships, it
                     gets read and tested line by line, because the problems that cost you
                     customers are the ones that only show up after launch.
@@ -77,7 +77,7 @@ export default function Studio() {
                 <div className="mt-8 border-t border-line pt-5">
                   <p className="label label-amber">Hands on</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
-                    {["Wallet security audits", "Smart contract review", "Post-compromise wallet forensics", "Security hardening", "Malware recovery", "SPF / DKIM / DMARC", "MFA rollout", "PCI scope reduction", "Payment gateways", "POS integration", "Cloud config review", "Managed hosting", "DNS", "WhatsApp automation", "CRM architecture", "WebGL / Three.js", "React", "Node", "Performance budgets", "Technical SEO · JSON-LD"].map((t) => (
+                    {["Wallet security audits", "Smart contract review", "Post-compromise wallet forensics", "Security hardening", "Malware recovery", "SPF / DKIM / DMARC", "MFA rollout", "PCI scope reduction", "Payment gateways", "POS integration", "Cloud config review", "Managed hosting", "DNS", "WhatsApp automation", "CRM architecture", "WebGL / Three.js", "React", "Node", "Performance budgets", "Technical SEO Â· JSON-LD"].map((t) => (
                       <span key={t} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{t}</span>
                     ))}
                   </div>
@@ -151,7 +151,7 @@ export default function Studio() {
           <div className="rule mt-14 flex flex-wrap items-center justify-between gap-4 pt-8 pb-4">
             <p className="label">Fixed fee, fixed date, in writing.</p>
             <Link to="/contact" className="btn btn-primary">Book a free call</Link>
-            <p className="label w-full !text-[9px]">15 min · no prep · no pitch</p>
+            <p className="label w-full !text-[9px]">15 min Â· no prep Â· no pitch</p>
           </div>
         </div>
       </div>

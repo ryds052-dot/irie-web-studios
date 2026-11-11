@@ -25,7 +25,7 @@ export default function StickyCTA() {
       <div className="flex items-center justify-between gap-4 px-5 py-3">
         <div>
           <p className="label !text-[9px]">{AVAILABILITY}</p>
-          <p className="font-mono text-[11px] text-bone mt-0.5">Free 15-min call · no prep</p>
+          <p className="font-mono text-[11px] text-bone mt-0.5">Free 15-min call Â· no prep</p>
         </div>
         <Link to="/contact" className="btn btn-primary !px-5 !py-2.5 whitespace-nowrap">Book it</Link>
       </div>

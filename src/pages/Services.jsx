@@ -27,7 +27,7 @@ const PACKAGES = [
 
 const INCLUDED = [
   "A fixed fee agreed before you pay anything.",
-  "One written scope — the price we quote is the price you pay.",
+  "One written scope Â· the price we quote is the price you pay.",
   "Direct access to the two people building your site.",
   "Code, accounts and files handed over at launch. All yours.",
 ];
@@ -104,7 +104,7 @@ export default function Services() {
                 </div>
               ))}
             </div>
-            <p className="label mt-4 !text-[9px]">Not sure which fits? A 15-minute call settles it — no prep needed.</p>
+            <p className="label mt-4 !text-[9px]">Not sure which fits? A 15-minute call settles it Â· no prep needed.</p>
           </div>
 
           <div id="rates" className="rule mt-12 pt-8">
@@ -163,7 +163,7 @@ export default function Services() {
             <h2 className="display h2 mx-auto max-w-2xl">You have seen the numbers. <span className="amber">Now talk.</span></h2>
             <p className="lede mx-auto mt-4">Tell us the scope and we will give you the exact figure in writing, inside one business day.</p>
             <Link to="/contact" className="btn btn-primary mt-8">Get a written quote</Link>
-            <p className="label mt-3 !text-[9px]">Free · 15 min · no pitch</p>
+            <p className="label mt-3 !text-[9px]">Free Â· 15 min Â· no pitch</p>
           </div>
         </div>
       </div>

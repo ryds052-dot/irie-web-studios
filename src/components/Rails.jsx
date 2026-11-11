@@ -26,7 +26,7 @@ export default function Rails() {
     <>
       <div className="pointer-events-none fixed left-4 top-1/2 z-[60] hidden -translate-y-1/2 md:block">
         <span className="label" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
-          Irie Web Studios — Kingston JM
+          Irie Web Studios Â· Kingston JM
         </span>
       </div>
       <div className="pointer-events-none fixed right-4 top-1/2 z-[60] hidden -translate-y-1/2 md:block">

@@ -1,6 +1,7 @@
 ﻿import { Component, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import SiteDoctor from "./components/SiteDoctor";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
 
 const WorkIndex = lazy(() => import("./pages/WorkIndex"));
@@ -28,23 +29,31 @@ class ErrorBoundary extends Component {
   }
 }
 
+function Fallback() {
+  return (
+    <div style={{ padding: 40, color: "#f4f3ef", fontFamily: "monospace" }}>loading...</div>
+  );
+}
+
 export default function App() {
   return (
     <ErrorBoundary>
       <SiteDoctor />
       <BrowserRouter>
-        <Suspense fallback={<div style={{ padding: 40, color: "#fff" }}>loading...</div>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work" element={<WorkIndex />} />
-            <Route path="/work/:slug" element={<CaseStudy />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/studio" element={<Studio />} />
-            <Route path="/pricing" element={<Navigate to="/services" replace />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+        <Layout>
+          <Suspense fallback={<Fallback />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/work" element={<WorkIndex />} />
+              <Route path="/work/:slug" element={<CaseStudy />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/studio" element={<Studio />} />
+              <Route path="/pricing" element={<Navigate to="/services" replace />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </Layout>
       </BrowserRouter>
     </ErrorBoundary>
   );

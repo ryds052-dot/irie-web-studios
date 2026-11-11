@@ -489,7 +489,7 @@ html.root-mode .btn-primary { box-shadow: 0 0 32px rgba(200,169,106,0.3); }
   animation: vt-fade 1.2s ease 2.15s both;
 }
 
-/* wordmark — foil letters, one light pass */
+/* wordmark Â· foil letters, one light pass */
 .vt-word-wrap { position: relative; overflow: hidden; margin-top: 8px; }
 .vt-word {
   display: flex; justify-content: center; flex-wrap: wrap;
@@ -515,7 +515,7 @@ html.root-mode .btn-primary { box-shadow: 0 0 32px rgba(200,169,106,0.3); }
 }
 @keyframes vt-sweep { to { transform: skewX(-20deg) translateX(560%); } }
 
-/* ornament rule — hairlines + diamond */
+/* ornament rule Â· hairlines + diamond */
 .vt-orn { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 30px; }
 .vt-hair { display: block; width: 74px; height: 1px; background: linear-gradient(90deg, transparent, rgba(var(--gold),0.75)); }
 .vt-hair:last-child { transform: scaleX(-1); }

@@ -38,7 +38,7 @@ export default function Hero() {
           <Magnetic>
             <div>
               <Link to="/contact" className="btn btn-ghost inline-block">Book a free call</Link>
-              <p className="label mt-2 !text-[9px]">15 min · no prep · no pitch</p>
+              <p className="label mt-2 !text-[9px]">15 min Â· no prep Â· no pitch</p>
             </div>
           </Magnetic>
         </div>

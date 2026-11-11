@@ -41,7 +41,7 @@ export default function WorkPeek() {
       className="pointer-events-none fixed top-0 left-0 z-[75] border border-gold/50 bg-ink px-4 py-3 opacity-0 transition-opacity duration-200 hidden md:block"
       style={{ willChange: "transform" }}
     >
-      <p className="wp-title font-mono text-[11px] uppercase tracking-[0.2em] text-bone">—</p>
+      <p className="wp-title font-mono text-[11px] uppercase tracking-[0.2em] text-bone">Â·</p>
       <p className="label mt-1 !text-[9px] text-gold">View case &rarr;</p>
     </div>
   );
