@@ -35,26 +35,48 @@ void main(){
   vec3 deep  = vec3(0.010, 0.048, 0.052);
   vec3 ember = vec3(0.92, 0.36, 0.10);
 
-  float slope = (f - q.y) * 1.6 + (q.x - q.y) * 0.9;
-  float lit = clamp(0.5 + slope * 2.2, 0.0, 1.0);
+  vec2 dir = q - 0.5;
+  float dl = max(length(dir), 1e-4);
+  vec3 n = normalize(vec3(dir / dl, 0.8));
+  vec3 L = normalize(vec3(-0.45, 0.60, 0.66));
+  float diff = clamp(dot(n, L) * 0.55 + 0.45, 0.0, 1.0);
+  float spec = pow(clamp(dot(reflect(-L, n), vec3(0.0, 0.0, 1.0)), 0.0, 1.0), 26.0);
 
-  vec3 col = mix(deep, amber, smoothstep(0.26, 0.92, f));
-  col = mix(col, ember, smoothstep(0.62, 1.0, q.x) * 0.34);
-  col *= 0.55 + lit * 0.85;
+  vec3 col = mix(deep, amber, smoothstep(0.24, 0.90, f));
+  col = mix(col, ember, smoothstep(0.60, 1.0, q.x) * 0.36);
+  col *= 0.42 + diff * 1.05;
 
-  float b1 = smoothstep(0.030, 0.0, abs(fract(f * 7.0) - 0.5) - 0.455);
-  float b2 = smoothstep(0.012, 0.0, abs(fract(f * 19.0) - 0.5) - 0.470);
-  col += amber * (b1 * 0.34 + b2 * 0.16) * lit;
+  float b1 = smoothstep(0.028, 0.0, abs(fract(f * 7.0) - 0.5) - 0.455);
+  float b2 = smoothstep(0.010, 0.0, abs(fract(f * 23.0) - 0.5) - 0.472);
+  col += amber * (b1 * 0.30 + b2 * 0.13) * diff;
 
-  col += ember * pow(max(f - 0.72, 0.0), 1.6) * 0.9;
+  col += vec3(1.0, 0.92, 0.75) * spec * 0.55;
+  col += ember * pow(max(f - 0.70, 0.0), 1.7) * 1.05;
+
+  float sh = noise(p * 26.0 + vec2(uTime * 0.6, uTime * 0.22));
+  col *= 0.96 + sh * 0.08;
+
+  vec2 lc = vec2(-0.35, 0.55);
+  float ang = atan(uv.y - lc.y, uv.x - lc.x);
+  float ray = pow(abs(sin(ang * 9.0 + uTime * 0.15)), 6.0) * smoothstep(1.1, 0.1, length(uv - lc));
+  col += amber * ray * 0.12;
 
   vec2 g = abs(fract(uv * vec2(26.0, 15.0)) - 0.5);
-  col += vec3(1.0) * smoothstep(0.494, 0.5, max(g.x, g.y)) * 0.035;
+  col += vec3(1.0) * smoothstep(0.496, 0.5, max(g.x, g.y)) * 0.03;
 
-  float vig = smoothstep(1.45, 0.15, length(p * vec2(0.82, 1.12)));
+  float depth = smoothstep(1.8, 0.05, length(p));
+  col *= 0.32 + depth * 0.95;
+
+  float vig = smoothstep(1.5, 0.12, length(p * vec2(0.8, 1.1)));
   col *= vig;
-  col = pow(col, vec3(0.94));
-  col += (hash(gl_FragCoord.xy + uTime) - 0.5) * 0.030;
+
+  col.r *= 1.0 + 0.12 * (1.0 - diff);
+  col.b *= 1.0 + 0.18 * diff;
+
+  col = col / (col + 0.85) * 1.8;
+
+  float bayer = fract(dot(gl_FragCoord.xy, vec2(0.5, 0.25)));
+  col += (bayer - 0.5) * 0.020;
 
   gl_FragColor = vec4(col, 1.0);
 }
@@ -117,7 +139,6 @@ export default function HeroVisual() {
         gl.viewport(0, 0, w, h);
       }
       gl.uniform2f(uRes, canvas.width, canvas.height);
-      return true;
     };
 
     let mx = 0, my = 0, tx = 0, ty = 0;
@@ -191,11 +212,3 @@ export default function HeroVisual() {
     </>
   );
 }
-
-
-
-
-
-
-
-
