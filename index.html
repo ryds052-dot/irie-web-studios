@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
+    
     <meta name="twitter:title" content="Irie Web Studios - Web Design and Development" />
     <meta name="twitter:description" content="Websites that convert. Fixed price, written scope. Kingston, Jamaica." />
     <meta name="twitter:image" content="https://iriewebstudios.com/og.jpg" />
@@ -31,8 +31,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 
-        <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://iriewebstudios.com/#studio","name":"Irie Web Studios","alternateName":["IRIE Studio"],"url":"https://iriewebstudios.com/","email":"iriewebstudios@iriewebstudios.com","telephone":"+18765206119","image":"https://iriewebstudios.com/og.jpg","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Kingston 6","addressRegion":"Kingston","addressCountry":"JM"},"areaServed":[{"@type":"Country","name":"Jamaica"},{"@type":"City","name":"Kingston"}],"founder":[{"@type":"Person","name":"Ryder Lee"},{"@type":"Person","name":"Nelson Denny"}],"sameAs":["https://www.instagram.com/iriewebstudios/","https://github.com/ryds052-dot"]},{"@type":"WebSite","@id":"https://iriewebstudios.com/#website","url":"https://iriewebstudios.com/","name":"Irie Web Studios","inLanguage":"en-JM","publisher":{"@id":"https://iriewebstudios.com/#studio"}}]}</script>
-  <meta name="build-stamp" content="monolith-v1" /><script id="sw-nuke">
+        <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://iriewebstudios.com/#studio","name":"Irie Web Studios","alternateName":["IRIE Studio"],"url":"https://iriewebstudios.com/","email":"iriewebstudios@iriewebstudios.com","telephone":"+18765206119","image":"https://iriewebstudios.com/og.jpg","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Kingston 6","addressRegion":"Kingston","addressCountry":"JM"},"areaServed":[{"@type":"Country","name":"Jamaica"},{"@type":"City","name":"Kingston"}],"founder":[{"@type":"Person","name":"Ryder Lee"},{"@type":"Person","name":"Nelson Denny"}],"sameAs":["https://www.instagram.com/iriewebstudios/","https://github.com/ryds052-dot"]},{"@type":"WebSite","@id":"https://iriewebstudios.com/#website","url":"https://iriewebstudios.com/","name":"Irie Web Studios","inLanguage":"en-JM","publisher":{"@id":"https://iriewebstudios.com/#studio"}}]}</script><script id="sw-nuke">
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.getRegistrations().then(function (rs) {
     rs.forEach(function (r) { r.unregister(); });
@@ -44,26 +43,6 @@ if (window.caches) { caches.keys().then(function (ks) { ks.forEach(function (k) 
   <body class="grain bg-[#080807] text-[#f4f3ef] antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  <script id="overlay-killer">
-(function(){
-  function kill(){
-    var w = innerWidth, h = innerHeight;
-    document.querySelectorAll("body *").forEach(function(el){
-      if (/^(SCRIPT|STYLE|LINK|META|HEAD|TITLE|NOSCRIPT|HTML|BODY|HEADER|FOOTER|NAV|MAIN)$/.test(el.tagName)) return;
-      var s = getComputedStyle(el);
-      if (s.position !== "fixed" && s.position !== "absolute") return;
-      var r = el.getBoundingClientRect();
-      if (r.width < w*0.8 || r.height < h*0.8) return;
-      var m = s.backgroundColor.match(/rgba?$([^)]+)$/);
-      var alpha = 1, lum = 0;
-      if (m) { var p = m[1].split(",").map(parseFloat); alpha = p.length > 3 ? p[3] : 1; lum = (p[0]+p[1]+p[2])/3; }
-      if (lum < 90 && alpha > 0.05) { el.style.setProperty("display","none","important"); }
-    });
-  }
-  document.addEventListener("DOMContentLoaded", kill);
-  setTimeout(kill, 300); setTimeout(kill, 1200); setTimeout(kill, 3000);
-})();
-</script>
   </body>
 </html>
 
