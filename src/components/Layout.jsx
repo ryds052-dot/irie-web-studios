@@ -1,5 +1,4 @@
-﻿import SafeTerminal from "./SafeTerminal";
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const NAV = [
@@ -108,7 +107,6 @@ export default function Layout({ children }) {
   ))}
   <a href="https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call." target="_blank" rel="noreferrer" className="mbar-book">Book</a>
 </nav>
-      <SafeTerminal />
     </>
   );
 }

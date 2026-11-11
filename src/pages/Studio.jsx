@@ -171,7 +171,7 @@ export default function Studio() {
           <div className="rule mt-14 flex flex-wrap items-center justify-between gap-4 pt-8 pb-4">
             <p className="label">Fixed fee, fixed date, in writing.</p>
             <Link to="/contact" className="btn btn-primary">Book 15 min on WhatsApp</Link>
-            <p className="label w-full !text-[9px]">15 min � no prep � no pitch</p>
+            
           </div>
         </div>
       </div>

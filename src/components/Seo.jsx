@@ -1,4 +1,4 @@
-﻿import { useEffect } from "react";
+import { useEffect } from "react";
 import { SITE_URL } from "../lib/site";
 
 const setMeta = (attr, key, value) => {
@@ -21,7 +21,7 @@ const setLink = (rel, href) => {
   el.setAttribute("href", href);
 };
 
-export default function Seo({ title, description, path = "/" }) {
+export default function Seo({ title, description, path = "/", image, noindex = false }) {
   useEffect(() => {
     const url = `${SITE_URL}${path}`;
     if (title) document.title = title;
@@ -34,9 +34,14 @@ export default function Seo({ title, description, path = "/" }) {
       setMeta("property", "og:title", title);
       setMeta("name", "twitter:title", title);
     }
+    if (image) {
+      setMeta("property", "og:image", image);
+      setMeta("name", "twitter:image", image);
+    }
+    setMeta("name", "robots", noindex ? "noindex,follow" : "index,follow");
     setMeta("property", "og:url", url);
     setLink("canonical", url);
-  }, [title, description, path]);
+  }, [title, description, path, image, noindex]);
 
   return null;
 }

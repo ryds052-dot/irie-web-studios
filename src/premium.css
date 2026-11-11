@@ -1116,3 +1116,18 @@ input::placeholder, textarea::placeholder { color: #6a6862; }
   .mbar { justify-content: space-between; gap: 2px; padding-inline: 10px; }
   .mbar a { flex: 1; }
 }
+
+/* === SEAMLESS SECTIONS === */
+section { border-top: 1px solid rgba(200,169,106,.12); }
+section:first-of-type { border-top: 0; }
+.wrap > .rule, .wrap > div > .rule, .wrap > section > .rule { border-top: 0; }
+section, .pad { padding-inline: 20px; }
+section { padding-block: 56px; }
+@media (min-width: 768px) { section { padding-block: 96px; } }
+.h2, .display.h2, h2.display, .h3, h3 { text-transform: none; }
+.h3, h3 { letter-spacing: -.015em; }
+.marquee { display: none; }
+section:last-of-type { border-bottom: 0; }
+@media (max-width: 767px) {
+  section > * + * { margin-top: 18px; }
+}

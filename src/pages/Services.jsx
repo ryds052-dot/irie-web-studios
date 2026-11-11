@@ -162,7 +162,7 @@ export default function Services() {
             <h2 className="display h2 mx-auto max-w-2xl">You have seen the numbers. <span className="amber">Now talk.</span></h2>
             <p className="lede mx-auto mt-4">Send the scope on WhatsApp and the exact figure comes back in writing the same day. If the first draft misses the brief, round two is free.</p>
             <Link to="/contact" className="btn btn-primary mt-8">Get a written quote</Link>
-            <p className="label mt-3 !text-[9px]">Free � 15 min � no pitch</p>
+            
           </div>
         </div>
       </div>

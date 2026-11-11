@@ -1,8 +1,6 @@
-import { lazy, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Preloader from "./Preloader";
 import StickyCTA from "./StickyCTA";
-
-const Backdrop = lazy(() => import("./Backdrop"));
 
 function Spotlight() {
   const ref = useRef(null);
