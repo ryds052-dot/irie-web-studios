@@ -14,7 +14,7 @@
       "Lot detail sits behind a short enquiry form, so viewings arrive qualified.",
       "Pages built to load on one bar of signal up in the hills.",
     ],
-    stack: ["Next.js", "Tailwind CSS", "Vercel Edge", "SEO"],
+    stack: ["React", "Tailwind CSS", "Vercel Edge", "SEO"],
     results: [["100+", "Acres"], ["300+", "Fruit trees"], ["2", "Rivers"]],
     quote: ["The site does the walking for us. People arrive already serious.", "Michael Lee", "Owner"],
     href: "https://earth-family-farms.vercel.app/",
@@ -35,7 +35,7 @@
       "Built to open fast on a 3G phone, because that is the real connection.",
     ],
     stack: ["React", "Tailwind CSS", "Edge CDN", "Interactive UI"],
-    results: [["4.4", "Rated, Kingston"], ["WA", "Order channel"], ["0", "App installs"]],
+    results: [["2", "Taps to order"], ["WA", "Order channel"], ["0", "App installs"]],
     quote: ["The queue does not wait for a slow page.", "Misir Ramberran", "Founder"],
     href: "https://trini-yaad.vercel.app/",
   },
@@ -57,9 +57,10 @@
     stack: ["Three.js", "R3F", "GSAP", "Lenis", "Tailwind CSS"],
     results: [["0", "Templates"], ["1", "Frame on mobile"], ["60", "FPS target"]],
     quote: ["If we would not ship it for ourselves, we will not ship it for you.", "Ryder Lee", "Co-founder"],
-    href: "https://iriewebstudios.com/work/irie-core",
+    href: "https://iriewebstudios.com/",
   },
 ];
 
 export const getProject = (slug) => PROJECTS.find((p) => p.slug === slug);
+
 
