@@ -3,21 +3,6 @@ import Seo from "../components/Seo";
 import { Reveal } from "../components/FxLayer";
 import { LOCATION } from "../lib/site";
 
-const FACTS = [
-  ["Based", "Kingston 6, Jamaica"],
-  ["Does", "Everything technical"],
-  ["House style", "Tropical brutalist"],
-  ["Languages", "EN, Patois"],
-  ["Team", "Two, by name"],
-];
-
-const BUYS = [
-  ["It opens instantly", "Built for a bad phone signal, not your office wifi."],
-  ["It gets found", "Search setup done at build, not bolted on after."],
-  ["It holds up", "Forms, logins and security done properly the first time."],
-  ["You keep it", "Code, files and accounts are yours at launch."],
-];
-
 const FIT = [
   ["You have a real business and a site that undersells it.", "You want the cheapest quote on the internet."],
   ["You want one person accountable, not a committee.", "You want to art-direct by group chat."],
@@ -210,7 +195,7 @@ export default function Studio() {
             </h2>
             <div className="flex flex-col gap-2.5 sm:flex-row md:justify-end">
               <Link to="/work" className="btn btn-primary btn-block">See the work</Link>
-              <Link to="/contact" className="btn btn-ghost btn-block">Start a project</Link>
+              <Link to="/contact" className="btn btn-ghost btn-block">Book a free call</Link>
             </div>
           </div>
         </div>
@@ -218,6 +203,9 @@ export default function Studio() {
     </>
   );
 }
+
+
+
 
 
 

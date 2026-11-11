@@ -1,6 +1,6 @@
 ﻿import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
-import { GROUPS, RETAINERS, PACKAGES, TERMS } from "../data/rates";
+import { GROUPS, RETAINERS, TERMS } from "../data/rates";
 
 const NEVER = [
   "A template with your logo dropped in.",
@@ -20,7 +20,7 @@ export default function Services() {
   return (
     <>
       <Seo
-        title="Services and Rates - Irie Web Studios"
+        title="Web Design Kingston Jamaica - Services and Rates | Irie Web Studios"
         description="Brand identity, web design, development, WebGL motion, SEO and CRO. Every price published in USD, fixed fee with a written scope."
         path="/services"
       />
@@ -28,7 +28,7 @@ export default function Services() {
         <div className="wrap">
           <p className="label label-amber">Services</p>
           <h1 className="display h1 mt-4">
-            What we do, and <span className="amber">what it costs.</span>
+            Web design in Kingston, <span className="amber">priced in the open.</span>
           </h1>
 
           <div className="rule mt-8 grid gap-6 pb-8 md:grid-cols-[1.3fr_1fr] md:items-end">
@@ -143,6 +143,8 @@ export default function Services() {
     </>
   );
 }
+
+
 
 
 

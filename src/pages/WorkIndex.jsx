@@ -6,7 +6,7 @@ export default function WorkIndex() {
   return (
     <>
       <Seo
-        title="Selected Work - Irie Web Studios"
+        title="Web Design Portfolio Jamaica - Selected Work | Irie Web Studios"
         description="Three builds with the brief, the approach and the result. Booking funnels, ordering engines and WebGL systems from Kingston, Jamaica."
         path="/work"
       />
@@ -14,7 +14,7 @@ export default function WorkIndex() {
         <div className="wrap">
           <p className="label label-amber">Selected work</p>
           <h1 className="display h1 mt-4">
-            The receipts.
+            Built in Kingston, <span className="amber">live in the wild.</span>
           </h1>
           <p className="lede mt-5">
             No stock photography, no invented metrics. Each one has the brief, the approach and what changed.
@@ -44,11 +44,13 @@ export default function WorkIndex() {
           </div>
 
           <div className="py-16 text-center">
-            <Link to="/contact" className="btn btn-primary">Start a project</Link>
+            <Link to="/contact" className="btn btn-primary">Book a free call</Link>
           </div>
         </div>
       </div>
     </>
   );
 }
+
+
 

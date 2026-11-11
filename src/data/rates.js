@@ -31,7 +31,13 @@ export const GROUPS = [
     ["Backlink outreach campaign", `${p(180)}-${p(445)}`],
     ["Keyword research report", `${p(90)}-${p(205)}`],
   ]},
-  { id: "social", label: "Social and ads", items: [
+  { id: "google", label: "Google Business Profile and reviews", items: [
+    ["Google Business Profile setup", `${p(115)}-${p(270)}`, "Claim, verify, categories, photos, hours."],
+    ["Google Business Profile management, monthly", `${p(115)}-${p(270)}`],
+    ["Review management, monthly", `${p(90)}-${p(225)}`, "Request flows and reply handling."],
+    ["Local citation cleanup", `${p(115)}-${p(310)}`],
+  ]},
+  { id: "social", label: "Social media and ads", items: [
     ["Social management, monthly", `${p(160)}-${p(445)}`],
     ["Paid ads management, monthly", `12-15% of spend, minimum ${p(225)}`],
     ["Ad creative pack, 5 pieces", `${p(90)}-${p(205)}`],
@@ -114,3 +120,4 @@ export const TERMS = [
   "Retainers billed monthly in advance. A 12-month term takes 10% off.",
   "Retainer cancellation: 30 days written notice.",
 ];
+

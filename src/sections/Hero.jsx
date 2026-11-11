@@ -29,7 +29,7 @@ export default function Hero() {
 
         <div className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:gap-3 md:mt-9">
           <Link to="/work" className="btn btn-primary">See the work</Link>
-          <Link to="/contact" className="btn btn-ghost">Start a project</Link>
+          <Link to="/contact" className="btn btn-ghost">Book a free call</Link>
         </div>
 
         <div className="rule mt-8 flex items-center justify-between gap-4 pt-4 md:mt-11">
@@ -40,3 +40,4 @@ export default function Hero() {
     </section>
   );
 }
+

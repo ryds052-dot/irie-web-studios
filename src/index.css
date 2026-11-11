@@ -400,3 +400,21 @@ a[href]:not(.btn):not(.card) { transition: color var(--dur-fast) var(--ease-out-
 @media (max-width: 767px) {
   #hero-container canvas { filter: blur(0.35px); }
 }
+
+/* ============ IPHONE PASS ============ */
+@media (max-width: 767px) {
+  .label { font-size: 0.6875rem; letter-spacing: 0.2em; }
+  .lede { font-size: 1rem; line-height: 1.65; }
+  .pad { padding-inline: 1.5rem; }
+  .btn { min-height: 3rem; }
+  a, button { min-height: 0; }
+  .btn, nav a, footer a, ol a { min-height: 2.75rem; display: inline-flex; align-items: center; }
+  .card { padding: 1.25rem; }
+  section { scroll-margin-top: 4.5rem; }
+  .display.h1 { font-size: clamp(2.15rem, 10.5vw, 3rem); }
+  #hero-container { min-height: 88svh; }
+  #hero-container canvas { filter: blur(0.2px); }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}

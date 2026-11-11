@@ -86,7 +86,7 @@ export default function Header() {
           </nav>
           <div className="safe-bottom">
             <Link to="/contact" className="btn btn-primary w-full">
-              Start a project
+              Book a free call
             </Link>
             <p className="label mt-4">{AVAILABILITY}</p>
           </div>
@@ -95,6 +95,7 @@ export default function Header() {
     </>
   );
 }
+
 
 
 

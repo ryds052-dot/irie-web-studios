@@ -19,7 +19,7 @@ export default function Layout({ children }) {
         Skip to content
       </a>
       <Header />
-      <main id="main" ref={main} tabIndex={-1} key={pathname} className="pb-20 outline-none md:pb-0">
+      <main id="main" ref={main} tabIndex={-1} key={pathname} className="pb-28 outline-none md:pb-0">
         {children}
       </main>
       <Footer />
@@ -27,3 +27,4 @@ export default function Layout({ children }) {
     </>
   );
 }
+

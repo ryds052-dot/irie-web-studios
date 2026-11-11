@@ -21,8 +21,9 @@ export default function MobileBar() {
       }`}
     >
       <Link to="/contact" className="btn btn-primary w-full">
-        Start a project &rarr;
+        Book a free call &rarr;
       </Link>
     </div>
   );
 }
+

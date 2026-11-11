@@ -105,7 +105,7 @@ export default function Home() {
           <h2 className="display h2 mx-auto max-w-3xl">Two slots left <span className="amber">this quarter.</span></h2>
           <p className="lede mx-auto mt-5">Tell us the scope. We will tell you the figure in writing within one business day.</p>
           <div className="mt-8 flex flex-col justify-center gap-2.5 sm:flex-row">
-            <Link to="/contact" className="btn btn-primary btn-block">Start a project</Link>
+            <Link to="/contact" className="btn btn-primary btn-block">Book a free call</Link>
             <Link to="/services" className="btn btn-ghost btn-block">See every price</Link>
           </div>
         </div>
@@ -113,3 +113,4 @@ export default function Home() {
     </>
   );
 }
+
