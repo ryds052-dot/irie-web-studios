@@ -17,7 +17,7 @@ export default function Services() {
     <>
       <Seo
         title="Web Design Kingston Jamaica - Services and Rates | Irie Web Studios"
-        description="Websites from US$285, live in 7 days. Every rate is printed on this page in US$: web, brand, SEO, security and more. Fixed price, written scope."
+        description="Websites US$285, live in 7 days. Every rate is printed on this page in US$: web, brand, SEO, security and more. Fixed price, written scope."
         path="/services"
       />
 
@@ -50,7 +50,7 @@ export default function Services() {
           </div>
 
           <p className="mt-10 max-w-[46ch] text-sm leading-relaxed text-mute">
-            Everything below is a range or a starting figure, because the work varies. Your written quote turns it into one number, agreed before you pay, and it does not move after.
+            Everything below is a flat price. Your written quote fixes the total before you pay, and it does not move after.
           </p>
 
           {GROUPS.map((g, gi) => (
