@@ -783,3 +783,13 @@ img { content-visibility: auto; }
 }
 ::selection { background: #c8a96a; color: #080807; }
 html { scroll-behavior: smooth; }
+
+/* === IRIE FINISH === */
+h1, h2, .display { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+img { content-visibility: auto; }
+@media (max-width: 640px) {
+  .display { letter-spacing: -0.02em; }
+}
+::selection { background: #c8a96a; color: #080807; }
+html { scroll-behavior: smooth; }

@@ -1,6 +1,5 @@
 import { Suspense, lazy, useEffect, useRef } from "react";
 import Preloader from "./Preloader";
-import Cursor from "./Cursor";
 
 const Backdrop = lazy(() => import("./Backdrop"));
 
@@ -26,9 +25,7 @@ function Spotlight() {
 export default function Premium({ children }) {
   return (
     <Preloader>
-      <Cursor />
       <Spotlight />
-      {null}
       {children}
     </Preloader>
   );

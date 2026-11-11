@@ -1,8 +1,10 @@
-﻿import WhatsAppFab from "./components/WhatsAppFab";
+import WhatsAppFab from "./components/WhatsAppFab";
 import { Analytics } from "@vercel/analytics/react";
 import { Component, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
+import Premium from "./components/Premium";
+import FxLayer from "./components/FxLayer";
 import Home from "./pages/Home";
 
 const WorkIndex = lazy(() => import("./pages/WorkIndex"));
@@ -42,20 +44,23 @@ export default function App() {
       <Analytics />
       <WhatsAppFab />
       <BrowserRouter>
-        <Layout>
-          <Suspense fallback={<Fallback />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/work" element={<WorkIndex />} />
-              <Route path="/work/:slug" element={<CaseStudy />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/studio" element={<Studio />} />
-              <Route path="/pricing" element={<Navigate to="/services" replace />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </Layout>
+        <FxLayer />
+        <Premium>
+          <Layout>
+            <Suspense fallback={<Fallback />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/work" element={<WorkIndex />} />
+                <Route path="/work/:slug" element={<CaseStudy />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/studio" element={<Studio />} />
+                <Route path="/pricing" element={<Navigate to="/services" replace />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Layout>
+        </Premium>
       </BrowserRouter>
     </ErrorBoundary>
   );
