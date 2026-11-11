@@ -737,3 +737,41 @@ html.root-mode .btn-primary { box-shadow: 0 0 32px rgba(200,169,106,0.3); }
 }
 
 .reveal{opacity:1 !important;transform:none !important;animation:none !important}
+
+/* === IRIE MOBILE NAV === */
+.mnav {
+  position: fixed; inset: 0; z-index: 200; background: #080807;
+  display: flex; flex-direction: column;
+  padding: calc(env(safe-area-inset-top) + 96px) 28px calc(env(safe-area-inset-bottom) + 28px);
+}
+.mnav-link {
+  display: flex; align-items: baseline; gap: 16px;
+  min-height: 52px; padding: 10px 0;
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2.2rem, 10vw, 3.6rem); line-height: 1.05;
+  color: #f4f3ef; letter-spacing: -0.02em;
+  animation: mnav-in 0.6s var(--ease-expo) both;
+}
+.mnav-link .idx { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: rgba(200,169,106,0.55); }
+.mnav-link.active, .mnav-link:active { color: #c8a96a; }
+@keyframes mnav-in { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+.mnav-foot { margin-top: auto; display: flex; flex-direction: column; gap: 12px; animation: mnav-in 0.6s var(--ease-expo) 0.35s both; }
+.mnav-cta { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; color: rgba(236,231,219,0.75); min-height: 44px; display: flex; align-items: center; }
+.mnav-social { display: flex; gap: 24px; margin-top: 6px; }
+.mnav-social a { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(200,169,106,0.7); min-height: 44px; display: flex; align-items: center; }
+
+.mbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 95;
+  display: flex; border-top: 1px solid rgba(200,169,106,0.18);
+  background: rgba(8,8,7,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.mbar a {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  min-height: 52px; font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: rgba(236,231,219,0.5);
+}
+.mbar a span { font-size: 15px; }
+.mbar a.active { color: #c8a96a; }
+@media (min-width: 768px) { .mbar { display: none; } }
+@media (max-width: 767px) { body { padding-bottom: 52px; } }
