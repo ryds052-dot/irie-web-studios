@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const DESTINATIONS = [
   ["home", "/"],
-  ["pricing", "/pricing"],
   ["contact", "/contact"],
 ];
 
@@ -233,6 +232,9 @@ export default function FxLayer() {
     </>
   );
 }
+
+
+
 
 
 

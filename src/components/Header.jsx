@@ -6,7 +6,6 @@ const LINKS = [
   ["Work", "/work"],
   ["Services", "/services"],
   ["Studio", "/studio"],
-  ["Pricing", "/pricing"],
 ];
 
 export default function Header() {
@@ -96,4 +95,6 @@ export default function Header() {
     </>
   );
 }
+
+
 
