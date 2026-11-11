@@ -54,7 +54,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link to="/contact" className="btn btn-primary hidden !min-h-11 !px-5 !text-[10px] md:inline-flex">
+            <Link to="/contact" className="btn btn-primary !hidden !min-h-11 !px-5 !text-[10px] md:!inline-flex">
               Start
             </Link>
             <button
@@ -95,6 +95,8 @@ export default function Header() {
     </>
   );
 }
+
+
 
 
 
