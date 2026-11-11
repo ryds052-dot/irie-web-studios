@@ -67,6 +67,16 @@ void main(){
   float depth = smoothstep(1.8, 0.05, length(p));
   col *= 0.32 + depth * 0.95;
 
+  vec3 L2 = normalize(vec3(0.55, 0.28, 0.55));
+  float diff2 = clamp(dot(n, L2) * 0.5 + 0.5, 0.0, 1.0);
+  col += deep * 1.6 * diff2 * depth * 0.5;
+
+  float scatter = smoothstep(0.85, 0.0, depth) * smoothstep(0.55, 1.0, q.y);
+  col += vec3(0.20, 0.13, 0.06) * scatter * 0.55;
+
+  float horizon = smoothstep(0.42, 0.0, abs(uv.y - 0.18));
+  col += amber * horizon * 0.05 * (1.0 - depth);
+
   float vig = smoothstep(1.5, 0.12, length(p * vec2(0.8, 1.1)));
   col *= vig;
 
@@ -75,8 +85,8 @@ void main(){
 
   col = col / (col + 0.85) * 1.8;
 
-  float bayer = fract(dot(gl_FragCoord.xy, vec2(0.5, 0.25)));
-  col += (bayer - 0.5) * 0.020;
+  float dth = hash(gl_FragCoord.xy) - 0.5;
+  col += dth * (0.030 - 0.018 * smoothstep(0.0, 0.6, f));
 
   gl_FragColor = vec4(col, 1.0);
 }
@@ -212,3 +222,6 @@ export default function HeroVisual() {
     </>
   );
 }
+
+
+
