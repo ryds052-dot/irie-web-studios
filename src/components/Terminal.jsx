@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 const BANNER = [
   "==============================================",
-  "  IRIE OS v2.6  --  studio terminal",
+  "  IRIE OS v2.7  --  studio terminal",
   "  Kingston, Jamaica  --  iriewebstudios.com",
   "==============================================",
 ];
 
 const BOOT = [
-  "irie-os bios v2.6 booting ...",
+  "irie-os bios v2.7 booting ...",
   "mounting /kingston ................. OK",
   "loading type systems ............... OK",
   "calibrating gold ................... OK",
@@ -24,8 +24,12 @@ const HELP = [
   "  help ............. this menu",
   "  work ............. selected projects, live links",
   "  services ......... what we build + the price list",
+  "  price ............ shortcut to the numbers",
   "  slots ............ current availability",
   "  book ............. how to reach the studio",
+  "  whatsapp ......... the fastest way to reach us",
+  "  nelson ........... who answers first",
+  "  ryder ............ who builds it",
   "  go <page> ........ go work | services | studio | contact | home",
   "  whoami ........... identify yourself",
   "  sudo hire-us ..... escalate privileges",
@@ -33,6 +37,8 @@ const HELP = [
   "  matrix ........... follow the white rabbit",
   "  clear ............ wipe the screen",
   "  exit ............. close terminal",
+  "",
+  "  (some commands are not listed. explore.)",
 ];
 
 const WORK = [
@@ -76,10 +82,10 @@ export default function Terminal() {
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const push = (t, cls) => setLines((L) => [...L, { t, cls }]);
-  const pushMany = async (arr, delay) => {
+  const pushMany = async (arr, delay, cls) => {
     for (const l of arr) {
       if (!alive.current) return;
-      push(l);
+      push(l, cls);
       if (delay) await sleep(delay);
     }
   };
@@ -142,11 +148,61 @@ export default function Terminal() {
       case "pricing":
         await pushMany(SERVICES, 40);
         break;
-      case "slots":
+      case "price":
+      case "quote":
         await pushMany([
-          "2 slots this quarter.",
-          "when they are gone, they are gone.",
-        ], 140);
+          "LAUNCH $285 / MOMENTUM $985 / FLAGSHIP $2,165",
+          "care from $50/mo. security from $240/mo.",
+          "fixed fee. written scope. no surprises.",
+          "",
+          "want the real quote? 'sudo hire-us'",
+        ], 70, "gold");
+        break;
+      case "whatsapp":
+        await pushMany([
+          "fastest channel, always answered:",
+          "",
+          "  https://wa.me/18765206119",
+          "",
+          "tell us about your business. get a fixed quote same day.",
+        ], 90, "gold");
+        break;
+      case "nelson":
+        await pushMany([
+          "NELSON -- first replies, briefs, scheduling.",
+          "the first voice you hear. the reason nothing slips.",
+          "",
+          "response time: under 2 hours.",
+          "try him: type 'whatsapp'",
+        ], 90);
+        break;
+      case "ryder":
+        await pushMany([
+          "RYDER -- engineer. 70% of the company. 100% of the code.",
+          "react. vite. tailwind. canvas. zero templates.",
+          "every pixel hand-built. every site from scratch.",
+          "",
+          "security + web3 wallet forensics: his specialty.",
+        ], 90);
+        break;
+      case "slots":
+        if (args[0] === "book") {
+          await pushMany([
+            "reserving slot ...",
+            "slot reserved -- pending payment.",
+            "50% deposit locks it. routing you to /contact ...",
+          ], 130, "gold");
+          await sleep(500);
+          setOpen(false);
+          navigate("/contact");
+        } else {
+          await pushMany([
+            "2 slots this quarter.",
+            "when they are gone, they are gone.",
+            "",
+            "to reserve one: 'slots book 1'",
+          ], 140);
+        }
         break;
       case "book":
       case "contact":
@@ -154,8 +210,43 @@ export default function Terminal() {
           "iriewebstudios@iriewebstudios.com",
           "+1 876 520 6119  /  +1 876 435 4047",
           "",
+          "fastest: type 'whatsapp'",
           "or escalate: 'sudo hire-us'",
         ], 90);
+        break;
+      case "uptime":
+        await pushMany([
+          "studio uptime ........ 6 years",
+          "downtime ............. 0",
+          "excuses .............. 0",
+          "templates used ....... 0",
+        ], 90, "gold");
+        break;
+      case "ls":
+        await pushMany([
+          "work/   services/   slots/   secrets/",
+        ], 60);
+        break;
+      case "cd":
+        if (args[0] === "secrets" || args[0] === "secrets/") {
+          await pushMany([
+            "nice try. root access required.",
+            "(hint: an old game controller sequence works here.)",
+          ], 110, "gold");
+        } else {
+          push("cd: no such directory: " + (args[0] || "~"), "err");
+        }
+        break;
+      case "cat":
+        if (args[0] === "motto.txt") {
+          await pushMany([
+            "every pixel hand-built. zero templates.",
+            "fixed fee. written scope. work starts when it is paid.",
+            "two slots. no exceptions.",
+          ], 90, "gold");
+        } else {
+          push("cat: " + (args[0] || "?") + ": no such file", "err");
+        }
         break;
       case "whoami":
         push("visitor@iriewebstudios -- clearance: GUEST. escalate with 'sudo hire-us'.");
@@ -181,6 +272,7 @@ export default function Terminal() {
             "checking seriousness .......... OK",
             "clearance upgraded: CLIENT",
             "",
+            "fastest next step: https://wa.me/18765206119",
             "routing you to /contact ...",
           ], 130, "gold");
           await sleep(500);
@@ -218,12 +310,6 @@ export default function Terminal() {
         await pushMany([
           "KONAMI CODE ACCEPTED.",
           "granting root access to irie-os ...",
-          "",
-          "  ____  _____ ____  _   _ _____ ____",
-          " |  _ \\|  ___|  _ \\| | | | ____|  _ \\",
-          " | |_) | |_  | |_) | |_| |  _| | |_) |",
-          " |  _ <|  _| |  _ <|  _  | |___|  _ <",
-          " |_| \\_\\_|   |_| \\_\\_| |_|_____|_| \\_\\",
           "",
           "the site just changed. look around.",
         ], 90, "gold");
