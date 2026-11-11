@@ -10,47 +10,40 @@ export default function WorkIndex() {
         description="Three builds with the brief, the approach and the result. Booking funnels, ordering engines and WebGL systems from Kingston, Jamaica."
         path="/work"
       />
+
       <div className="pad pt-28 md:pt-36">
         <div className="wrap">
-          <p className="label label-amber">Selected work</p>
-          <h1 className="display h1 mt-4">
-            Built in Kingston, <span className="amber">live in the wild.</span>
+          <p className="label">Selected work</p>
+          <h1 className="display mt-4">
+            Built in Kingston, <span className="gold">live in the wild.</span>
           </h1>
-          <p className="lede mt-5">
-            No stock photography, no invented metrics. Each one has the brief, the approach and what changed.
+          <p className="lede mt-6">
+            Three builds so far. Each case study has the brief, the approach and what changed.
           </p>
 
-          <div className="rule mt-10">
-            {PROJECTS.map((p) => (
-              <Link key={p.slug} to={`/work/${p.slug}`} className="group block border-b border-line py-8 md:py-10">
-                <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-[11px] amber">{p.index}</span>
-                  <span className="label">{p.status}</span>
-                </div>
-                <h2 className="display h3 mt-3 font-extrabold uppercase transition-colors group-hover:text-amber">
-                  {p.title}
-                </h2>
-                <p className="mt-2 max-w-lg text-base text-bone/80">{p.outcome}</p>
-                <p className="mt-3 max-w-xl text-sm text-mute">{p.brief}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {p.stack.map((s) => (
-                    <span key={s} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{s}</span>
-                  ))}
-                </div>
-                <span className="mt-4 inline-block label group-hover:text-amber">Read the case study &rarr;</span>
-                <span className="mt-2 block label text-dim">{p.href.replace("https://", "").replace(/\/$/, "")}</span>
-              </Link>
-            ))}
+          <div className="mt-14">
+            <div className="sec"><h2 className="display h2">Websites we built</h2><span className="sec-n">01</span></div>
+            <ul className="index">
+              {PROJECTS.map((p, i) => (
+                <li key={p.slug}>
+                  <Link to={`/work/${p.slug}`} className="index-row">
+                    <span className="index-n">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="index-name">{p.title}</span>
+                    <span className="index-meta">{p.outcome}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="py-16 text-center">
-            <Link to="/contact" className="btn btn-primary">Book a free call</Link>
+          <div className="mt-20">
+            <h2 className="display h2">Two slots left this month.</h2>
+            <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
+            <Link to="/contact" className="btn btn-primary btn-block mt-6">Book a free 15 min call</Link>
+            <Link to="/services" className="link mt-4">See all prices →</Link>
           </div>
         </div>
       </div>
     </>
   );
 }
-
-
-

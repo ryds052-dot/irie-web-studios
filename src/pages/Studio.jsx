@@ -1,22 +1,9 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
-import { Reveal } from "../components/FxLayer";
 import { LOCATION } from "../lib/site";
 
-const FIT = [
-  ["You have a real business and a site that undersells it.", "You want the cheapest quote on the internet."],
-  ["You want one person accountable, not a committee.", "You want to art-direct by group chat."],
-  ["You can decide inside one meeting.", "You need it live in five days."],
-];
-
-const PRINCIPLES = [
-  ["Write it down first", "Scope before pixels. If it is not in the brief it does not get built."],
-  ["Fixed fee, in writing", "You know the full price before you pay anything. No hourly drift."],
-  ["Say no early", "If we are wrong for the job you hear it on the first call, not week three."],
-];
-
 const FACTS = [
-  ["Based", "Kingston, Jamaica"],
+  ["Based", "Kingston 6, Jamaica"],
   ["Team", "Two people"],
   ["Builds", "Hand-coded React"],
   ["Price", "Fixed, in writing"],
@@ -28,18 +15,18 @@ const SKILLS = [
   "MFA rollout", "PCI scope reduction", "Payment gateways", "POS integration",
   "Cloud config review", "Managed hosting", "DNS", "WhatsApp automation",
   "CRM architecture", "WebGL / Three.js", "React", "Node", "Performance budgets",
-  "Technical SEO � JSON-LD",
+  "Technical SEO + JSON-LD",
 ];
 
-function Chips({ items }) {
-  return (
-    <div className="flex flex-wrap gap-1.5">
-      {items.map((t) => (
-        <span key={t} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{t}</span>
-      ))}
-    </div>
-  );
-}
+const PROMISES = [
+  "The price is agreed before you pay anything.",
+  "Landing pages go live in 7 days.",
+  "If the first draft is wrong, round two is free.",
+  "Pay 50% to start and 50% at launch. Nothing else.",
+  "The code, domain and accounts are yours at launch.",
+];
+
+const n2 = (i) => String(i).padStart(2, "0");
 
 export default function Studio() {
   return (
@@ -52,126 +39,87 @@ export default function Studio() {
 
       <div className="pad pt-28 md:pt-36">
         <div className="wrap">
-          <Reveal>
-            <p className="label label-amber">The studio</p>
-            <h1 className="display h1 mt-4">
-              Two people. <span className="amber">No committee.</span>
-            </h1>
-          </Reveal>
+          <p className="label">The studio</p>
+          <h1 className="display mt-4">
+            Two people. <span className="gold">No committee.</span>
+          </h1>
+          <p className="lede mt-6">
+            One engineer, one communicator, working out of {LOCATION}. When you message, you reach the person doing the work.
+          </p>
 
-          <Reveal delay={80}>
-            <p className="lede mt-6 max-w-xl">
-              One engineer, one communicator, working out of {LOCATION}. When you message, you get the person doing the work. No go-between, no account manager, from first reply to launch day.
+          <div className="mt-14">
+            <p className="label">Co-founder / Engineering</p>
+            <div className="sec mt-2"><h2 className="display h2">Ryder Lee</h2><span className="sec-n">01</span></div>
+            <p className="lede mt-4">
+              Your site gets built by one person, start to finish. The pages, the server, the database in the middle.
             </p>
-          </Reveal>
+            <p className="lede mt-4">
+              Before anything ships, it is tested on a real phone on local data, because that is how your customers will meet it.
+            </p>
+          </div>
 
-          <div className="rule mt-14 grid gap-10 pt-12 lg:grid-cols-[1fr_15rem] lg:gap-16">
-            <div>
-              <Reveal>
-                <p className="label label-amber">Co-founder / Engineering</p>
-                <h2 className="display h2 mt-2">Ryder Lee</h2>
-              </Reveal>
-
-              <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-bone/80 md:text-base">
-                <Reveal delay={60}>
-                  <p>
-                    Your site gets built by one person, start to finish: the pages your
-                    customers see, the server behind them, the database in the middle.
-                    Nothing gets lost between departments because there are no departments.
-                  </p>
-                </Reveal>
-                <Reveal delay={110}>
-                  <p>
-                    Your customers are on phones, on Digicel and FLOW data, so every page is built to open fast on exactly that. And before anything ships, it
-                    gets read and tested line by line, because the problems that cost you
-                    customers are the ones that only show up after launch.
-                  </p>
-                </Reveal>
-              </div>
-
-              <Reveal delay={160}>
-                <div className="mt-8 border-t border-line pt-5">
-                  <p className="label label-amber">Hands on</p>
-                  <div className="mt-3">
-                    <Chips items={SKILLS.slice(0, 6)} />
+          <div className="mt-14">
+            <div className="sec"><h2 className="display h2">Disciplines</h2><span className="sec-n">02</span></div>
+            <ul className="index">
+              {SKILLS.slice(0, 6).map((s, i) => (
+                <li key={s}>
+                  <div className="index-row">
+                    <span className="index-n">{n2(i + 1)}</span>
+                    <span className="index-name">{s}</span>
                   </div>
-                  <details className="mt-2">
-                    <summary className="label label-amber py-2">All {SKILLS.length} disciplines</summary>
-                    <div className="mt-1">
-                      <Chips items={SKILLS.slice(6)} />
+                </li>
+              ))}
+            </ul>
+            <details className="mt-2">
+              <summary className="label">All {SKILLS.length} disciplines</summary>
+              <ul className="index">
+                {SKILLS.slice(6).map((s, i) => (
+                  <li key={s}>
+                    <div className="index-row">
+                      <span className="index-n">{n2(i + 7)}</span>
+                      <span className="index-name">{s}</span>
                     </div>
-                  </details>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </div>
+
+          <div className="mt-14">
+            <p className="label">Co-founder / Communications</p>
+            <div className="sec mt-2"><h2 className="display h2">Nelson Denny</h2><span className="sec-n">03</span></div>
+            <p className="lede mt-4">
+              Nelson is who you talk to. First reply, the brief, the schedule.
+            </p>
+            <p className="lede mt-4">
+              One point of contact for the whole project, never juggling your build against someone else's.
+            </p>
+          </div>
+
+          <div className="mt-14">
+            <div className="sec"><h2 className="display h2">The facts</h2><span className="sec-n">04</span></div>
+            <div>
+              {FACTS.map(([k, v]) => (
+                <div key={k} className="flex items-baseline justify-between gap-6 border-b border-line py-4">
+                  <span className="label">{k}</span>
+                  <span className="text-sm text-mute">{v}</span>
                 </div>
-              </Reveal>
-            </div>
-
-            <aside className="lg:sticky lg:top-28 lg:self-start">
-              <dl className="grid grid-cols-2 gap-x-4 gap-y-3 lg:grid-cols-1">
-                {FACTS.map(([k, v]) => (
-                  <div key={k} className="border-b border-line pb-2">
-                    <dt className="label !text-[9px]">{k}</dt>
-                    <dd className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.1em] text-bone/80">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-              <Link to="/work" className="btn btn-ghost mt-5 w-full">See the work</Link>
-            </aside>
-          </div>
-
-          <div className="rule mt-16 grid gap-8 pt-12 md:grid-cols-[1fr_1.6fr]">
-            <div>
-              <p className="label label-amber">Co-founder / Communications</p>
-              <h2 className="display h3 mt-2 font-extrabold uppercase">Nelson Denny</h2>
-            </div>
-            <div>
-              <p className="text-[15px] leading-relaxed text-mute md:text-base">
-                Nelson is who you talk to. First replies, the brief, the schedule, and
-                the follow-up you should not have to chase. One point of contact for
-                the whole project, never juggling your build against someone else's.
-              </p>
-            </div>
-          </div>
-
-          <div className="rule mt-16 pt-12">
-            <p className="label label-amber">Who this is for</p>
-            <div className="mt-5 grid gap-px bg-line md:grid-cols-2">
-              <div className="bg-ink md:pr-8">
-                <p className="label mb-2">Good fit</p>
-                {FIT.map(([yes]) => (
-                  <p key={yes} className="flex gap-2.5 border-b border-line py-3 text-sm leading-relaxed text-bone/80">
-                    <span className="amber">+</span>{yes}
-                  </p>
-                ))}
-              </div>
-              <div className="bg-ink md:pl-8">
-                <p className="label mb-2">Not a fit</p>
-                {FIT.map(([, no]) => (
-                  <p key={no} className="flex gap-2.5 border-b border-line py-3 text-sm leading-relaxed text-mute">
-                    <span className="text-dim">x</span>{no}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="rule mt-16 pt-12">
-            <p className="label label-amber">How we work</p>
-            <div className="mt-5">
-              {PRINCIPLES.map(([h, b], i) => (
-                <Reveal key={h} delay={i * 50}>
-                  <div className="grid gap-1 border-b border-line py-4 md:grid-cols-[1.1fr_1.4fr] md:items-baseline md:gap-6">
-                    <p className="text-sm font-bold uppercase tracking-tight">{h}</p>
-                    <p className="text-sm leading-relaxed text-mute">{b}</p>
-                  </div>
-                </Reveal>
               ))}
             </div>
           </div>
 
-          <div className="rule mt-14 flex flex-wrap items-center justify-between gap-4 pt-8 pb-4">
-            <p className="label">Fixed fee, fixed date, in writing.</p>
-            <Link to="/contact" className="btn btn-primary">Book 15 min on WhatsApp</Link>
-            
+          <div className="mt-14">
+            <div className="sec"><h2 className="display h2">Our promises</h2><span className="sec-n">05</span></div>
+            <div>
+              {PROMISES.map((g) => <p key={g} className="promise">{g}</p>)}
+            </div>
+          </div>
+
+          <div className="mt-20">
+            <h2 className="display h2">Two slots left this month.</h2>
+            <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
+            <Link to="/contact" className="btn btn-primary btn-block mt-6">Book a free 15 min call</Link>
+            <Link to="/services" className="link mt-4">See all prices →</Link>
           </div>
         </div>
       </div>
