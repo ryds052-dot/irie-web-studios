@@ -5,7 +5,7 @@ const WA = "https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%27d
 
 export default function StickyCTA() {
   const [show, setShow] = useState(false);
-  const [closed, setClosed] = useState(false);
+  const [closed, setClosed] = useState(() => sessionStorage.getItem("irie:cta") === "off");
 
   useEffect(() => {
     const on = () => setShow(window.scrollY > 620);
@@ -29,7 +29,7 @@ export default function StickyCTA() {
         Book 15 min on WhatsApp
         <span className="sc-sub">2 slots this quarter</span>
       </a>
-      <button type="button" onClick={() => { setClosed(true); track("cta_sticky_dismiss"); }} aria-label="Dismiss" className="sc-x">×</button>
+      <button type="button" onClick={() => { setClosed(true); sessionStorage.setItem("irie:cta", "off"); track("cta_sticky_dismiss"); }} aria-label="Dismiss" className="sc-x">ï¿½</button>
     </div>
   );
 }

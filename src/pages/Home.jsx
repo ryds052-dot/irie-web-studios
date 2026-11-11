@@ -57,12 +57,12 @@ export default function Home() {
         path="/"
       />
 
-      <section className="relative overflow-hidden pad pb-10 pt-24 md:pb-16 md:pt-32">
-        <div className="aurora-grid" aria-hidden="true" />
+      <section className="relative overflow-hidden pad pb-12 pt-24 md:pb-20 md:pt-32">
+        <div className="hero-grid" aria-hidden="true" />
         <div className="wrap relative z-10">
-          <p className="label label-amber">Kingston 6, Jamaica</p>
+          <div className="spec"><b>00</b><span>Kingston 6, Jamaica</span></div>
 
-          <h1 className="display mt-6 leading-[0.88] tracking-[-0.04em]">
+          <h1 className="display leading-[0.88] tracking-[-0.04em]">
             <span className="block">Bookings</span>
             <span className="block gradient-amber">while you sleep.</span>
           </h1>
@@ -79,35 +79,26 @@ export default function Home() {
             <Link to="/work" className="btn btn-ghost btn-block">See what it did for them</Link>
           </div>
 
-          <div className="mt-8 flex items-center justify-between gap-4">
-            <p className="label">From US$285, fixed</p>
-            <p className="label">Two slots this quarter</p>
+          <div className="mt-9 flex items-center justify-between gap-4">
+            <p className="stamp">From US$285 / fixed</p>
+            <p className="stamp">Two slots this quarter</p>
           </div>
         </div>
       </section>
 
       <section className="pad">
         <div className="wrap">
+          <div className="spec"><b>01</b><span>Record</span></div>
           <div className="grid grid-cols-3 gap-4">
-            <div>
-              <p className="metric">7</p>
-              <p className="label mt-1">Days to live</p>
-            </div>
-            <div>
-              <p className="metric">2</p>
-              <p className="label mt-1">Slots left</p>
-            </div>
-            <div>
-              <p className="metric">100%</p>
-              <p className="label mt-1">Yours at launch</p>
-            </div>
+            <div><p className="metric">7</p><p className="stamp mt-1">Days to live</p></div>
+            <div><p className="metric">2</p><p className="stamp mt-1">Slots left</p></div>
+            <div><p className="metric">100%</p><p className="stamp mt-1">Yours at launch</p></div>
           </div>
-
-          <div className="mt-10 grid gap-7 md:grid-cols-2">
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
             {QUOTES.map(([q, name, org]) => (
               <figure key={name}>
                 <blockquote className="quote">“{q}”</blockquote>
-                <figcaption className="label mt-3">{name} / {org}</figcaption>
+                <figcaption className="stamp mt-3">{name} / {org}</figcaption>
               </figure>
             ))}
           </div>
@@ -116,6 +107,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap">
+          <div className="spec"><b>02</b><span>Work</span></div>
           <h2 className="display h2">Work that pays for itself.</h2>
           <div className="mt-7">
             {WORK.map(([n, name, blurb, slug]) => (
@@ -134,6 +126,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap">
+          <div className="spec"><b>03</b><span>Packages</span></div>
           <h2 className="display h2">Three ways in. Pick today.</h2>
           <div className="mt-7 grid gap-3 md:grid-cols-3">
             {PACKAGES.map(([name, price, who, cta, hot]) => (
@@ -145,12 +138,13 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="label mt-4">Nothing gets added once you choose.</p>
+          <p className="stamp mt-4">Nothing gets added once you choose.</p>
         </div>
       </section>
 
       <section className="pad">
         <div className="wrap">
+          <div className="spec"><b>04</b><span>Sequence</span></div>
           <h2 className="display h2">Four steps, no surprises.</h2>
           <div className="mt-7">
             {STEPS.map(([n, h, b], i) => (
@@ -170,6 +164,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap">
+          <div className="spec"><b>05</b><span>Terms</span></div>
           <h2 className="display h2">Written down, not implied.</h2>
           <div className="mt-7">
             {PROMISES.map((g) => (
@@ -181,6 +176,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap">
+          <div className="spec"><b>06</b><span>Questions</span></div>
           <h2 className="display h2">Ask the awkward ones</h2>
           <div className="mt-6">
             {FAQS.map(([q, a], i) => (
@@ -200,6 +196,7 @@ export default function Home() {
 
       <section className="pad py-16 text-center">
         <div className="wrap">
+          <div className="spec justify-center"><b>07</b><span>Close</span></div>
           <h2 className="display h2 mx-auto max-w-3xl">Two slots left. <span className="amber">One call closes it.</span></h2>
           <p className="lede mx-auto mt-5">Send the scope. The figure comes back in writing the same day.</p>
           <div className="mt-8 flex flex-col gap-2.5">
