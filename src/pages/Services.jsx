@@ -1,26 +1,31 @@
-﻿import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import { GROUPS, RETAINERS, PACKAGES, TERMS } from "../data/rates";
 
 const SERVICES = [
-  ["01", "Brand identity", "People decide in fifty milliseconds. Make the verdict good.", "Being the cheaper option on the list.", "$180", "Logo alone $180 to $670. Full identity adds the guidelines your team will use."],
-  ["02", "Web design", "Design that keeps arguing for you when you are not in the room.", "Traffic that bounces before it reads.", "$250", "Landing page from $250. Full site $480 to $800."],
-  ["03", "Development", "Speed is a sales feature. Slow sites leak money quietly.", "A four-second load that costs a third of your buyers.", "$480", "Hand-coded. No builder bloat, no plugin tax, no upgrade breakage."],
-  ["04", "Motion and 3D", "Attention is rented by the second. Buy more of it.", "A page that looks like every other page in your category.", "$90", "Ad creative $90 to $205. WebGL quoted on scope."],
-  ["05", "SEO and content", "Get found by people already reaching for a card.", "Paying for every single click you get.", "$160", "Audit $160 to $400. Local SEO $180 to $535 monthly."],
-  ["06", "CRO and analytics", "We do not guess. We test, then fuel what wins.", "Redesigning on vibes and hoping.", "$190", "Tracking $190 to $380. Retained testing from $240 monthly."],
+  ["01", "Brand identity", "People decide in fifty milliseconds. Make the verdict good.", "$180", "Logo alone $180 to $670. Full identity adds the guidelines your team will use."],
+  ["02", "Web design", "Design that keeps arguing for you when you are not in the room.", "$250", "Landing page from $250. Full site $480 to $800."],
+  ["03", "Development", "Speed is a sales feature. Slow sites leak money quietly.", "$480", "Hand-coded. No builder bloat, no plugin tax, no upgrade breakage."],
+  ["04", "Motion and 3D", "Attention is rented by the second. Buy more of it.", "$90", "Ad creative $90 to $205. WebGL quoted on scope."],
+  ["05", "SEO and content", "Get found by people already reaching for a card.", "$160", "Audit $160 to $400. Local SEO $180 to $535 monthly."],
+  ["06", "CRO and analytics", "We do not guess. We test, then fuel what wins.", "$190", "Tracking $190 to $380. Retained testing from $240 monthly."],
+];
+
+const NEVER = [
+  "A template with your logo dropped in.",
+  "An offshore handoff after the pitch call.",
+  "An account manager relaying messages.",
+  "A retainer you cannot leave.",
+];
+
+const ALWAYS = [
+  "A fixed fee agreed before you pay.",
+  "One written scope, no creeping extras.",
+  "Direct access to the two people building it.",
+  "Code, accounts and files handed over at launch.",
 ];
 
 export default function Services() {
-  const [q, setQ] = useState("");
-
-  const groups = useMemo(() => {
-    const t = q.trim().toLowerCase();
-    if (!t) return GROUPS;
-    return GROUPS.map((g) => ({ ...g, items: g.items.filter((i) => i[0].toLowerCase().includes(t)) })).filter((g) => g.items.length);
-  }, [q]);
-
   return (
     <>
       <Seo
@@ -30,7 +35,7 @@ export default function Services() {
       />
       <div className="pad pt-28 md:pt-36">
         <div className="wrap">
-          <p className="label label-amber">Capabilities and rates</p>
+          <p className="label label-amber">Services</p>
           <h1 className="display h1 mt-4">
             Six ways we <span className="amber">make you money.</span>
           </h1>
@@ -42,26 +47,25 @@ export default function Services() {
             <p className="label md:text-right">Fixed fee. Written scope. No hourly drift.</p>
           </div>
 
-          <div className="grid gap-px bg-line md:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map(([n, title, hook, fixes, from, note]) => (
-              <div key={n} className="flex flex-col bg-ink p-6">
-                <div className="flex items-start justify-between">
-                  <p className="font-mono text-[11px] amber">{n}</p>
-                  <p className="label !text-[9px]">from {from}</p>
+          <div>
+            {SERVICES.map(([n, title, hook, from, note]) => (
+              <div key={n} className="group grid gap-2 border-b border-line py-7 md:grid-cols-[60px_1fr_auto] md:items-baseline md:gap-6">
+                <p className="font-mono text-[11px] amber">{n}</p>
+                <div>
+                  <h2 className="h3 font-bold uppercase tracking-tight transition-colors group-hover:text-amber">{title}</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-mute">{hook}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-dim">{note}</p>
                 </div>
-                <h2 className="mt-6 font-bold uppercase tracking-tight">{title}</h2>
-                <p className="mt-3 text-base leading-snug">{hook}</p>
-                <p className="mt-3 text-xs leading-relaxed text-mute">Fixes: {fixes}</p>
-                <p className="mt-auto pt-5 text-xs leading-relaxed text-dim">{note}</p>
+                <p className="label md:text-right">from {from}</p>
               </div>
             ))}
           </div>
 
-          <div className="rule mt-16 grid gap-10 py-12 md:grid-cols-2">
+          <div className="rule mt-14 grid gap-10 py-12 md:grid-cols-2">
             <div>
               <h2 className="label label-amber">What none of this is</h2>
               <ul className="mt-4">
-                {["A template with your logo dropped in.", "An offshore handoff after the pitch call.", "An account manager relaying messages.", "A retainer you cannot leave."].map((x) => (
+                {NEVER.map((x) => (
                   <li key={x} className="flex gap-3 border-b border-line py-3 text-sm text-mute">
                     <span className="font-mono amber">x</span>{x}
                   </li>
@@ -71,7 +75,7 @@ export default function Services() {
             <div>
               <h2 className="label label-amber">What it always is</h2>
               <ul className="mt-4">
-                {["A fixed fee agreed before you pay.", "One written scope, no creeping extras.", "Direct access to the two people building it.", "Code, accounts and files handed over at launch."].map((x) => (
+                {ALWAYS.map((x) => (
                   <li key={x} className="flex gap-3 border-b border-line py-3 text-sm text-bone/80">
                     <span className="font-mono amber">+</span>{x}
                   </li>
@@ -101,21 +105,17 @@ export default function Services() {
             </div>
           </div>
 
-          <div id="rates" className="rule mt-14 pt-8">
-            <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-              <h2 className="label label-amber">Full rate card</h2>
-              <input
-                value={q}
-                onChange={(e) => setQ(e.target.value)}
-                placeholder="Filter services"
-                className="field sm:max-w-xs"
-              />
-            </div>
+          <div id="rates" className="rule mt-16 pt-8">
+            <h2 className="label label-amber">Full rate card</h2>
+            <p className="lede mt-2">Every figure, in USD. Open a group to read it.</p>
 
-            {groups.map((g) => (
-              <section key={g.id} id={g.id} className="mt-8 border-b border-line pb-6">
-                <h3 className="label label-amber">{g.label}</h3>
-                <div className="mt-4">
+            {GROUPS.map((g) => (
+              <details key={g.id} id={g.id} className="group border-b border-line py-2">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 py-4">
+                  <span className="font-bold uppercase tracking-tight">{g.label}</span>
+                  <span className="font-mono text-[11px] amber transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div className="pb-4">
                   {g.items.map(([name, price, note]) => (
                     <div key={name} className="grid gap-1 border-b border-line py-3 last:border-0 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6">
                       <div>
@@ -126,23 +126,21 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-              </section>
+              </details>
             ))}
-
-            {groups.length === 0 && <p className="label py-12">Nothing matches "{q}".</p>}
           </div>
 
           <div className="rule mt-12 pt-8">
             <h2 className="label label-amber">Retainers, monthly</h2>
             <p className="lede mt-2">For the ones who would rather never think about it again. Cancel with 30 days notice.</p>
-            <div className="mt-5 grid gap-px bg-line md:grid-cols-2">
+            <div className="mt-5">
               {RETAINERS.map(([name, price, note]) => (
-                <div key={name} className="bg-ink p-5">
-                  <div className="flex items-baseline justify-between gap-3">
+                <div key={name} className="grid gap-1 border-b border-line py-4 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6">
+                  <div>
                     <p className="font-bold uppercase text-sm">{name}</p>
-                    <p className="font-mono text-[11px] amber">{price}/mo</p>
+                    <p className="mt-1 text-xs text-mute">{note}</p>
                   </div>
-                  <p className="mt-1.5 text-xs text-mute">{note}</p>
+                  <p className="font-mono text-[11px] amber sm:text-right">{price}/mo</p>
                 </div>
               ))}
             </div>
