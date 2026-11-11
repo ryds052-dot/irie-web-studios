@@ -12,6 +12,7 @@ import Terminal from "./components/Terminal";
 import GoldCursor from "./components/GoldCursor";
 import RouteWipe from "./components/RouteWipe";
 import ViewTransitions from "./components/ViewTransitions";
+import TrackLinks from "./components/TrackLinks";
 import VoiceNav from "./components/VoiceNav";
 import { GrainOverlay, ScrollSkew } from "./components/DemonLayer";
 import FxLayer from "./components/FxLayer";
@@ -76,8 +77,9 @@ export default function App() {
           <StickyCTA />
           <Terminal />
           <GoldCursor />
-          <RouteWipe />
+          {/* <RouteWipe /> — retired: native View Transitions took over */}
           <ViewTransitions />
+          <TrackLinks />
           <VoiceNav />
         </Premium>
       </ReactLenis>
