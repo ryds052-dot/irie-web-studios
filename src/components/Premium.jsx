@@ -1,5 +1,6 @@
-﻿import { Suspense, lazy, useEffect, useRef } from "react";
-import Preloader from "./Preloader";`nimport StickyCTA from "./StickyCTA";`nimport StickyCTA from "./StickyCTA";
+import { lazy, useEffect, useRef } from "react";
+import Preloader from "./Preloader";
+import StickyCTA from "./StickyCTA";
 
 const Backdrop = lazy(() => import("./Backdrop"));
 
@@ -25,7 +26,8 @@ function Spotlight() {
 export default function Premium({ children }) {
   return (
     <Preloader>
-      <Spotlight />`n      <StickyCTA />`n      <StickyCTA />
+      <Spotlight />
+      <StickyCTA />
       {children}
     </Preloader>
   );

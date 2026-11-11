@@ -103,14 +103,11 @@ export default function Layout({ children }) {
 
       {/* mobile bottom tab bar */}
       <nav className="mbar md:hidden" aria-label="Quick navigation">
-        {NAV.filter(n => ["/", "/work", "/services", "/contact"].includes(n.to)).map((n) => (
-          <NavLink key={n.to} to={n.to}
-            className={({ isActive }) => (isActive ? "active" : "")}>
-            <span>{n.label === "Home" ? "âŒ‚" : n.label === "Work" ? "â–¦" : n.label === "Services" ? "â—ˆ" : "âœ†"}</span>
-            {n.label}
-          </NavLink>
-        ))}
-      </nav>
+  {NAV.filter(n => ["/", "/work", "/services"].includes(n.to)).map((n) => (
+    <NavLink key={n.to} to={n.to} className={({ isActive }) => (isActive ? "active" : "")}>{n.label}</NavLink>
+  ))}
+  <a href="https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call." target="_blank" rel="noreferrer" className="mbar-book">Book</a>
+</nav>
       <SafeTerminal />
     </>
   );
