@@ -8,6 +8,7 @@ import ScrollManager from "./components/ScrollManager";
 import WorkPeek from "./components/WorkPeek";
 import Rails from "./components/Rails";
 import IrieCode from "./components/IrieCode";
+import { GrainOverlay, ScrollSkew } from "./components/DemonLayer";
 import FxLayer from "./components/FxLayer";
 import ViewTransition from "./components/ViewTransition";
 import Layout from "./components/Layout";
@@ -41,6 +42,7 @@ export default function App() {
     <BrowserRouter>
       <ReactLenis root options={{ lerp: 0.12, duration: 1.1, smoothWheel: true, smoothTouch: false }}>
         <Premium>
+          <GrainOverlay />
           <ScrollManager />
           <ChromeUI />
           <WorkPeek />
@@ -49,20 +51,22 @@ export default function App() {
           <FxLayer />
           <ViewTransition />
           <Layout>
-            <main id="main">
-              <Suspense fallback={<Fallback />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/work" element={<WorkIndex />} />
-                  <Route path="/work/:slug" element={<CaseStudy />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/studio" element={<Studio />} />
-                  <Route path="/pricing" element={<Navigate to="/services" replace />} />
-                  <Route path="/contact" element={<ContactPage />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </main>
+            <ScrollSkew>
+              <main id="main">
+                <Suspense fallback={<Fallback />}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/work" element={<WorkIndex />} />
+                    <Route path="/work/:slug" element={<CaseStudy />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/studio" element={<Studio />} />
+                    <Route path="/pricing" element={<Navigate to="/services" replace />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </main>
+            </ScrollSkew>
           </Layout>
           <StickyCTA />
         </Premium>

@@ -137,3 +137,73 @@ nav a:hover::after, .u-sweep:hover::after {
 
 /* buttons get the shared easing */
 .btn { transition: opacity 0.3s var(--ease-expo), transform 0.3s var(--ease-expo); }
+
+/* --- demon layer --- */
+.grain {
+  position: fixed;
+  inset: -100%;
+  width: 300%;
+  height: 300%;
+  pointer-events: none;
+  z-index: 80;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 0.9s steps(6) infinite;
+}
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -2%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-track {
+  display: inline-flex;
+  animation: marqueeSlide 22s linear infinite;
+  will-change: transform;
+}
+@keyframes marqueeSlide { to { transform: translateX(-50%); } }
+
+.glitch { position: relative; display: inline-block; }
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.glitch::before {
+  color: #c8a96a;
+  clip-path: inset(20% 0 55% 0);
+  animation: glitchA 2.8s infinite steps(1);
+}
+.glitch::after {
+  color: #fff;
+  clip-path: inset(60% 0 10% 0);
+  animation: glitchB 3.4s infinite steps(1);
+}
+@keyframes glitchA {
+  0%, 92% { transform: translate(0); opacity: 0; }
+  93% { transform: translate(-4px, -2px); opacity: 0.9; }
+  95% { transform: translate(4px, 1px); opacity: 0.9; }
+  97%, 100% { transform: translate(0); opacity: 0; }
+}
+@keyframes glitchB {
+  0%, 88% { transform: translate(0); opacity: 0; }
+  89% { transform: translate(5px, 2px); opacity: 0.7; }
+  91% { transform: translate(-5px, -1px); opacity: 0.7; }
+  93%, 100% { transform: translate(0); opacity: 0; }
+}
+
+.btn-primary:active { transform: scale(0.96); }
+
+::selection { background: #c8a96a; color: #080807; }
+
+@media (prefers-reduced-motion: reduce) {
+  .grain, .marquee-track, .glitch::before, .glitch::after { animation: none !important; }
+}
