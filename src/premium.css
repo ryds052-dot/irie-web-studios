@@ -14,7 +14,7 @@ body {
   font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   font-size: 16px; line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; overscroll-behavior-y: none;
+  overflow-x: clip;
 }
 img, svg, canvas { max-width: 100%; display: block; }
 h1, h2, h3, p, li { overflow-wrap: break-word; }
