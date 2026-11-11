@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" class="dark">
   <head>
     <meta charset="utf-8" />
@@ -46,6 +46,26 @@ if (window.caches) { caches.keys().then(function (ks) { ks.forEach(function (k) 
   <body class="grain bg-[#080807] text-[#f4f3ef] antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+  <script id="overlay-killer">
+(function(){
+  function kill(){
+    var w = innerWidth, h = innerHeight;
+    document.querySelectorAll("body *").forEach(function(el){
+      if (/^(SCRIPT|STYLE|LINK|META|HEAD|TITLE|NOSCRIPT|HTML|BODY|HEADER|FOOTER|NAV|MAIN)$/.test(el.tagName)) return;
+      var s = getComputedStyle(el);
+      if (s.position !== "fixed" && s.position !== "absolute") return;
+      var r = el.getBoundingClientRect();
+      if (r.width < w*0.8 || r.height < h*0.8) return;
+      var m = s.backgroundColor.match(/rgba?$([^)]+)$/);
+      var alpha = 1, lum = 0;
+      if (m) { var p = m[1].split(",").map(parseFloat); alpha = p.length > 3 ? p[3] : 1; lum = (p[0]+p[1]+p[2])/3; }
+      if (lum < 90 && alpha > 0.05) { el.style.setProperty("display","none","important"); }
+    });
+  }
+  document.addEventListener("DOMContentLoaded", kill);
+  setTimeout(kill, 300); setTimeout(kill, 1200); setTimeout(kill, 3000);
+})();
+</script>
   </body>
 </html>
 
