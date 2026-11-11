@@ -65,11 +65,6 @@ export default function Home() {
               Book a free 15 min call
             </a>
             <Link to="/work" className="link mt-4">See websites we built →</Link>
-
-            <figure className="media hero-media">
-              <img src="/work/earth-family-farms.jpg" alt="Earth Family Farms, a recent build" width="800" height="600" loading="lazy" />
-              <figcaption className="hero-cap label">Earth Family Farms — live now</figcaption>
-            </figure>
           </div>
 
           <aside className="hero-panel">

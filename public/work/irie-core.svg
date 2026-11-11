@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#0c0c0b"/>
+  <defs><pattern id="d" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(115)"><line x1="0" y1="0" x2="0" y2="26" stroke="#c8a96a" stroke-opacity="0.16"/></pattern></defs>
+  <rect width="800" height="600" fill="url(#d)"/>
+  <rect x="18" y="18" width="764" height="564" fill="none" stroke="#c8a96a" stroke-opacity="0.4"/>
+  <text x="48" y="86" fill="#c8a96a" font-family="monospace" font-size="18" letter-spacing="4">03</text>
+  <text x="48" y="500" fill="#f4f3ef" font-family="Georgia,serif" font-size="46">Irie Web Studios</text>
+  <text x="48" y="542" fill="#8e8c84" font-family="monospace" font-size="16">This site</text>
+</svg>
