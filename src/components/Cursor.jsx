@@ -1,16 +1,19 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Cursor() {
   const dot = useRef(null);
   const ring = useRef(null);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) return;
+    setEnabled(true);
     const d = dot.current, r = ring.current;
     let x = -100, y = -100, rx = -100, ry = -100;
     const move = (e) => { x = e.clientX; y = e.clientY; };
     const loop = () => {
-      rx += (x - rx) * 0.14; ry += (y - ry) * 0.14;
+      rx += (x - rx) * 0.14;
+      ry += (y - ry) * 0.14;
       d.style.transform = `translate(${x}px,${y}px)`;
       r.style.transform = `translate(${rx - 20}px,${ry - 20}px)`;
       requestAnimationFrame(loop);
@@ -19,6 +22,8 @@ export default function Cursor() {
     requestAnimationFrame(loop);
     return () => window.removeEventListener("mousemove", move);
   }, []);
+
+  if (!enabled) return null;
 
   return (
     <>

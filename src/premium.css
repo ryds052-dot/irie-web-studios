@@ -59,3 +59,23 @@ body::after {
   transition: filter 0.3s;
 }
 .cta-primary:hover { filter: brightness(1.15); }
+
+/* --- conversion polish --- */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #c8a96a;
+  outline-offset: 3px;
+}
+
+.btn { transition: opacity 0.25s ease, transform 0.25s ease; }
+.btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body { padding-bottom: 0; }
+body:has(.sticky-cta-active) { padding-bottom: 64px; }

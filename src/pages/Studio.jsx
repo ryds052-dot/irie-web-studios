@@ -1,4 +1,4 @@
-ï»¿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import { Reveal } from "../components/FxLayer";
 import { LOCATION } from "../lib/site";
@@ -11,10 +11,15 @@ const FIT = [
 
 const PRINCIPLES = [
   ["Write it down first", "Scope before pixels. If it is not in the brief it does not get built."],
-  ["Budget the bytes", "Every build ships with a speed target attached. Not optional."],
-  ["Read the output", "Nothing merges because it looked fine. It merges because it was checked."],
   ["Fixed fee or nothing", "Hourly billing rewards slowness. Ours does not."],
   ["Say no early", "If we are wrong for the job you hear it on the first call, not week three."],
+];
+
+const FACTS = [
+  ["Based", "Kingston, Jamaica"],
+  ["Team", "Two people"],
+  ["Builds", "Hand-coded React"],
+  ["Price", "Fixed, in writing"],
 ];
 
 export default function Studio() {
@@ -36,10 +41,9 @@ export default function Studio() {
           </Reveal>
 
           <Reveal delay={80}>
-            <p className="lede mt-6">
-              One engineer, one communicator, working out of {LOCATION}. Ryder writes
-              every line. Nelson runs everything around it. No third person relaying
-              messages, and nobody junior taking over your project once the pitch is done.
+            <p className="lede mt-6 max-w-xl">
+              One engineer, one communicator, working out of {LOCATION}. Nobody
+              junior taking over your project once the pitch is done.
             </p>
           </Reveal>
 
@@ -53,39 +57,21 @@ export default function Studio() {
               <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-bone/80 md:text-base">
                 <Reveal delay={60}>
                   <p>
-                    Ryder builds the whole thing. The 3D on the front, the server
-                    settings behind it, the database in the middle. Most studios split
-                    that across three people and lose a week to handoffs. Here it is one
-                    person who already knows the whole shape.
+                    Ryder builds the whole thing — the 3D on the front, the server behind
+                    it, the database in the middle. Most studios split that across three
+                    people and lose a week to handoffs. Here one person knows the whole shape.
                   </p>
                 </Reveal>
-
                 <Reveal delay={110}>
                   <p>
-                    He cares about speed the way most designers care about looks. Your
-                    customers are on a cheap phone with two bars, not a laptop on fibre,
-                    so every page is built to open anyway. Images sized right, fonts cut
-                    down, nothing running that does not need to.
-                  </p>
-                </Reveal>
-
-                <Reveal delay={160}>
-                  <p>
-                    He also reads every line. Tools help, but a build that compiles is
-                    not the same as a build that holds, and the difference only shows up
-                    on your site at the worst moment. Nothing ships here unchecked.
-                  </p>
-                </Reveal>
-
-                <Reveal delay={210}>
-                  <p>
-                    Blunt, in the useful way. If your idea has a cheaper version that
-                    does the same job, you hear it before you spend money finding out.
+                    Your customers are on a cheap phone with two bars, not a laptop on
+                    fibre, so every page is built to open anyway. And nothing ships
+                    unchecked — a build that compiles is not the same as a build that holds.
                   </p>
                 </Reveal>
               </div>
 
-              <Reveal delay={260}>
+              <Reveal delay={160}>
                 <blockquote className="mt-9 border-l-2 border-amber pl-5">
                   <p className="text-lg leading-snug text-bone/90 md:text-xl">
                     Discussing more when we have not done anything is lax.
@@ -94,26 +80,12 @@ export default function Studio() {
                 </blockquote>
               </Reveal>
 
-              <Reveal delay={260}>
+              <Reveal delay={200}>
                 <div className="mt-8 border-t border-line pt-5">
                   <p className="label label-amber">Hands on</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
-                    {["React", "Vite", "Tailwind", "WebGL", "Three.js", "Node", "Hand-coded builds", "Performance budgets", "Accessibility", "Technical SEO", "JSON-LD", "Analytics", "CRO testing", "CRM setup", "WhatsApp automation", "Payment gateways", "POS integration", "Managed hosting", "DNS", "Backups", "SPF / DKIM / DMARC", "MFA rollout", "Hardening", "Malware recovery", "Cloud config review", "PCI scope", "Consent flows", "Wallet security", "Smart contract review"].map((t) => (
+                    {["React", "Vite", "Tailwind", "WebGL / Three.js", "Node", "Performance budgets", "Technical SEO", "Payment gateways", "WhatsApp automation", "Managed hosting", "Security hardening"].map((t) => (
                       <span key={t} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{t}</span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delay={300}>
-                <div className="rule mt-12 pt-8">
-                  <p className="label label-amber">What that buys you</p>
-                  <div className="mt-4">
-                    {BUYS.map(([h, b]) => (
-                      <div key={h} className="grid gap-1 border-b border-line py-4 md:grid-cols-[16rem_1fr] md:items-baseline md:gap-6">
-                        <p className="text-sm font-bold uppercase tracking-tight">{h}</p>
-                        <p className="text-sm leading-relaxed text-mute">{b}</p>
-                      </div>
                     ))}
                   </div>
                 </div>
@@ -140,16 +112,10 @@ export default function Studio() {
             </div>
             <div>
               <p className="text-[15px] leading-relaxed text-mute md:text-base">
-                Nelson runs the side that keeps work arriving and keeps it moving once it
-                does. Outreach, first replies, the brief, the schedule, the follow-up
-                nobody else remembers. Every project has one person to talk to, and that
-                person is never mid-build.
+                Nelson runs everything around the build: first replies, the brief, the
+                schedule, the follow-up nobody else remembers. Every project has one
+                person to talk to, and that person is never mid-build.
               </p>
-              <div className="mt-5 flex flex-wrap gap-1.5">
-                {["Client comms", "Outreach", "Briefing", "Scheduling"].map((t) => (
-                  <span key={t} className="border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-mute">{t}</span>
-                ))}
-              </div>
             </div>
           </div>
 
@@ -187,17 +153,14 @@ export default function Studio() {
                 </Reveal>
               ))}
             </div>
-          </div></div>
+          </div>
+
+          <div className="rule mt-14 flex flex-wrap items-center justify-between gap-4 pt-8 pb-4">
+            <p className="label">Fixed fee, fixed date, in writing.</p>
+            <Link to="/contact" className="btn btn-primary">Book a free call</Link>
+          </div>
+        </div>
       </div>
     </>
   );
 }
-
-
-
-
-
-
-
-
-

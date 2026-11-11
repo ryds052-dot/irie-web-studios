@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
 import Premium from "./components/Premium";
+import StickyCTA from "./components/StickyCTA";
 import FxLayer from "./components/FxLayer";
 import ViewTransition from "./components/ViewTransition";
 import Layout from "./components/Layout";
@@ -43,6 +44,7 @@ export default function App() {
               </Routes>
             </Suspense>
           </Layout>
+          <StickyCTA />
         </Premium>
       </ReactLenis>
     </BrowserRouter>
