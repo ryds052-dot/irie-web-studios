@@ -3,7 +3,7 @@
 const VERT = `attribute vec2 a;void main(){gl_Position=vec4(a,0.0,1.0);}`;
 
 const FRAG = `
-precision highp float;
+precision mediump float;
 uniform vec2 uRes;
 uniform float uTime;
 uniform vec2 uMouse;
@@ -17,7 +17,7 @@ float noise(vec2 p){
 }
 float fbm(vec2 p){
   float v = 0.0; float a = 0.5;
-  for (int i = 0; i < 5; i++) { v += a * noise(p); p *= 2.02; a *= 0.5; }
+  for (int i = 0; i < 3; i++) { v += a * noise(p); p *= 2.02; a *= 0.5; }
   return v;
 }
 
@@ -48,6 +48,10 @@ void main(){
   gl_FragColor = vec4(col, 1.0);
 }
 `;
+
+const DPR_CAP = 1.25;
+const SCALE = 0.7;
+const FPS = 30;
 
 export default function HeroVisual() {
   const ref = useRef(null);
@@ -92,11 +96,10 @@ export default function HeroVisual() {
     const uTime = gl.getUniformLocation(prog, "uTime");
     const uMouse = gl.getUniformLocation(prog, "uMouse");
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+    const dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP) * SCALE;
     const resize = () => {
-      const w = Math.floor(canvas.clientWidth * dpr);
-      const h = Math.floor(canvas.clientHeight * dpr);
-      if (w === 0 || h === 0) return false;
+      const w = Math.max(1, Math.floor(canvas.clientWidth * dpr));
+      const h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
       if (canvas.width !== w || canvas.height !== h) {
         canvas.width = w;
         canvas.height = h;
@@ -114,37 +117,47 @@ export default function HeroVisual() {
     window.addEventListener("pointermove", onMove, { passive: true });
 
     let raf = 0;
-    let visible = true;
+    let running = false;
+    let last = 0;
+    const interval = 1000 / FPS;
     const start = performance.now();
 
     const frame = (now) => {
-      if (!visible) return;
-      mx += (tx - mx) * 0.045;
-      my += (ty - my) * 0.045;
-      if (resize()) {
-        gl.uniform1f(uTime, (now - start) / 1000);
-        gl.uniform2f(uMouse, mx, my);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
-      }
+      if (!running) return;
+      raf = requestAnimationFrame(frame);
+      if (now - last < interval) return;
+      last = now;
+      mx += (tx - mx) * 0.06;
+      my += (ty - my) * 0.06;
+      resize();
+      gl.uniform1f(uTime, (now - start) / 1000);
+      gl.uniform2f(uMouse, mx, my);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+
+    const play = () => {
+      if (running) return;
+      running = true;
+      last = 0;
       raf = requestAnimationFrame(frame);
     };
-    raf = requestAnimationFrame(frame);
+    const pause = () => {
+      running = false;
+      cancelAnimationFrame(raf);
+    };
+
+    play();
 
     const io = new IntersectionObserver(([e]) => {
-      visible = e.isIntersecting;
-      if (visible) { cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); }
-    });
+      if (e.isIntersecting) play(); else pause();
+    }, { threshold: 0 });
     io.observe(canvas);
 
-    const onVis = () => {
-      if (document.hidden) { visible = false; cancelAnimationFrame(raf); }
-      else { visible = true; raf = requestAnimationFrame(frame); }
-    };
+    const onVis = () => { if (document.hidden) pause(); else play(); };
     document.addEventListener("visibilitychange", onVis);
 
     return () => {
-      visible = false;
-      cancelAnimationFrame(raf);
+      pause();
       io.disconnect();
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("visibilitychange", onVis);
@@ -155,7 +168,7 @@ export default function HeroVisual() {
 
   return (
     <>
-      <div className="aurora" aria-hidden="true" />
+      {!useGL && <div className="aurora" aria-hidden="true" />}
       <div className="aurora-grid" aria-hidden="true" />
       {useGL && (
         <canvas
