@@ -2,15 +2,6 @@
 import Seo from "../components/Seo";
 import { GROUPS, RETAINERS, PACKAGES, TERMS } from "../data/rates";
 
-const SERVICES = [
-  ["01", "Brand identity", "People decide in fifty milliseconds. Make the verdict good.", "$180", "Logo alone $180 to $670. Full identity adds the guidelines your team will use."],
-  ["02", "Web design", "Design that keeps arguing for you when you are not in the room.", "$250", "Landing page from $250. Full site $480 to $800."],
-  ["03", "Development", "Speed is a sales feature. Slow sites leak money quietly.", "$480", "Hand-coded. No builder bloat, no plugin tax, no upgrade breakage."],
-  ["04", "Motion and 3D", "Attention is rented by the second. Buy more of it.", "$90", "Ad creative $90 to $205. WebGL quoted on scope."],
-  ["05", "SEO and content", "Get found by people already reaching for a card.", "$160", "Audit $160 to $400. Local SEO $180 to $535 monthly."],
-  ["06", "CRO and analytics", "We do not guess. We test, then fuel what wins.", "$190", "Tracking $190 to $380. Retained testing from $240 monthly."],
-];
-
 const NEVER = [
   "A template with your logo dropped in.",
   "An offshore handoff after the pitch call.",
@@ -37,7 +28,7 @@ export default function Services() {
         <div className="wrap">
           <p className="label label-amber">Services</p>
           <h1 className="display h1 mt-4">
-            Six ways we <span className="amber">make you money.</span>
+            What we do, and <span className="amber">what it costs.</span>
           </h1>
 
           <div className="rule mt-8 grid gap-6 pb-8 md:grid-cols-[1.3fr_1fr] md:items-end">
@@ -46,21 +37,6 @@ export default function Services() {
             </p>
             <p className="label md:text-right">Fixed fee. Written scope. No hourly drift.</p>
           </div>
-
-          <div>
-            {SERVICES.map(([n, title, hook, from, note]) => (
-              <div key={n} className="group grid gap-2 border-b border-line py-7 md:grid-cols-[60px_1fr_auto] md:items-baseline md:gap-6">
-                <p className="font-mono text-[11px] amber">{n}</p>
-                <div>
-                  <h2 className="h3 font-bold uppercase tracking-tight transition-colors group-hover:text-amber">{title}</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-mute">{hook}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-dim">{note}</p>
-                </div>
-                <p className="label md:text-right">from {from}</p>
-              </div>
-            ))}
-          </div>
-
           <div className="rule mt-12 grid gap-10 py-12 md:grid-cols-2">
             <div>
               <h2 className="label label-amber">What none of this is</h2>
@@ -167,5 +143,6 @@ export default function Services() {
     </>
   );
 }
+
 
 
