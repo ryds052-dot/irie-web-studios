@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import { EMAIL, PHONE, PHONE_DISPLAY, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
+import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, PHONE_ALT_LABEL, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
 
 const ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 
@@ -73,6 +73,8 @@ export default function Contact() {
               <p className="label label-amber">Or go direct</p>
               <a href={`mailto:${EMAIL}`} className="mt-3 block break-all text-base hover:text-amber">{EMAIL}</a>
               <a href={`tel:${PHONE}`} className="mt-1 block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">{PHONE_DISPLAY}</a>
+              <a href={`tel:${PHONE_ALT}`} className="mt-1 block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">{PHONE_ALT_DISPLAY}</a>
+              <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-dim">{PHONE_ALT_LABEL}</p>
             </div>
 
             <div>
@@ -145,3 +147,4 @@ export default function Contact() {
     </div>
   );
 }
+

@@ -1,5 +1,5 @@
 ﻿import { Link } from "react-router-dom";
-import { EMAIL, PHONE, PHONE_DISPLAY, LOCATION, AVAILABILITY } from "../lib/site";
+import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, PHONE_ALT_LABEL, LOCATION, AVAILABILITY } from "../lib/site";
 
 export default function Footer() {
   return (
@@ -33,6 +33,10 @@ export default function Footer() {
             <a href={`tel:${PHONE}`} className="mt-3 inline-block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">
               {PHONE_DISPLAY}
             </a>
+            <a href={`tel:${PHONE_ALT}`} className="mt-1 inline-block font-mono text-[11px] tracking-[0.14em] text-mute hover:text-amber">
+              {PHONE_ALT_DISPLAY}
+            </a>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-dim">{PHONE_ALT_LABEL}</p>
           </div>
         </div>
 
@@ -50,3 +54,4 @@ export default function Footer() {
     </footer>
   );
 }
+
