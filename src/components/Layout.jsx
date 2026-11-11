@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const NAV = [
@@ -48,7 +48,7 @@ export default function Layout({ children }) {
                 {n.label}
               </NavLink>
             ))}
-            <Link to="/contact" className="cta-primary !py-3 !px-5 !text-[10px]">Book a call</Link>
+            <Link to="/contact" className="cta-primary !py-3 !px-5 !text-[10px]">Apply for a slot</Link>
           </nav>
 
           {/* mobile menu button */}

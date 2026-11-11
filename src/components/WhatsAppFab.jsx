@@ -1,7 +1,7 @@
-﻿export default function WhatsAppFab() {
+export default function WhatsAppFab() {
   return (
     <a
-      href="https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%20need%20a%20website."
+      href="https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20be%20considered%20for%20a%20build%20slot."
       target="_blank" rel="noopener noreferrer"
       aria-label="Chat with Irie Web Studios on WhatsApp"
       className="fixed right-4 bottom-24 md:right-6 md:bottom-6 z-[90] flex h-12 w-12 items-center justify-center rounded-full border border-[#c8a96a]/40 bg-[#080807] text-[#c8a96a] transition hover:bg-[#c8a96a] hover:text-[#080807]"
