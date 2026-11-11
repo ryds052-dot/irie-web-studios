@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, PHONE_ALT_LABEL, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
+import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
 
 const ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 
@@ -146,5 +146,6 @@ export default function Contact() {
     </div>
   );
 }
+
 
 

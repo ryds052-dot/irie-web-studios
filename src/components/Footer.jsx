@@ -1,5 +1,5 @@
 ﻿import { Link } from "react-router-dom";
-import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, PHONE_ALT_LABEL, LOCATION, AVAILABILITY } from "../lib/site";
+import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, LOCATION, AVAILABILITY } from "../lib/site";
 
 export default function Footer() {
   return (
@@ -53,6 +53,7 @@ export default function Footer() {
     </footer>
   );
 }
+
 
 
 
