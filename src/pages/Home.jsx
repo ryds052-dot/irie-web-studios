@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Hero from "../sections/Hero";
@@ -42,7 +42,7 @@ export default function Home() {
           <div className="rule flex items-end justify-between gap-4 pb-5">
             <div>
               <p className="label label-amber">Selected work</p>
-              <h2 className="display h2 mt-2">Recent builds</h2>
+              <h2 className="display h2 mt-2">Work that pays for itself</h2>
             </div>
             <Link to="/work" className="label whitespace-nowrap hover:text-amber">All work</Link>
           </div>
@@ -105,7 +105,7 @@ export default function Home() {
       <section className="rule pad py-20 text-center">
         <div className="wrap">
           <h2 className="display h2 mx-auto max-w-3xl">Two slots left <span className="amber">this quarter.</span></h2>
-          <p className="lede mx-auto mt-5">Tell us the scope. We will tell you the figure in writing within one business day.</p>
+          <p className="lede mx-auto mt-5">Tell us the scope. You get the figure in writing within one business day, and if the first draft misses the brief, round two is free.</p>
           <div className="mt-8 flex flex-col justify-center gap-2.5 sm:flex-row">
             <Link to="/contact" className="btn btn-primary btn-block">Book a free call</Link>
             <Link to="/services" className="btn btn-ghost btn-block">See every price</Link>
