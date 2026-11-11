@@ -1,5 +1,6 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import HeroVisual from "../components/HeroVisual";
+import Reveal from "../components/Reveal";
 import { AVAILABILITY, RESPONSE_TIME, LOCATION } from "../lib/site";
 
 export default function Hero() {
@@ -17,10 +18,12 @@ export default function Hero() {
           <span className="label label-amber">Boutique studio / {LOCATION}</span>
         </div>
 
-        <h1 className="display mt-5 text-[clamp(2.9rem,15vw,4.2rem)] leading-[0.86] tracking-[-0.03em] md:mt-6 md:text-[clamp(4.5rem,9.5vw,7.5rem)]">
-          <span className="block">Built</span>
-          <span className="block normal-case gradient-amber">fi win.</span>
-        </h1>
+        <Reveal delay={0.2}>
+          <h1 className="display mt-5 text-[clamp(2.9rem,15vw,4.2rem)] leading-[0.86] tracking-[-0.03em] md:mt-6 md:text-[clamp(4.5rem,9.5vw,7.5rem)]">
+            <span className="block">Built</span>
+            <span className="block normal-case gradient-amber">fi win.</span>
+          </h1>
+        </Reveal>
 
         <p className="lede mt-5 max-w-[26rem] md:mt-7 md:max-w-[30rem]">
           Websites that convert. Hand-coded, fixed fee, zero templates. If it does not
@@ -40,4 +43,3 @@ export default function Hero() {
     </section>
   );
 }
-
