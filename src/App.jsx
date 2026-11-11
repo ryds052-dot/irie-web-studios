@@ -1,6 +1,5 @@
 ﻿import { Component, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import SiteDoctor from "./components/SiteDoctor";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 
@@ -38,7 +37,6 @@ function Fallback() {
 export default function App() {
   return (
     <ErrorBoundary>
-      <SiteDoctor />
       <BrowserRouter>
         <Layout>
           <Suspense fallback={<Fallback />}>
