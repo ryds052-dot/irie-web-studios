@@ -8,11 +8,11 @@ import { PROJECTS } from "../data/projects";
 import { PACKAGES } from "../data/rates";
 
 const FAQS = [
-  ["How long is a build?", "A landing page is a fixed fee and a fixed date, agreed in writing before you pay."],
-  ["Small budget?", "There is a $285 landing page package. Under that, we will point you somewhere useful."],
-  ["Who does the work?", "Two people, both named. One builds, one runs the brief."],
-  ["Do I own it?", "Completely. Code, files, domains and accounts transfer at launch."],
-  ["Changes later?", "Three revision rounds included. Then $45 a round, or a care plan."],
+  ["How long is a build?", "A landing page is 7 days, fixed date in writing before you pay a dollar. Bigger builds get quoted to the day."],
+  ["Small budget?", "The US$285 landing page is the floor. Under that we will point you somewhere useful."],
+  ["Who does the work?", "Two people, both named, both on WhatsApp. One builds, one runs the brief."],
+  ["Do I own it?", "Completely. Code, domain, files and accounts are yours at launch."],
+  ["Changes later?", "Three rounds included. After that US$45 a round, or a care plan."],
 ];
 
 export default function Home() {
@@ -41,8 +41,8 @@ export default function Home() {
         <div className="wrap">
           <div className="rule flex items-end justify-between gap-4 pb-5">
             <div>
-              <p className="label label-amber">Selected work</p>
-              <h2 className="display h2 mt-2">Work that pays for itself</h2>
+              <p className="label label-amber">Proof</p>
+              <h2 className="display h2 mt-2">Work that pays for itself.</h2>
             </div>
             <Link to="/work" className="label whitespace-nowrap hover:text-amber">All work</Link>
           </div>
@@ -67,7 +67,7 @@ export default function Home() {
       <section className="rule bg-ink-2 pad py-16">
         <div className="wrap">
           <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
-            <h2 className="display h2">Start somewhere concrete.</h2>
+            <h2 className="display h2">Three ways in. Pick today.</h2>
             <Link to="/services" className="label whitespace-nowrap hover:text-amber">Every price</Link>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -85,7 +85,7 @@ export default function Home() {
 
       <section className="section pad">
         <div className="wrap grid gap-8 md:grid-cols-[1fr_1.4fr]">
-          <h2 className="display h2">Questions</h2>
+          <h2 className="display h2">Ask the awkward ones</h2>
           <div>
             {FAQS.map(([q, a], i) => (
               <div key={q} className="border-b border-line">
@@ -105,7 +105,7 @@ export default function Home() {
       <section className="rule pad py-20 text-center">
         <div className="wrap">
           <h2 className="display h2 mx-auto max-w-3xl">Two slots left <span className="amber">this quarter.</span></h2>
-          <p className="lede mx-auto mt-5">Tell us the scope. You get the figure in writing within one business day, and if the first draft misses the brief, round two is free.</p>
+          <p className="lede mx-auto mt-5">Tell us the scope on WhatsApp. The figure comes back in writing the same day. No likkle site either, a proper one. If the first draft misses the brief, round two is free.</p>
           <div className="mt-8 flex flex-col justify-center gap-2.5 sm:flex-row">
             <Link to="/contact" className="btn btn-primary btn-block">Book a free call</Link>
             <Link to="/services" className="btn btn-ghost btn-block">See every price</Link>

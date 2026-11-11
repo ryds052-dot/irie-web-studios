@@ -981,3 +981,92 @@ h1, h2, h3, p, li, a { overflow-wrap: break-word; }
   .mnav-cta { font-size: .85rem !important; }
   main { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
 }
+
+/* === MOBILE FIT PASS 3 === */
+@media (max-width: 767px) {
+  .h1, .display.h1 {
+    font-size: clamp(1.9rem, 8.4vw, 2.45rem) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -.03em !important;
+  }
+  .pad.pt-28, .pad.pt-36 { padding-top: 84px !important; }
+  .mt-12, .mt-14, .mt-16 { margin-top: 30px !important; }
+  .py-12, .py-16 { padding-block: 34px !important; }
+  .card > div p.font-bold { font-size: .95rem !important; letter-spacing: -.01em; }
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+  .rule.mt-14.flex-wrap { flex-direction: column !important; align-items: stretch !important; gap: 9px !important; }
+  .rule.mt-14.flex-wrap .label, .rule.mt-14.flex-wrap .btn { width: 100%; }
+}
+
+/* === MOBILE PREMIUM PASS 4 === */
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 84px; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: #c8a96a; color: #080807; }
+:focus-visible { outline: 2px solid #c8a96a; outline-offset: 3px; border-radius: 2px; }
+input, textarea, select { font-size: 16px !important; -webkit-appearance: none; border-radius: 0; }
+input::placeholder, textarea::placeholder { color: #6a6862; }
+
+@media (max-width: 767px) {
+  header { padding-top: env(safe-area-inset-top); background: rgba(8,8,7,.92); }
+  header .h-16 { height: 60px; }
+  main { padding-top: calc(60px + env(safe-area-inset-top)) !important; }
+
+  /* gold gradient on accent words inside headings */
+  .display .amber, .h1 .amber, .h2 .amber {
+    background: linear-gradient(100deg, #e8cf9a 0%, #c8a96a 52%, #a8874c 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+
+  /* hairlines get quieter, surfaces get light */
+  .rule, .border-line, .border-b, .border-t { border-color: rgba(200,169,106,.13) !important; }
+  .card, .glass {
+    border: 1px solid rgba(200,169,106,.2) !important;
+    border-radius: 20px !important;
+    background: radial-gradient(130% 90% at 50% 0%, rgba(200,169,106,.075), rgba(12,12,11,.6) 60%), #0b0b0a !important;
+    box-shadow: inset 0 1px 0 rgba(244,243,239,.06), 0 14px 34px -22px rgba(0,0,0,.9);
+  }
+
+  /* buttons: gold with depth, real press feedback */
+  .btn { border-radius: 3px; transition: transform .12s ease, background .18s ease, border-color .18s ease; }
+  .btn-primary {
+    background: linear-gradient(180deg, #d8ba7d, #c8a96a 62%, #b2924f) !important;
+    color: #080807 !important; border: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.32), 0 10px 26px -14px rgba(200,169,106,.6);
+    font-weight: 700;
+  }
+  .btn-ghost { border: 1px solid rgba(200,169,106,.32) !important; background: rgba(200,169,106,.05); }
+  .btn:active { transform: scale(.982); }
+  a:active .h3, a:active .text-sm { opacity: .72; }
+
+  /* bars: glass with a gold hairline */
+  .mbar {
+    background: rgba(8,8,7,.93) !important;
+    -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+    border-top: 1px solid rgba(200,169,106,.16);
+  }
+  .mbar a.active { color: #c8a96a; }
+  .mnav {
+    background: rgba(8,8,7,.975) !important;
+    -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px);
+    overscroll-behavior: contain;
+  }
+  .mnav-link { letter-spacing: -.025em; }
+  .mnav-link.active { color: #c8a96a; }
+
+  /* marquee fades at the edges instead of clipping hard */
+  .marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+
+  /* quote treatment */
+  blockquote { position: relative; padding-left: 14px; }
+  blockquote::before {
+    content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px;
+    background: linear-gradient(180deg, #c8a96a, rgba(200,169,106,0));
+  }
+  figcaption .amber { letter-spacing: .12em; }
+
+  /* faq rows read as tappable */
+  button[aria-expanded] { border-radius: 2px; }
+  button[aria-expanded]:active { background: rgba(200,169,106,.06); }
+}

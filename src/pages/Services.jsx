@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import { GROUPS, RETAINERS, TERMS } from "../data/rates";
 
 const PACKAGES = [
-  ["Launch", "$285", "You have a business and it needs to exist online, properly, this month.", [
+  ["Launch", "US$285", "You have a business and it needs to exist online, properly, this month.", [
     "One-page or landing page, hand-coded",
     "Fast on Jamaican mobile data",
     "Google Business + basic SEO wired in",
     "1 revision round, 2-week build",
   ], false],
-  ["Signature", "$985", "Your site should be selling while you sleep, not just sitting there.", [
+  ["Signature", "US$985", "Your site should be selling while you sleep, not just sitting there.", [
     "Up to 8 pages + custom case studies",
     "Full brand refresh included",
     "Copywriting for every page",
     "Booking or quote form that converts",
     "3 revision rounds, 4-week build",
   ], true],
-  ["Commerce", "$2,165", "You are taking payments directly and need the whole machine to work.", [
+  ["Commerce", "US$2,165", "You are taking payments directly and need the whole machine to work.", [
     "Full storefront, up to 50 products",
     "Payment processing + delivery logic",
     "Admin panel you can run yourself",
@@ -27,7 +27,7 @@ const PACKAGES = [
 
 const INCLUDED = [
   "A fixed fee agreed before you pay anything.",
-  "One written scope · the price we quote is the price you pay.",
+  "One written scope. The price we quote is the price you pay.",
   "Direct access to the two people building your site.",
   "Code, accounts and files handed over at launch. All yours.",
 ];
@@ -44,20 +44,19 @@ export default function Services() {
     <>
       <Seo
         title="Web Design Kingston Jamaica - Services and Rates | Irie Web Studios"
-        description="Brand identity, web design, development, WebGL motion, SEO and CRO. Every price published in USD, fixed fee with a written scope."
+        description="Every price published in USD. Fixed fee, written scope, hand-coded in Kingston. Brand, web, WebGL, SEO and CRO."
         path="/services"
       />
       <div className="pad pt-28 md:pt-36">
         <div className="wrap">
           <p className="label label-amber">Services</p>
           <h1 className="display h1 mt-4">
-            Web design in Kingston, <span className="amber">priced in the open.</span>
+            Every price, <span className="amber">in the open.</span>
           </h1>
 
           <div className="rule mt-8 grid gap-6 pb-8 md:grid-cols-[1.3fr_1fr] md:items-end">
             <p className="lede">
-              Every figure is on this page, in USD, grouped by discipline. No discovery
-              call before you see a number.
+              Every figure in USD, on the page. No call to find out, no haggling, no moving the number after you commit.
             </p>
             <p className="label md:text-right">Fixed fee. Written scope. No hourly drift.</p>
           </div>
@@ -87,11 +86,11 @@ export default function Services() {
 
           <div className="mt-12">
             <h2 className="label label-amber">Packages</h2>
-            <p className="lede mt-2">Three ways in. Pick the one that matches where you are today.</p>
+            <p className="lede mt-2">Pick by where you are today. Nothing gets added once you choose.</p>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {PACKAGES.map(([name, price, who, feats, hot]) => (
                 <div key={name} className={`card flex flex-col ${hot ? "!border-amber" : ""}`}>
-                  <div className="flex items-baseline justify-between">
+                  <div className="flex items-baseline justify-between gap-3">
                     <p className="font-bold uppercase">{name}</p>
                     {hot && <span className="label label-amber">Most taken</span>}
                   </div>
@@ -100,11 +99,11 @@ export default function Services() {
                   <ul className="mt-4 space-y-1.5 border-t border-line pt-4 text-sm text-bone/75">
                     {feats.map((f) => <li key={f} className="flex gap-2"><span className="amber">+</span>{f}</li>)}
                   </ul>
-                  <Link to="/contact" className={`btn mt-5 w-full ${hot ? "btn-primary" : "btn-ghost"}`}>Start here</Link>
+                  <Link to="/contact" className={`btn mt-5 w-full ${hot ? "btn-primary" : "btn-ghost"}`}>Book 15 min on WhatsApp</Link>
                 </div>
               ))}
             </div>
-            <p className="label mt-4 !text-[9px]">Not sure which fits? A 15-minute call settles it · no prep needed.</p>
+            <p className="label mt-4 !text-[9px]">Not sure which fits? A 15-minute call settles it, no prep needed.</p>
           </div>
 
           <div id="rates" className="rule mt-12 pt-8">
@@ -133,7 +132,7 @@ export default function Services() {
 
           <div className="rule mt-12 pt-8">
             <h2 className="label label-amber">Retainers, monthly</h2>
-            <p className="lede mt-2">For the ones who would rather never think about it again. Cancel with 30 days notice.</p>
+            <p className="lede mt-2">For the ones who would rather never think about it again. Cancel with 30 days notice, no lock-in.</p>
             <div className="mt-5">
               {RETAINERS.map(([name, price, note]) => (
                 <div key={name} className="grid gap-1 border-b border-line py-4 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6">
@@ -161,9 +160,9 @@ export default function Services() {
 
           <div className="py-16 text-center">
             <h2 className="display h2 mx-auto max-w-2xl">You have seen the numbers. <span className="amber">Now talk.</span></h2>
-            <p className="lede mx-auto mt-4">Tell us the scope and we will give you the exact figure in writing, inside one business day.</p>
+            <p className="lede mx-auto mt-4">Send the scope on WhatsApp and the exact figure comes back in writing the same day. If the first draft misses the brief, round two is free.</p>
             <Link to="/contact" className="btn btn-primary mt-8">Get a written quote</Link>
-            <p className="label mt-3 !text-[9px]">Free · 15 min · no pitch</p>
+            <p className="label mt-3 !text-[9px]">Free � 15 min � no pitch</p>
           </div>
         </div>
       </div>
