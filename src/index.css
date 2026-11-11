@@ -441,22 +441,3 @@ html,body{background:#080807 !important}
 .grain::after,.grain::before{display:none !important}
 
 .reveal{opacity:1 !important;transform:none !important;animation:none !important;filter:none !important}
-
-/* === IRIE HARD VISIBILITY OVERRIDE === */
-body::before,body::after,.grain::before,.grain::after{display:none !important;opacity:0 !important}
-h1,h2,h3,h4,h5,h6,p,span,a,li,label,small,strong,em,button,section,article,div,img,svg{opacity:1 !important;visibility:visible !important;filter:none !important;mix-blend-mode:normal !important;animation:none !important}
-
-/* === IRIE LOADER KILL === */
-.plate,.vault,.mono-load,.bp-load,.grain,body::after,body::before{display:none !important;opacity:0 !important;visibility:hidden !important;z-index:-1 !important}
-.pl-vignette,.pl-grain,.pl-frame,.vt-spot,.vt-guilloche,.vt-grain,.vt-frame{display:none !important}
-h1,h2,h3,h4,h5,h6,p,span,a,li,label,small,strong,em,button,section,article,img,svg{opacity:1 !important;visibility:visible !important;filter:none !important;animation:none !important}
-
-/* === IRIE LOADER KILL === */
-.plate,.vault,.mono-load,.bp-load,.grain,body::after,body::before{display:none !important;opacity:0 !important;visibility:hidden !important;z-index:-1 !important}
-.pl-vignette,.pl-grain,.pl-frame,.vt-spot,.vt-guilloche,.vt-grain,.vt-frame{display:none !important}
-h1,h2,h3,h4,h5,h6,p,span,a,li,label,small,strong,em,button,section,article,img,svg{opacity:1 !important;visibility:visible !important;filter:none !important;animation:none !important}
-
-/* === IRIE LOADER KILL === */
-.plate,.vault,.mono-load,.bp-load,.grain,body::after,body::before{display:none !important;opacity:0 !important;visibility:hidden !important;z-index:-1 !important}
-.pl-vignette,.pl-grain,.pl-frame,.vt-spot,.vt-guilloche,.vt-grain,.vt-frame{display:none !important}
-h1,h2,h3,h4,h5,h6,p,span,a,li,label,small,strong,em,button,section,article,img,svg{opacity:1 !important;visibility:visible !important;filter:none !important;animation:none !important}
