@@ -6,9 +6,9 @@ import { Reveal } from "../components/FxLayer";
 const WA = "https://wa.me/18765206119?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20book%20a%2015%20min%20call.";
 
 const WORK = [
-  ["01", "Earth Family Farms", "Land enquiries booked straight off the page.", "earth-family-farms"],
-  ["02", "Trini-Yaad", "Friday-night orders, no app install.", "trini-yaad"],
-  ["03", "Irie Web Studios Core", "The studio own site. Nothing off the shelf.", "irie-core"],
+  ["Earth Family Farms", "Land enquiries booked straight off the page.", "earth-family-farms"],
+  ["Trini-Yaad", "Friday-night orders, no app install.", "trini-yaad"],
+  ["Irie Web Studios", "The studio own site. Nothing off the shelf.", "irie-core"],
 ];
 
 const PACKAGES = [
@@ -17,32 +17,18 @@ const PACKAGES = [
   ["Commerce", "US$2,165", "Sell direct and keep the cut marketplaces take.", "Start with Commerce", false],
 ];
 
-const QUOTES = [
-  ["Bookings come in before anybody has to call. The site does the talking.", "Michael Lee", "Earth Family Farms"],
-  ["Ordering that works in a Friday queue, no app install. Live in a week.", "Misir Ramberran", "Trini-Yaad"],
-];
-
-const STEPS = [
-  ["01", "Brief", "Scope, budget, deadline. Two minutes on WhatsApp."],
-  ["02", "Scope", "Fixed fee, dated milestones, signed before money moves."],
-  ["03", "Build", "Hand-coded. Staging link from day one, reviewed daily."],
-  ["04", "Launch", "Domain, code and accounts handed over. Yours."],
-];
-
 const PROMISES = [
   "Fixed fee in writing before you pay a dollar.",
   "Landing pages live in 7 days.",
   "First draft misses, round two is free.",
   "50% to start, 50% on launch. Nothing else.",
-  "WCAG 2.2 AA, nightly off-site backups, HSTS enforced.",
   "Code, domain and accounts are yours at launch.",
 ];
 
 const FAQS = [
   ["How long?", "A landing page is 7 days, dated in writing before you pay. Bigger builds get quoted to the day."],
   ["Who does the work?", "Two people, both named, both reachable. No juniors, no account managers."],
-  ["Do I own it?", "Completely. Repository, domain and accounts transfer in the handover step."],
-  ["NDA or contract?", "Both, on request, before the brief."],
+  ["Do I own it?", "Completely. Repository, domain and accounts transfer at handover."],
   ["Changes later?", "Three rounds included. After that US$45 a round, or a care plan."],
 ];
 
@@ -53,71 +39,62 @@ export default function Home() {
     <>
       <Seo
         title="Kingston Web Design for Businesses That Need Bookings | Irie Web Studios"
-        description="Fixed-fee websites, hand-coded in Kingston. Live in 7 days from US$285. Written scope, WCAG AA, full ownership at launch."
+        description="Fixed-fee websites, hand-coded in Kingston. Live in 7 days from US$285. Written scope, full ownership at launch."
         path="/"
       />
 
-      <section className="relative overflow-hidden pad pb-12 pt-24 md:pb-20 md:pt-32">
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="wrap relative z-10">
-          <div className="spec"><b>00</b><span>Kingston 6, Jamaica</span></div>
+      <section className="pad pb-12 pt-24 md:pb-20 md:pt-32">
+        <div className="wrap">
+          <p className="label">Kingston, Jamaica</p>
 
-          <h1 className="display leading-[0.88] tracking-[-0.04em]">
+          <h1 className="display mt-5 leading-[0.92] tracking-[-0.035em]">
             <span className="block">Bookings</span>
             <span className="block gradient-amber">while you sleep.</span>
           </h1>
 
-          <p className="lede mt-6 max-w-[21rem]">
+          <p className="lede mt-5 max-w-[21rem]">
             Hand-coded in Kingston. Fixed fee, written scope, live in 7 days. It takes
             bookings from tourists and diaspora while you sleep.
           </p>
 
-          <div className="mt-8 flex flex-col gap-2.5">
+          <div className="mt-7 flex flex-col gap-2.5">
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block">
               Book 15 min on WhatsApp
             </a>
-            <Link to="/work" className="btn btn-ghost btn-block">See what it did for them</Link>
+            <Link to="/work" className="btn btn-ghost btn-block">See the work</Link>
           </div>
 
-          <div className="mt-9 flex items-center justify-between gap-4">
-            <p className="stamp">From US$285 / fixed</p>
-            <p className="stamp">Two slots this quarter</p>
-          </div>
+          <p className="label mt-6">From US$285, fixed. Two slots this quarter.</p>
         </div>
       </section>
 
       <section className="pad">
         <div className="wrap">
-          <div className="spec"><b>01</b><span>Record</span></div>
           <div className="grid grid-cols-3 gap-4">
-            <div><p className="metric">7</p><p className="stamp mt-1">Days to live</p></div>
-            <div><p className="metric">2</p><p className="stamp mt-1">Slots left</p></div>
-            <div><p className="metric">100%</p><p className="stamp mt-1">Yours at launch</p></div>
+            <div><p className="metric">7 days</p><p className="label mt-1">Brief to live</p></div>
+            <div><p className="metric">2</p><p className="label mt-1">Slots left</p></div>
+            <div><p className="metric">100%</p><p className="label mt-1">Yours at launch</p></div>
           </div>
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            {QUOTES.map(([q, name, org]) => (
-              <figure key={name}>
-                <blockquote className="quote">“{q}”</blockquote>
-                <figcaption className="stamp mt-3">{name} / {org}</figcaption>
-              </figure>
-            ))}
-          </div>
+          <Reveal>
+            <figure className="mt-12">
+              <blockquote className="quote">“Bookings come in before anybody has to call. The site does the talking.”</blockquote>
+              <figcaption className="label mt-3">Michael Lee, Earth Family Farms</figcaption>
+            </figure>
+          </Reveal>
         </div>
       </section>
 
       <section className="pad">
         <div className="wrap">
-          <div className="spec"><b>02</b><span>Work</span></div>
           <h2 className="display h2">Work that pays for itself.</h2>
-          <div className="mt-7">
-            {WORK.map(([n, name, blurb, slug]) => (
+          <div className="mt-6">
+            {WORK.map(([name, blurb, slug]) => (
               <Link key={slug} to={`/work/${slug}`} className="row group">
-                <span className="font-mono text-[11px] amber">{n}</span>
                 <div>
                   <p className="h3 font-bold group-hover:text-amber">{name}</p>
                   <p className="mt-1 text-sm text-mute">{blurb}</p>
                 </div>
-                <span className="font-mono text-mute">→</span>
+                <span className="text-mute">→</span>
               </Link>
             ))}
           </div>
@@ -126,49 +103,27 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap">
-          <div className="spec"><b>03</b><span>Packages</span></div>
-          <h2 className="display h2">Three ways in. Pick today.</h2>
-          <div className="mt-7 grid gap-3 md:grid-cols-3">
+          <h2 className="display h2">Three ways in.</h2>
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
             {PACKAGES.map(([name, price, who, cta, hot]) => (
               <div key={name} className={`card flex flex-col ${hot ? "hot" : ""}`}>
                 <p className="font-bold">{name}</p>
-                <p className="mt-1 text-xs text-dim">{who}</p>
-                <p className="mt-4 font-display text-2xl font-extrabold">{price}</p>
+                <p className="mt-1 text-sm text-dim">{who}</p>
+                <p className="mt-4 text-2xl font-bold">{price}</p>
                 <Link to="/contact" className={`btn mt-5 w-full ${hot ? "btn-primary" : "btn-ghost"}`}>{cta}</Link>
               </div>
             ))}
           </div>
-          <p className="stamp mt-4">Nothing gets added once you choose.</p>
+          <p className="label mt-4">Nothing gets added once you choose.</p>
         </div>
       </section>
 
       <section className="pad">
         <div className="wrap">
-          <div className="spec"><b>04</b><span>Sequence</span></div>
-          <h2 className="display h2">Four steps, no surprises.</h2>
-          <div className="mt-7">
-            {STEPS.map(([n, h, b], i) => (
-              <Reveal key={n} delay={i * 50}>
-                <div className="step">
-                  <span className="font-mono text-[11px] amber">{n}</span>
-                  <div>
-                    <p className="text-sm font-bold">{h}</p>
-                    <p className="mt-1 text-sm text-mute">{b}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pad">
-        <div className="wrap">
-          <div className="spec"><b>05</b><span>Terms</span></div>
           <h2 className="display h2">Written down, not implied.</h2>
-          <div className="mt-7">
+          <div className="mt-5">
             {PROMISES.map((g) => (
-              <p key={g} className="promise"><span className="amber">+</span>{g}</p>
+              <p key={g} className="promise">{g}</p>
             ))}
           </div>
         </div>
@@ -176,16 +131,15 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap">
-          <div className="spec"><b>06</b><span>Questions</span></div>
-          <h2 className="display h2">Ask the awkward ones</h2>
-          <div className="mt-6">
+          <h2 className="display h2">Questions</h2>
+          <div className="mt-5">
             {FAQS.map(([q, a], i) => (
               <div key={q} className="border-b border-line">
-                <button onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i} className="flex w-full items-center justify-between gap-6 py-5 text-left">
+                <button onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i} className="flex w-full items-center justify-between gap-6 py-4 text-left">
                   <span className="text-sm">{q}</span>
-                  <span className={`font-mono amber ${open === i ? "rotate-45" : ""}`}>+</span>
+                  <span className={`amber ${open === i ? "rotate-45" : ""}`}>+</span>
                 </button>
-                <div className={`grid transition-all duration-300 ${open === i ? "grid-rows-[1fr] pb-5 opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                <div className={`grid transition-all duration-300 ${open === i ? "grid-rows-[1fr] pb-4 opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
                   <p className="overflow-hidden text-sm leading-relaxed text-mute">{a}</p>
                 </div>
               </div>
@@ -196,10 +150,9 @@ export default function Home() {
 
       <section className="pad py-16 text-center">
         <div className="wrap">
-          <div className="spec justify-center"><b>07</b><span>Close</span></div>
-          <h2 className="display h2 mx-auto max-w-3xl">Two slots left. <span className="amber">One call closes it.</span></h2>
-          <p className="lede mx-auto mt-5">Send the scope. The figure comes back in writing the same day.</p>
-          <div className="mt-8 flex flex-col gap-2.5">
+          <h2 className="display h2 mx-auto max-w-2xl">Two slots left. <span className="amber">One call closes it.</span></h2>
+          <p className="lede mx-auto mt-4">Send the scope. The figure comes back in writing the same day.</p>
+          <div className="mt-7 flex flex-col gap-2.5">
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block">Book 15 min on WhatsApp</a>
             <Link to="/services" className="btn btn-ghost btn-block">See every price</Link>
           </div>

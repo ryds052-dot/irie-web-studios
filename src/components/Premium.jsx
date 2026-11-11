@@ -24,7 +24,7 @@ function Spotlight() {
 export default function Premium({ children }) {
   return (
     <Preloader>
-      <Spotlight />
+
       <StickyCTA />
       {children}
     </Preloader>

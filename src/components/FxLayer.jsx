@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -227,7 +227,7 @@ export default function FxLayer() {
       {null}
       <Grain />
       <Cursor />
-      <ScrollProgress />
+
     </>
   );
 }
