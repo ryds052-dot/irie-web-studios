@@ -1,7 +1,8 @@
 ﻿import { useState } from "react";
 import { EMAIL, PHONE, PHONE_DISPLAY, PHONE_ALT, PHONE_ALT_DISPLAY, LOCATION, AVAILABILITY, RESPONSE_TIME } from "../lib/site";
 
-const ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const ENDPOINT = "https://formspree.io/f/PASTE_ID_HERE";
+const LIVE = !ENDPOINT.includes("PASTE_ID_HERE");
 
 const BUDGETS = ["Under $500", "$500 - $1,500", "$1,500 - $3,000", "$3,000+", "Monthly retainer", "Not sure yet"];
 const TIMELINES = ["This month", "Next 1-2 months", "This quarter", "No fixed date"];
@@ -25,6 +26,12 @@ export default function Contact() {
     setStatus("sending");
     setError("");
 
+    if (!LIVE) {
+      const body = encodeURIComponent([...data.entries()].filter(([k]) => !k.startsWith("_")).map(([k, v]) => k + ": " + v).join("\n"));
+      window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("New project enquiry") + "&body=" + body;
+      setStatus("success");
+      return;
+    }
     try {
       const res = await fetch(ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: data });
       if (!res.ok) throw new Error("failed");
@@ -146,6 +153,8 @@ export default function Contact() {
     </div>
   );
 }
+
+
 
 
 
