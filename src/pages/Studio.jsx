@@ -39,7 +39,7 @@ export default function Studio() {
 
       <div className="pad pt-28 md:pt-36">
         <div className="wrap">
-          <p className="label">The studio</p>
+          <p className="label">The Studio</p>
           <h1 className="display mt-4">
             Two people. <span className="gold">No committee.</span>
           </h1>
