@@ -150,7 +150,8 @@ export default function Home() {
 
       <section className="pad py-16">
         <div className="wrap rise">
-          <h2 className="display h2">Three slots left this month.</h2>
+          <p className="label">Availability</p>
+          <h2 className="display h2 closer-h">{SLOTS_LABEL}</h2>
           <p className="lede mt-4">Send one message. You get a price in writing the same day.</p>
           <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-6">Book a free 15 min call</a>
           <Link to="/services" className="link mt-4">See all prices →</Link>
