@@ -73,7 +73,7 @@ export default function Contact() {
           >
             Message on WhatsApp
           </a>
-          <a href={`tel:${PHONE}`} className="btn btn-ghost btn-block">
+          <a href={`https://wa.me/${WHATSAPP}?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20talk%20through%20a%20build.`} target="_blank" rel="noreferrer" className="btn btn-ghost btn-block">
             Call {PHONE_DISPLAY}
           </a>
         </div>
@@ -177,9 +177,9 @@ export default function Contact() {
             <div>
               <p className="label label-amber">Or go direct</p>
               <p className="label mt-4">WhatsApp</p>
-              <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer" className="mt-1 block font-mono text-sm hover:text-amber">{WHATSAPP_DISPLAY}</a>
+              <a href={`https://wa.me/${WHATSAPP}?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20be%20considered%20for%20a%20build%20slot.`} target="_blank" rel="noreferrer" className="mt-1 block font-mono text-sm hover:text-amber">{WHATSAPP_DISPLAY}</a>
               <p className="label mt-4">Call</p>
-              <a href={`tel:${PHONE}`} className="mt-1 block font-mono text-sm hover:text-amber">{PHONE_DISPLAY}</a>
+              <a href={`https://wa.me/${WHATSAPP}?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20talk%20through%20a%20build.`} target="_blank" rel="noreferrer" className="mt-1 block font-mono text-sm hover:text-amber">{PHONE_DISPLAY}</a>
               <p className="label mt-4">Email</p>
               <a href={`mailto:${EMAIL}`} className="mt-1 block break-all text-sm hover:text-amber">{EMAIL}</a>
             </div>

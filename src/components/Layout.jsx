@@ -73,8 +73,8 @@ export default function Layout({ children }) {
             ))}
           </nav>
           <div className="mnav-foot">
-            <a className="mnav-cta" href="tel:+18765206119">+1 (876) 520-6119</a>
-            <a className="mnav-cta" href="mailto:iriewebstudios@iriewebstudios.com">iriewebstudios@iriewebstudios.com</a>
+            <a className="mnav-cta" href="https://wa.me/18764354047?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20talk%20through%20a%20build." target="_blank" rel="noreferrer">+1 (876) 520-6119</a>
+            <a className="mnav-cta" href="mailto:iriewebstudios@iriewebstudios.com?subject=Project%20enquiry&body=Hi%20Irie%20-%20here%27s%20what%20we%27re%20working%20with%3A%20">iriewebstudios@iriewebstudios.com</a>
             <div className="mnav-social">
               <a href="https://www.instagram.com/iriewebstudios/" target="_blank" rel="noopener noreferrer">Instagram</a>
               <a href="https://github.com/ryds052-dot" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -90,15 +90,15 @@ export default function Layout({ children }) {
         <div className="wrap">
           <p className="foot-k">Got a site that undersells you?</p>
           <div className="foot-contact">
-            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer" className="foot-row">
+            <a href={`https://wa.me/${WHATSAPP}?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20be%20considered%20for%20a%20build%20slot.`} target="_blank" rel="noreferrer" className="foot-row">
               <span className="foot-lab">WhatsApp</span>
               <span className="foot-val">{WHATSAPP_DISPLAY}</span>
             </a>
-            <a href={`tel:${PHONE}`} className="foot-row">
+            <a href={`https://wa.me/${WHATSAPP}?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20talk%20through%20a%20build.`} target="_blank" rel="noreferrer" className="foot-row">
               <span className="foot-lab">Call</span>
               <span className="foot-val">{PHONE_DISPLAY}</span>
             </a>
-            <a href="mailto:iriewebstudios@iriewebstudios.com" className="foot-row">
+            <a href="mailto:iriewebstudios@iriewebstudios.com?subject=Project%20enquiry&body=Hi%20Irie%20-%20here%27s%20what%20we%27re%20working%20with%3A%20" className="foot-row">
               <span className="foot-lab">Email</span>
               <span className="foot-val">iriewebstudios@iriewebstudios.com</span>
             </a>
