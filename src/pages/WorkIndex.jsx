@@ -37,7 +37,6 @@ export default function WorkIndex() {
           </div>
 
           <div className="mt-20">
-            <h2 className="display h2">Two slots left for November.</h2>
             <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
             <Link to="/contact" className="btn btn-primary btn-block mt-6">Send the brief</Link>
             <Link to="/services" className="link mt-4">See every price â†’</Link>

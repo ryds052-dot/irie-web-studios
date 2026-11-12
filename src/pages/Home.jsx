@@ -48,7 +48,6 @@ export default function Home() {
           <div>
             <div className="hero-top">
               <span className="label">Kingston, Jamaica</span>
-              <span className="label">2 slots left for November</span>
             </div>
 
             <h1 className="display mt-6">
@@ -150,7 +149,6 @@ export default function Home() {
 
       <section className="pad py-16">
         <div className="wrap rise">
-          <h2 className="display h2">Two slots left this month.</h2>
           <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
           <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-6">Book a free 15 min call</a>
           <Link to="/services" className="link mt-4">See all prices â†’</Link>

@@ -15,7 +15,6 @@ const BOOT = [
   "loading type systems ............... OK",
   "calibrating gold ................... OK",
   "scanning for templates ............. NONE FOUND",
-  "checking capacity .................. 2 SLOTS LEFT FOR November",
   "",
   "access granted. type 'help' to begin.",
 ];
@@ -198,7 +197,6 @@ export default function Terminal() {
           navigate("/contact");
         } else {
           await pushMany([
-            "2 slots left for November.",
             "when they are gone, they are gone.",
             "",
             "to reserve one: 'slots book 1'",
