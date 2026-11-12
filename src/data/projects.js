@@ -47,7 +47,7 @@ export const PROJECTS = [
     images: [
       { src: "/work/trini-yaad/doubles.webp", alt: "Trini doubles with channa, cucumber and shado beni", caption: "Doubles" },
       { src: "/work/trini-yaad/courtyard.webp", alt: "Dubwise Cafe courtyard stall at night", caption: "The courtyard", wide: true },
-      { src: "/work/trini-yaad/menu-board.webp", alt: "Trini-Yaad full menu board graphic", caption: "The board" },
+      { src: "/work/trini-yaad/menu-board.jpg", alt: "Trini-Yaad hand-painted menu board outside the Dubwise courtyard", caption: "The board" },
     ],
     results: [["2", "Taps to order"], ["1", "Order channel"], ["0", "App installs"]],
     quote: ["The queue does not wait for a slow page.", "Misir Ramberran", "Founder"],
