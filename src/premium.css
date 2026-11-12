@@ -441,3 +441,18 @@ textarea.field { resize: vertical; min-height: 92px; line-height: 1.5; }
 
 header .cta-primary { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; min-height: 44px; padding-inline: 22px; }
 
+
+.card .text-dim { color: var(--mute); }
+.card .btn { margin-top: auto; }
+
+
+@media (min-width: 768px) {
+  .h2, h2.display { font-size: clamp(2.4rem, 3.4vw, 3rem); }
+  .index-name { font-size: 28px; }
+}
+
+@media (min-width: 768px) { .hero + section { padding-top: 72px; } }
+
+
+.sec { width: 100%; }
+
