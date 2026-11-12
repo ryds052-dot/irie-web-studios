@@ -7,7 +7,7 @@ export default function WorkIndex() {
     <>
       <Seo
         title="Web Design Portfolio Jamaica - Selected Work | Irie Web Studios"
-        description="Three builds with the brief, the approach and the result. Booking funnels, ordering engines and WebGL systems from Kingston, Jamaica."
+        description="Two builds with the brief, the approach and the result. Private land viewings and WhatsApp ordering from Kingston, Jamaica."
         path="/work"
       />
 
@@ -18,7 +18,7 @@ export default function WorkIndex() {
             Built in Kingston, <span className="gold">live in the wild.</span>
           </h1>
           <p className="lede mt-6">
-            Three builds, all still live. Each case study has the brief, the approach and what changed.
+            Two builds, both still live. Each case study has the brief, the approach and what changed.
           </p>
 
           <div className="mt-14">

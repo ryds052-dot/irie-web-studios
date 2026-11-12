@@ -1,4 +1,4 @@
-﻿export const PROJECTS = [
+export const PROJECTS = [
   {
     slug: "earth-family-farms",
     index: "01",
@@ -38,26 +38,6 @@
     results: [["2", "Taps to order"], ["WA", "Order channel"], ["0", "App installs"]],
     quote: ["The queue does not wait for a slow page.", "Misir Ramberran", "Founder"],
     href: "https://trini-yaad.vercel.app/",
-  },
-  {
-    slug: "irie-core",
-    index: "03",
-    status: "CURRENT BUILD",
-    title: "Irie Web Studios Core",
-    sector: "Internal / Design system",
-    year: "2026",
-    outcome: "Every pixel hand-built. Zero templates.",
-    brief:
-      "The shop window. A live testbed for the 3D, motion and type systems that get reused on client work.",
-    approach: [
-      "A moving shader on desktop, a single still frame on mobile to save battery.",
-      "Smooth scrolling that follows your thumb instead of fighting it.",
-      "Hard grid, small mono labels, one accent colour.",
-    ],
-    stack: ["Three.js", "R3F", "GSAP", "Lenis", "Tailwind CSS"],
-    results: [["0", "Templates"], ["1", "Frame on mobile"], ["60", "FPS target"]],
-    quote: ["If we would not ship it for ourselves, we will not ship it for you.", "Ryder Lee", "Co-founder"],
-    href: "https://iriewebstudios.com/",
   },
 ];
 

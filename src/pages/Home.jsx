@@ -9,7 +9,6 @@ const WA = "https://wa.me/18764354047?text=Hi%20Irie%20Web%20Studios%20-%20I%27d
 const WORK = [
   ["Earth Family Farms", "Land enquiries booked straight off the page.", "earth-family-farms"],
   ["Trini-Yaad", "Friday-night orders, no app install.", "trini-yaad"],
-  ["Irie Web Studios", "This site. Hand-built.", "irie-core"],
 ];
 
 const PACKAGES = [
@@ -83,7 +82,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap rise">
-          <div className="sec"><h2 className="display h2">Three builds. All live.</h2><span className="sec-n">01</span></div>
+          <div className="sec"><h2 className="display h2">Two builds. Both live.</h2><span className="sec-n">01</span></div>
           <ul className="index">
             {WORK.map(([name, blurb, slug], i) => (
               <li key={slug}>
