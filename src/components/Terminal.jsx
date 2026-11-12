@@ -15,7 +15,7 @@ const BOOT = [
   "loading type systems ............... OK",
   "calibrating gold ................... OK",
   "scanning for templates ............. NONE FOUND",
-  "checking capacity .................. 2 SLOTS LEFT FOR MARCH",
+  "checking capacity .................. 2 SLOTS LEFT FOR November",
   "",
   "access granted. type 'help' to begin.",
 ];
@@ -198,7 +198,7 @@ export default function Terminal() {
           navigate("/contact");
         } else {
           await pushMany([
-            "2 slots left for March.",
+            "2 slots left for November.",
             "when they are gone, they are gone.",
             "",
             "to reserve one: 'slots book 1'",
@@ -286,7 +286,7 @@ export default function Terminal() {
       case "hack":
         await pushMany([
           "initializing breach protocol ...",
-          "bypassing firewall  [················] 66%",
+          "bypassing firewall  [Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·] 66%",
           "injecting payloads ............",
           "",
           "just kidding. we build websites. try 'work'.",
