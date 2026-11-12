@@ -111,6 +111,7 @@ export default function Contact() {
                   <button
                     key={b}
                     type="button"
+                    aria-pressed={b === budget}
                     onClick={() => setBudget(b === budget ? "" : b)}
                     className={
                       "chip border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] transition " +

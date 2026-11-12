@@ -601,14 +601,14 @@ main input:not([type=hidden]):focus, main textarea:focus {
 main textarea { min-height: 84px; resize: vertical; line-height: 1.55; }
 
 .chip {
-  border: 1px solid rgba(200,169,106,.22); border-radius: 2px;
-  padding: 0 14px; font-size: 13px; letter-spacing: .04em;
-  color: var(--bone); background: transparent;
-  transition: border-color .18s ease, color .18s ease;
+  border-width: 1px; border-style: solid; border-radius: 2px;
+  padding: 0 13px; font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; font-family: var(--font-mono), monospace;
+  transition: border-color .18s ease, background-color .18s ease, color .18s ease;
 }
-.chip:hover, .chip:focus-visible,
-.chip[aria-pressed="true"], .chip.active {
-  border-color: var(--gold); color: var(--gold);
+.chip:hover, .chip:focus-visible { border-color: var(--gold); color: var(--gold); }
+.chip[aria-pressed="true"] {
+  border-color: var(--gold); background: var(--gold); color: var(--ink);
 }
 
 summary { list-style: none; cursor: pointer; }
