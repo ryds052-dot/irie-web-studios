@@ -28,7 +28,7 @@ export default function Services() {
             Every price, <span className="gold">in the open.</span>
           </h1>
           <p className="lede mt-6">
-            Websites from US, live in 7 days. Every figure we charge is on this page — no 'contact us for pricing'.
+            Websites from US$285, live in 7 days. Every figure we charge is on this page — no 'contact us for pricing'.
           </p>
 
           <div className="mt-14">
@@ -40,7 +40,8 @@ export default function Services() {
                     <span className="index-n">{n2(i + 1)}</span>
                     <span className="index-name">{name} — {price}</span>
                     <span className="index-meta">
-                      {who}{hot && <span className="label"> Most taken</span>}
+                      {who}
+                      {hot && <span className="index-hot">Most taken</span>}
                     </span>
                   </Link>
                 </li>
