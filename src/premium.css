@@ -587,3 +587,36 @@ main > section:last-of-type .link { display: block; width: fit-content; margin: 
 @media (max-width: 767px) {
   .foot-row { padding-block: 11px; }
 }
+/* contact: measure, cta width, fields, chips */
+main p { max-width: 58ch; }
+.btn-block { max-width: 420px; }
+main input:not([type=hidden]), main textarea {
+  width: 100%; background: transparent; color: var(--bone);
+  border: 0; border-bottom: 1px solid rgba(200,169,106,.22);
+  border-radius: 0; padding: 10px 0; font: inherit;
+}
+main input:not([type=hidden]):focus, main textarea:focus {
+  outline: none; border-bottom-color: var(--gold);
+}
+main textarea { min-height: 84px; resize: vertical; line-height: 1.55; }
+
+.chip {
+  border: 1px solid rgba(200,169,106,.22); border-radius: 2px;
+  padding: 0 14px; font-size: 13px; letter-spacing: .04em;
+  color: var(--bone); background: transparent;
+  transition: border-color .18s ease, color .18s ease;
+}
+.chip:hover, .chip:focus-visible,
+.chip[aria-pressed="true"], .chip.active {
+  border-color: var(--gold); color: var(--gold);
+}
+
+summary { list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "+"; color: var(--gold); margin-right: 8px; }
+details[open] summary::before { content: "×"; }
+
+@media (max-width: 767px) {
+  .btn-block { max-width: none; }
+  main p { max-width: none; }
+}
