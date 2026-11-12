@@ -635,3 +635,15 @@ details[open] summary::before { content: "×"; }
   .mnav-social a { color: var(--mute); }
   .hero-top .label:last-child { white-space: nowrap; }
 }
+@media (max-width: 767px) {
+  .hero-top {
+    flex-wrap: nowrap; align-items: center;
+    min-height: 28px; gap: 10px;
+  }
+  .hero-top .label {
+    font-size: 9.5px; letter-spacing: .1em; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .hero-top .label:first-child { flex: 0 1 auto; }
+  .hero-top .label:last-child { flex: 0 0 auto; }
+}
