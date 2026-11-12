@@ -44,9 +44,14 @@ export const PROJECTS = [
       "Sized and built for a 3G phone, because that is the connection a queue actually has.",
     ],
     stack: ["React", "Tailwind CSS", "Edge CDN", "WhatsApp handoff"],
+    images: [
+      { src: "/work/trini-yaad/doubles.webp", alt: "Trini doubles with channa, cucumber and shado beni", caption: "Doubles" },
+      { src: "/work/trini-yaad/courtyard.webp", alt: "Dubwise Cafe courtyard stall at night", caption: "The courtyard", wide: true },
+      { src: "/work/trini-yaad/menu-board.webp", alt: "Trini-Yaad full menu board graphic", caption: "The board" },
+    ],
     results: [["2", "Taps to order"], ["1", "Order channel"], ["0", "App installs"]],
     quote: ["The queue does not wait for a slow page.", "Misir Ramberran", "Founder"],
-    href: "https://triniyaad.vercel.app/",
+    href: "https://trini-yaad.vercel.app/",
   },
 ];
 
