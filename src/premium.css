@@ -340,10 +340,10 @@ footer { border-top: 1px solid var(--line); padding: 40px 20px calc(104px + env(
 /* === bar clearance === */
  @media (max-width: 767px) {
   a[aria-label="Chat with Irie Web Studios on WhatsApp"] { display: none; }
-  main { padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
+  main { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
   /* Keep a heading off the fixed bottom bar both when scrolled to (scroll-margin)
      and when it is the last section in view (padding-bottom). */
-  section { padding-bottom: calc(96px + env(safe-area-inset-bottom)); scroll-margin-bottom: calc(112px + env(safe-area-inset-bottom)); }
+  section { scroll-margin-bottom: calc(112px + env(safe-area-inset-bottom)); }
 }
 
 /* ============ MOBILE SYSTEM ============ */
