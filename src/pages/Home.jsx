@@ -53,13 +53,14 @@ export default function Home() {
             </div>
 
             <h1 className="display mt-6">
-              <span className="block">A website that</span>
-              <span className="block gold">brings you customers.</span>
+              <span className="block">Looks expensive.</span>
+              <span className="block gold">Costs US$285.</span>
             </h1>
 
             <p className="lede mt-6 max-w-[19rem]">
-              Hand-coded in Kingston. One fixed fee from US$285, agreed in writing before you pay. Live in seven days, nothing monthly.
+              Hand-coded in Kingston. Live in 7 days. Quoted in writing before you pay.
             </p>
+            <p className="terms mt-3">US$40 a month after launch covers hosting, domain and edits. Cancel anytime.</p>
 
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-7">
               Book a free 15 min call
@@ -75,7 +76,7 @@ export default function Home() {
             <p className="panel-v">7 days</p>
             <p className="panel-k mt-6">You own</p>
             <p className="panel-v">Everything</p>
-            <p className="panel-note">Fixed price, agreed in writing before you pay.</p>
+            <p className="panel-note">Number first. Work after.</p>
           </aside>
         </div>
       </section>

@@ -414,3 +414,5 @@ textarea.field { resize: vertical; min-height: 92px; line-height: 1.5; }
 .chip:active { transform: scale(.97); }
 
 @media (min-width: 768px) { .hero .display { font-size: clamp(2.7rem, 4.5vw, 4rem); letter-spacing: -.045em; } }
+
+.terms { margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: var(--mute); max-width: 26rem; }
