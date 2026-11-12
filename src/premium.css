@@ -521,3 +521,15 @@ button[aria-expanded] span.amber {
     text-wrap: balance;
   }
 }
+/* mobile-fixes-2 */
+header { z-index: 9700; }
+.mnav { z-index: 9600; }
+.mnav-cta { color: rgba(244,243,239,.88); }
+.mnav-social a { color: var(--mute); }
+
+@media (max-width: 767px) {
+  .link { display: inline-block; min-height: 0; padding: 14px 0; text-underline-offset: 3px; }
+  .card .text-dim { margin-bottom: 22px; }
+  .foot { padding-bottom: calc(120px + env(safe-area-inset-bottom)); }
+  .foot-base { margin-top: 24px; }
+}
