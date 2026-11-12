@@ -73,7 +73,7 @@ export default function CaseStudy() {
                 ))}
               </div>
 
-              <a href={p.href} target="_blank" rel="noreferrer" className="btn btn-ghost mt-8">
+              <a href={p.href} target="_blank" rel="noreferrer" className="btn btn-primary mt-8">
                 Visit live site ↗
               </a>
             </div>
