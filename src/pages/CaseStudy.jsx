@@ -33,9 +33,15 @@ export default function CaseStudy() {
           <p className="case-outcome mt-5">{p.outcome}</p>
 
           <figure className="case-plate">
-            <div className={`case-plate-art v${i % 3}`} aria-hidden="true">
-              <span className="case-plate-n">{p.index}</span>
-            </div>
+            {p.images ? (
+              <div className="case-plate-art has-photo">
+                <img src={p.images[0].src} alt={p.images[0].alt} loading="eager" />
+              </div>
+            ) : (
+              <div className={`case-plate-art v${i % 3}`} aria-hidden="true">
+                <span className="case-plate-n">{p.index}</span>
+              </div>
+            )}
           </figure>
 
           <dl className="case-figures">
@@ -46,6 +52,17 @@ export default function CaseStudy() {
               </div>
             ))}
           </dl>
+
+          {p.images && p.images.length > 1 && (
+            <div className="case-gallery">
+              {p.images.slice(1).map((im) => (
+                <figure key={im.src} className={im.wide ? "wide" : ""}>
+                  <img src={im.src} alt={im.alt} loading="lazy" />
+                  <figcaption>{im.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
 
           <div className="rule mt-12 grid gap-12 pt-10 md:grid-cols-[1fr_1.5fr]">
             <div>
