@@ -73,7 +73,7 @@ export default function Layout({ children }) {
             ))}
           </nav>
           <div className="mnav-foot">
-            <a className="mnav-cta" href="tel:+18765206119">+1 876 520 6119</a>
+            <a className="mnav-cta" href="tel:+18765206119">+1 (876) 520-6119</a>
             <a className="mnav-cta" href="mailto:iriewebstudios@iriewebstudios.com">iriewebstudios@iriewebstudios.com</a>
             <div className="mnav-social">
               <a href="https://www.instagram.com/iriewebstudios/" target="_blank" rel="noopener noreferrer">Instagram</a>
