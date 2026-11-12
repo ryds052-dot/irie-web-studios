@@ -580,3 +580,10 @@ main > section:last-of-type .link { display: block; width: fit-content; margin: 
   .foot-row { padding-block: 13px; }
   .foot-val { font-size: 14px; }
 }
+.foot-row { padding-block: 13px; border-bottom: 1px solid rgba(200,169,106,.14); }
+.field { border-bottom: 1px solid rgba(200,169,106,.22); padding-bottom: 12px; }
+.field:focus { border-bottom-color: var(--gold); }
+
+@media (max-width: 767px) {
+  .foot-row { padding-block: 11px; }
+}
