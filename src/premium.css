@@ -620,3 +620,18 @@ details[open] summary::before { content: "×"; }
   .btn-block { max-width: none; }
   main p { max-width: none; }
 }
+/* mobile: kill balance-wrap, deterministic link rule */
+@media (max-width: 767px) {
+  .display, .h2 { text-wrap: pretty; }
+  .display { font-size: clamp(28px, 7.6vw, 34px); }
+  a.link {
+    position: relative; display: inline-block;
+    padding: 14px 0; border-bottom: 0; text-decoration: none;
+  }
+  a.link::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 12px;
+    height: 1px; background: rgba(200,169,106,.45);
+  }
+  .mnav-social a { color: var(--mute); }
+  .hero-top .label:last-child { white-space: nowrap; }
+}
