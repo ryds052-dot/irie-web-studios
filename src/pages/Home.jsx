@@ -128,6 +128,7 @@ export default function Home() {
           <div>
             {PROMISES.map((g) => <p key={g} className="promise">{g}</p>)}
           </div>
+          <Link to="/contact" className="link mt-8 promise-list-cta">Book a free 15 min call →</Link>
         </div>
       </section>
 

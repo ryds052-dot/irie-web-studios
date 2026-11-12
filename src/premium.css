@@ -502,3 +502,22 @@ section:has(.closer-h) .link { text-decoration: none; border-bottom: 1px solid r
 section:has(.closer-h) .link { display: block; width: fit-content; margin: 22px auto 0; }
 section:has(.closer-h) { padding-block: 64px; }
 @media (max-width: 767px) { section:has(.closer-h) { padding-block: 48px; } }
+.promise { color: rgba(244,243,239,.88); padding-block: 13px; font-size: 15px; }
+.promise::before {
+  content: ""; flex: 0 0 10px; height: 1px;
+  background: var(--gold); opacity: .55; margin-top: .78em;
+}
+button[aria-expanded] span.amber {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; font-size: 15px; line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .link { display: inline-block; min-height: 0; padding: 14px 0; text-underline-offset: 3px; }
+  .card .text-dim { margin-bottom: 22px; }
+  section:has(.closer-h) h2.display {
+    max-width: 18ch; margin-inline: auto;
+    font-size: clamp(28px, 8vw, 34px); letter-spacing: -.03em;
+    text-wrap: balance;
+  }
+}
