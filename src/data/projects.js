@@ -37,7 +37,7 @@ export const PROJECTS = [
     stack: ["React", "Tailwind CSS", "Edge CDN", "WhatsApp handoff"],
     results: [["2", "Taps to order"], ["1", "Order channel"], ["0", "App installs"]],
     quote: ["The queue does not wait for a slow page.", "Misir Ramberran", "Founder"],
-    href: "https://trini-yaad.varcel.app/",
+    href: "https://triniyaad.vercel.app/",
   },
 ];
 
