@@ -63,8 +63,8 @@ export default function Home() {
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-7">
               Book a free 15 min call
             </a>
-            <p className="micro">15 min Â· no pitch Â· no prep</p>
-            <Link to="/work" className="link mt-4">See the work â†’</Link>
+            <p className="micro">15 min · no pitch · no prep</p>
+            <Link to="/work" className="link mt-4">See the work →</Link>
           </div>
 
           <aside className="hero-panel">
@@ -151,7 +151,7 @@ export default function Home() {
         <div className="wrap rise">
           <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
           <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-6">Book a free 15 min call</a>
-          <Link to="/services" className="link mt-4">See all prices â†’</Link>
+          <Link to="/services" className="link mt-4">See all prices →</Link>
         </div>
       </section>
     </>

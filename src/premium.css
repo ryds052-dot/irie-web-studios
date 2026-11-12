@@ -1,4 +1,4 @@
-/* ============ IRIE â€” SYSTEM STYLESHEET ============ */
+/* ============ IRIE — SYSTEM STYLESHEET ============ */
 
 :root {
   --ink: #080807; --ink-2: #0c0c0b; --bone: #f4f3ef;
@@ -418,3 +418,9 @@ textarea.field { resize: vertical; min-height: 92px; line-height: 1.5; }
 .terms { margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: var(--mute); max-width: 26rem; }
 
 @media (max-width: 767px){body{padding-bottom:0}main{padding-bottom:0}.foot{padding-bottom:calc(150px + env(safe-area-inset-bottom))}}
+
+.cta-primary{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border-radius:2px;background:var(--gold);color:var(--ink);font-weight:600;transition:filter .18s ease}.cta-primary:hover{filter:brightness(1.07)}
+
+.hero-split > * { min-width: 0; }
+.display { overflow-wrap: break-word; }
+

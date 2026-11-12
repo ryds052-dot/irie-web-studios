@@ -284,7 +284,7 @@ export default function Terminal() {
       case "hack":
         await pushMany([
           "initializing breach protocol ...",
-          "bypassing firewall  [Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·] 66%",
+          "bypassing firewall  [················] 66%",
           "injecting payloads ............",
           "",
           "just kidding. we build websites. try 'work'.",

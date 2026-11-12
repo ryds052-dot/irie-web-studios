@@ -118,7 +118,7 @@ export default function Studio() {
           <div className="mt-20">
             <p className="lede mt-4">Send a message. You get a price in writing the same day, because we'd rather you knew the number before you commit to anything.</p>
             <Link to="/contact" className="btn btn-primary btn-block mt-6">Send the brief</Link>
-            <Link to="/services" className="link mt-4">See every price â†’</Link>
+            <Link to="/services" className="link mt-4">See every price →</Link>
           </div>
         </div>
       </div>
