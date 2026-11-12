@@ -54,10 +54,10 @@ let count = 0;
 for (const o of pages) {
   const url = SITE + o.p;
   let html = base
-    .replace(/<title>[^<]*<\/title>/, `<title>Web Design in Kingston, Jamaica | Irie Web Studios</title>`)
-    .replace(/(<meta name="description" content="Hand-coded websites for Jamaican businesses, live in 7 days from US$285. You get the price in writing before any work starts. Kingston based."]*(")/, `$1${o.d}$2`)
-    .replace(/(<meta property="og:title" content="Web Design in Kingston, Jamaica | Irie Web Studios"]*(")/, `$1${o.t}$2`)
-    .replace(/(<meta property="og:description" content="Hand-coded websites for Jamaican businesses, live in 7 days from US$285. You get the price in writing before any work starts. Kingston based."]*(")/, `$1${o.d}$2`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${o.t}</title>`)
+    .replace(/(<meta name="description" content=")[^"]*(")/, `$1${o.d}$2`)
+    .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${o.t}$2`)
+    .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${o.d}$2`)
     .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${url}$2`)
     .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`)
     .replace("</head>", `${head(o)}</head>`);
