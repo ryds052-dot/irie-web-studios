@@ -12,24 +12,24 @@ const WORK = [
 ];
 
 const PACKAGES = [
-  ["Launch", "US$285", "One page, art-directed, live in seven days. The whole offer on one screen.", "Choose Launch", false],
-  ["Site", "US$985", "Every section the story needs, in an order that gets read to the end.", "Choose Site", false],
-  ["Store", "US$2,165", "Your own shop. Catalogue, checkout and orders, with no marketplace taking a cut.", "Choose Store", true],
+  ["Launch", "US$285", "One page. One offer. Art-directed, hand-coded, live in seven days.", "Choose Launch", false],
+  ["Site", "US$985", "Every section the story needs, sequenced so it gets read to the end.", "Choose Site", false],
+  ["Store", "US$2,165", "Your own shop — catalogue, checkout, orders. No marketplace skimming.", "Choose Store", true],
 ];
 
 const PROMISES = [
-  "The price is agreed before you pay anything.",
-  "Landing pages go live in 7 days.",
-  "If the first draft is wrong, round two is free.",
-  "Pay 50% to start and 50% at launch. Nothing else.",
-  "The code, domain and accounts are yours at launch.",
+  "The number is agreed in writing before you pay a cent.",
+  "Landing pages ship in seven days. The date is in the contract, not the pitch.",
+  "If the first draft misses, round two costs nothing.",
+  "Half to start, half at launch. No retainers, no surprise line items.",
+  "The code, the domain and every account are handed to you at launch. You are never renting your own site.",
 ];
 
 const FAQS = [
-  ["How long does it take?", "A one-page site is 7 days. We put the date in writing before you pay. Bigger sites get a date too."],
-  ["Who does the work?", "Two people. Both have names and both answer the phone."],
-  ["Do I own it?", "Yes. The code, the domain and the accounts are handed to you at launch."],
-  ["Can I change it later?", "Three rounds are included. After that it is US$45 a round, or a monthly plan."],
+  ["How fast is it live?", "Seven days from the day content lands. The date goes in writing before you pay. Bigger builds get a date the same way."],
+  ["Who actually builds it?", "Two people, both named, both on WhatsApp. One writes the brief, one builds. No account layer."],
+  ["Do I own the site?", "Yes. Code, domain, analytics, accounts. All of it, at launch, in your name."],
+  ["What if I need changes later?", "Three rounds are included. After that it is US$45 a round, or a care plan."],
 ];
 
 export default function Home() {
@@ -56,9 +56,9 @@ export default function Home() {
             </h1>
 
             <p className="lede mt-6 max-w-[19rem]">
-              Hand-coded in Kingston. Live in 7 days. Quoted in writing before you pay.
+              One page, hand-coded in Kingston. Live in seven days, quoted in writing before you pay a dollar.
             </p>
-            <p className="terms mt-3">US$40 a month after launch covers hosting, domain and edits. Cancel anytime.</p>
+            <p className="terms mt-3">Hosting, domain and emergency callouts start at US$40/mo. Scoped to what you actually need — never padded.</p>
 
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-7">
               Book a free 15 min call
@@ -104,6 +104,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap rise">
+          <p className="label">Pricing</p>
           <div className="sec"><h2 className="display h2">Three ways in</h2><span className="sec-n">02</span></div>
           <p className="lede">Pick the one that fits. The price you see is the price you pay.</p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -149,7 +150,8 @@ export default function Home() {
 
       <section className="pad py-16">
         <div className="wrap rise">
-          <p className="lede mt-4">Send a message. You get the price in writing the same day.</p>
+          <h2 className="display h2">Three slots left this month.</h2>
+          <p className="lede mt-4">Send one message. You get a price in writing the same day.</p>
           <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-6">Book a free 15 min call</a>
           <Link to="/services" className="link mt-4">See all prices →</Link>
         </div>

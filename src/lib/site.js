@@ -1,3 +1,4 @@
+import { SLOTS_LABEL } from "./slots";
 export const SITE_URL = "https://iriewebstudios.com";
 export const EMAIL = "iriewebstudios@iriewebstudios.com";
 export const PHONE = "+18765206119";
@@ -6,7 +7,7 @@ export const PHONE_ALT = "+18764354047";
 export const PHONE_ALT_DISPLAY = "+1 876 435 4047";
 export const PHONE_ALT_LABEL = "Nelson - client comms";
 export const LOCATION = "Kingston 6, Jamaica";
-export const AVAILABILITY = "Booking now";
+export const AVAILABILITY = SLOTS_LABEL;
 export const RESPONSE_TIME = "Reply within one business day";
 export const WHATSAPP = "+18764354047";
 export const WHATSAPP_DISPLAY = "+1 (876) 435-4047";
