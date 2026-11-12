@@ -36,7 +36,7 @@ export default function Layout({ children }) {
 
       {/* header */}
       <header className="fixed top-0 left-0 right-0 z-[150] border-b border-[#c8a96a]/10 bg-[#080807]/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+        <div className="mx-auto flex h-16 max-w-[1080px] items-center justify-between px-5">
           <Link to="/" className="font-display text-lg tracking-tight text-[#f4f3ef]">
             IRIE<span className="text-[#c8a96a]">.</span>
           </Link>
