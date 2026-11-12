@@ -79,7 +79,7 @@ export default function Contact() {
         </div>
 
         <div className="rule mt-10 grid gap-10 pt-9 lg:grid-cols-12">
-          <form onSubmit={submit} className="flex flex-col gap-4 lg:order-2 lg:col-span-7">
+          <form action="https://formspree.io/f/mljbrlzr" method="POST" onSubmit={submit} className="flex flex-col gap-4 lg:order-2 lg:col-span-7">
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="flex flex-col gap-2">
                 <span className="label">Your name *</span>
