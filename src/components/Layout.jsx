@@ -49,7 +49,7 @@ export default function Layout({ children }) {
                 {n.label}
               </NavLink>
             ))}
-            <Link to="/contact" className="cta-primary !py-3 !px-5 !text-[10px]">Book 15 min</Link>
+            <Link to="/contact" className="cta-primary">Book 15 min</Link>
           </nav>
 
           {/* mobile menu button */}

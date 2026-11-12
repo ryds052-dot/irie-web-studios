@@ -424,3 +424,20 @@ textarea.field { resize: vertical; min-height: 92px; line-height: 1.5; }
 .hero-split > * { min-width: 0; }
 .display { overflow-wrap: break-word; }
 
+
+@media (min-width: 768px) {
+  .statement {
+    font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+    max-width: 30ch;
+    line-height: 1.06;
+    letter-spacing: -.038em;
+    text-wrap: balance;
+  }
+  .statement-wrap { padding-block: 128px; }
+}
+
+.statement-wrap { border-top: 0; }
+
+
+header .cta-primary { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; min-height: 44px; padding-inline: 22px; }
+
