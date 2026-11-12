@@ -552,3 +552,31 @@ header { z-index: 9700; }
   .index-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
   .index-meta .index-hot { margin-top: 0; }
 }
+/* closer + footer, all pages */
+main > section:last-of-type { text-align: center; padding-block: 72px; }
+main > section:last-of-type .btn-block {
+  width: fit-content; min-width: 288px; margin-inline: auto; display: inline-flex;
+}
+main > section:last-of-type .link { display: block; width: fit-content; margin: 20px auto 0; }
+
+.index-row::after { opacity: .55; }
+
+.foot-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px; padding-block: 16px;
+}
+.foot-lab { margin: 0; }
+.foot-val {
+  margin: 0; text-align: right; font-size: 15px;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.foot-k { font-size: 18px; line-height: 1.3; color: var(--bone); max-width: 24ch; margin-bottom: 28px; }
+.foot-base { margin-top: 26px; }
+.foot { padding-block: 64px calc(40px + env(safe-area-inset-bottom)); }
+
+@media (max-width: 767px) {
+  main > section:last-of-type { padding-block: 48px; }
+  main > section:last-of-type .btn-block { width: 100%; min-width: 0; }
+  .foot-row { padding-block: 13px; }
+  .foot-val { font-size: 14px; }
+}
