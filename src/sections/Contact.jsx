@@ -176,7 +176,7 @@ export default function Contact() {
             <div>
               <p className="label label-amber">Or go direct</p>
               <p className="label mt-4">WhatsApp</p>
-              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-1 block font-mono text-sm hover:text-amber">{WHATSAPP_DISPLAY}</a>
+              <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer" className="mt-1 block font-mono text-sm hover:text-amber">{WHATSAPP_DISPLAY}</a>
               <p className="label mt-4">Call</p>
               <a href={`tel:${PHONE}`} className="mt-1 block font-mono text-sm hover:text-amber">{PHONE_DISPLAY}</a>
               <p className="label mt-4">Email</p>

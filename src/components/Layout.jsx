@@ -90,7 +90,7 @@ export default function Layout({ children }) {
         <div className="wrap">
           <p className="foot-k">Got a site that undersells you?</p>
           <div className="foot-contact">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="foot-row">
+            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer" className="foot-row">
               <span className="foot-lab">WhatsApp</span>
               <span className="foot-val">{WHATSAPP_DISPLAY}</span>
             </a>
