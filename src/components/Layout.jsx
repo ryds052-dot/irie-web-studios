@@ -73,7 +73,7 @@ export default function Layout({ children }) {
             ))}
           </nav>
           <div className="mnav-foot">
-            <a className="mnav-cta" href="https://wa.me/18764354047?text=Hi%20Irie%20Web%20Studios%20-%20I%27d%20like%20to%20talk%20through%20a%20build." target="_blank" rel="noreferrer">+1 (876) 520-6119</a>
+            <a className="mnav-cta" href="tel:+18765206119" target="_blank" rel="noreferrer">+1 (876) 520-6119</a>
             <a className="mnav-cta" href="mailto:iriewebstudios@iriewebstudios.com?subject=Project%20enquiry&body=Hi%20Irie%20-%20here%27s%20what%20we%27re%20working%20with%3A%20">iriewebstudios@iriewebstudios.com</a>
             <div className="mnav-social">
               <a href="https://www.instagram.com/iriewebstudios/" target="_blank" rel="noopener noreferrer">Instagram</a>
