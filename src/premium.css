@@ -489,3 +489,13 @@ section:has(.closer-h) .label { margin-bottom: 14px; }
 section:has(.closer-h) .lede { margin-inline: auto; max-width: 36ch; }
 section:has(.closer-h) .btn-block { width: auto; min-width: 288px; margin-inline: auto; }
 section:has(.closer-h) .link { margin-top: 22px; }
+
+section:has(.closer-h) .btn-block { width: fit-content; display: inline-flex; min-width: 288px; margin-inline: auto; }
+section:has(.closer-h) .link { text-decoration: none; border-bottom: 1px solid rgba(200,169,106,.4); }
+.closer-h { letter-spacing: -.028em; }
+
+@media (max-width: 767px) {
+  section:has(.closer-h) { padding-block: 52px; }
+  .closer-h { font-size: clamp(26px, 7.6vw, 32px); max-width: 16ch; }
+  section:has(.closer-h) .btn-block { width: 100%; min-width: 0; }
+}

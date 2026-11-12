@@ -1,3 +1,4 @@
+import { SLOTS_LABEL } from "../lib/slots";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
@@ -48,6 +49,7 @@ export default function Home() {
           <div>
             <div className="hero-top">
               <span className="label">Kingston, Jamaica</span>
+              <span className="label">{SLOTS_LABEL}</span>
             </div>
 
             <h1 className="display mt-6">
