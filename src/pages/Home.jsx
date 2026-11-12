@@ -12,9 +12,9 @@ const WORK = [
 ];
 
 const PACKAGES = [
-  ["Launch", "US$285", "One page, one offer, live this month.", "Choose Launch", false],
-  ["Signature", "US$985", "So you look like the biggest name in the room.", "Choose Signature", true],
-  ["Commerce", "US$2,165", "Sell direct. Keep the money marketplaces take.", "Choose Commerce", false],
+  ["Launch", "US$285", "One page, art-directed, live in seven days. The whole offer on one screen.", "Choose Launch", false],
+  ["Site", "US$985", "Every section the story needs, in an order that gets read to the end.", "Choose Site", false],
+  ["Store", "US$2,165", "Your own shop. Catalogue, checkout and orders, with no marketplace taking a cut.", "Choose Store", true],
 ];
 
 const PROMISES = [
@@ -104,7 +104,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap rise">
-          <div className="sec"><h2 className="display h2">Prices</h2><span className="sec-n">02</span></div>
+          <div className="sec"><h2 className="display h2">Three ways in</h2><span className="sec-n">02</span></div>
           <p className="lede">Pick the one that fits. The price you see is the price you pay.</p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {PACKAGES.map(([name, price, who, cta, hot]) => (

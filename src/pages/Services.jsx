@@ -5,7 +5,7 @@ import { GROUPS, RETAINERS, TERMS } from "../data/rates";
 const us = (v) => v.replace(/\$/g, "US$");
 
 const PACKAGES = [
-  ["Launch", "US$285", "One page, art-directed, live in ten days. The whole offer on one screen.", false],
+  ["Launch", "US$285", "One page, art-directed, live in seven days. The whole offer on one screen.", false],
   ["Site", "US$985", "Every section the story needs, in an order that gets read to the end.", false],
   ["Store", "US$2,165", "Your own shop. Catalogue, checkout and orders, with no marketplace taking a cut.", true],
 ];
