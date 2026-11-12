@@ -647,3 +647,68 @@ details[open] summary::before { content: "×"; }
   .hero-top .label:first-child { flex: 0 1 auto; }
   .hero-top .label:last-child { flex: 0 0 auto; }
 }
+/* ============ SYSTEM PASS ============ */
+:root {
+  --sp-1: 8px; --sp-2: 16px; --sp-3: 24px; --sp-4: 40px; --sp-5: 64px; --sp-6: 96px;
+  --measure: 46ch; --ease-out: cubic-bezier(.16, 1, .3, 1);
+}
+
+.wrap, .hero-split { container-type: inline-size; }
+
+.display {
+  font-size: clamp(2rem, 8cqi, 4.4rem);
+  line-height: .98; letter-spacing: -.042em; text-wrap: pretty;
+}
+.h2, h2.display {
+  font-size: clamp(1.25rem, 4.4cqi, 2.3rem);
+  line-height: 1.04; letter-spacing: -.032em; text-wrap: pretty;
+}
+.statement { font-size: clamp(1.5rem, 5.6cqi, 3.2rem); line-height: 1.08; letter-spacing: -.034em; }
+.index-name { font-size: clamp(1.05rem, 3.2cqi, 1.9rem); }
+
+section { padding-block: var(--sp-5); }
+@media (min-width: 768px) { section { padding-block: var(--sp-6); } }
+
+.lede { max-width: var(--measure); text-wrap: pretty; }
+.sec-n { font-variant-numeric: tabular-nums; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; border-radius: 2px; font-weight: 600; letter-spacing: .01em;
+  transition: filter .18s var(--ease-out), border-color .18s var(--ease-out), transform .1s var(--ease-out);
+}
+.btn:active { transform: scale(.988); }
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+.mnav { justify-content: flex-start; }
+.mnav .mnav-cta:first-of-type { margin-top: 32px; }
+.mnav .mnav-social { margin-top: auto; padding-top: 20px; }
+.mnav-link { transition: color .16s var(--ease-out); }
+.mnav-link[aria-current="page"], .mnav-link.active { color: var(--gold); }
+
+form .grid, .grid { align-items: start; }
+.field { transition: border-color .18s var(--ease-out); }
+summary { transition: color .16s var(--ease-out); }
+
+@media (hover: hover) {
+  .foot-row:hover .foot-val { color: var(--gold); }
+  .index-row:hover .index-name { color: var(--gold); }
+  summary:hover { color: var(--gold); }
+  .btn-primary:hover { filter: brightness(1.07); }
+}
+@media (hover: none) {
+  .index-row::after { opacity: .7; }
+  .card:hover { border-color: rgba(200,169,106,.22); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn:active { transform: none; }
+}
+
+@media (max-width: 767px) {
+  section { padding-block: var(--sp-4); }
+  .foot-row .foot-val { font-size: 14px; }
+  .sec { margin-bottom: var(--sp-3); }
+}
