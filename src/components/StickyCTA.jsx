@@ -30,7 +30,7 @@ export default function StickyCTA() {
         Book 15 min on WhatsApp
         <span className="sc-sub">{SLOTS_LABEL}</span>
       </a>
-      <button type="button" onClick={() => { setClosed(true); sessionStorage.setItem("irie:cta", "off"); track("cta_sticky_dismiss"); }} aria-label="Dismiss" className="sc-x">Ã—</button>
+      <button type="button" onClick={() => { setClosed(true); sessionStorage.setItem("irie:cta", "off"); track("cta_sticky_dismiss"); }} aria-label="Dismiss" className="sc-x">×</button>
     </div>
   );
 }
