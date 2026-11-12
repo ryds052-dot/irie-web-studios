@@ -22,22 +22,22 @@ export const PROJECTS = [
   {
     slug: "trini-yaad",
     index: "02",
-    status: "SYSTEM ACTIVE",
+    status: "PRODUCTION LIVE",
     title: "Trini-Yaad",
-    sector: "Street food / Hospitality",
+    sector: "Street food / Takeaway",
     year: "2026",
     outcome: "Order in two taps. No app install.",
     brief:
-      "A Trinidadian street food vendor at 82 Lady Musgrave Road needed ordering that survives a Friday queue without asking anyone to download anything.",
+      "Friday night at 82 Lady Musgrave Road. A Trinidadian street food vendor with a queue down the pavement and one hard constraint: nobody is installing an app to order doubles. The site had to take the order in the time it takes to read a menu board, then hand it somewhere the kitchen already looks.",
     approach: [
-      "Menu with pepper levels and sauce builds, handled entirely in the browser.",
-      "Basket hands off to WhatsApp, where the kitchen already looks.",
-      "Built to open fast on a 3G phone, because that is the real connection.",
+      "Pepper levels and sauce builds resolve in the browser, so there is no loading state between taps.",
+      "The basket hands straight to WhatsApp, where the kitchen already lives. Nothing new to learn on a Friday.",
+      "Sized and built for a 3G phone, because that is the connection a queue actually has.",
     ],
-    stack: ["React", "Tailwind CSS", "Edge CDN", "Interactive UI"],
-    results: [["2", "Taps to order"], ["WA", "Order channel"], ["0", "App installs"]],
+    stack: ["React", "Tailwind CSS", "Edge CDN", "WhatsApp handoff"],
+    results: [["2", "Taps to order"], ["1", "Order channel"], ["0", "App installs"]],
     quote: ["The queue does not wait for a slow page.", "Misir Ramberran", "Founder"],
-    href: "https://trini-yaad.vercel.app/",
+    href: "https://trini-yaad.varcel.app/",
   },
 ];
 
