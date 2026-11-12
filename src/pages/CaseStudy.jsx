@@ -32,17 +32,11 @@ export default function CaseStudy() {
           <h1 className="display mt-5">{p.title}</h1>
           <p className="case-outcome mt-5">{p.outcome}</p>
 
-          <figure className="case-plate">
-            {p.images ? (
-              <div className="case-plate-art has-photo">
-                <img src={p.images[0].src} alt={p.images[0].alt} loading="eager" />
-              </div>
-            ) : (
-              <div className={`case-plate-art v${i % 3}`} aria-hidden="true">
-                <span className="case-plate-n">{p.index}</span>
-              </div>
-            )}
-          </figure>
+          <div className="mt-7">
+            <a href={p.href} target="_blank" rel="noreferrer" className="btn btn-primary">
+              Visit live site &rarr;
+            </a>
+          </div>
 
           <dl className="case-figures">
             {p.results.map(([v, l]) => (
@@ -53,16 +47,7 @@ export default function CaseStudy() {
             ))}
           </dl>
 
-          {p.images && p.images.length > 1 && (
-            <div className="case-gallery">
-              {p.images.slice(1).map((im) => (
-                <figure key={im.src} className={im.wide ? "wide" : ""}>
-                  <img src={im.src} alt={im.alt} loading="lazy" />
-                  <figcaption>{im.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
-          )}
+
 
           <div className="rule mt-12 grid gap-12 pt-10 md:grid-cols-[1fr_1.5fr]">
             <div>
