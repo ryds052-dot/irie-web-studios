@@ -15,13 +15,13 @@ const FAQ = [
 ];
 
 const offers = [
-  ["Launch", "285", "One offer, one page, live this month."],
+  ["Launch", "285", "One offer, one page, launched this month."],
   ["Signature", "985", "So you look like the biggest name in the room."],
   ["Commerce", "2165", "Sell direct and keep the cut marketplaces take."],
 ];
 
 const pages = [
-  { p: "/", t: "Kingston Web Design for Businesses That Need Bookings | Irie Web Studios", d: "Fixed-fee websites for Jamaican businesses. Live in 7 days. Written scope, full ownership at launch." },
+  { p: "/", t: "Kingston Web Design for Businesses That Need Bookings | Irie Web Studios", d: "Fixed-fee websites for Jamaican businesses. Launched in 7 days. Written scope, full ownership at launch." },
   { p: "/work", t: "Work - Websites Built in Kingston | Irie Web Studios", d: "Land enquiries booked off the page, Friday-night orders without an app install. See what launched." },
   { p: "/services", t: "Every Price, In The Open - Web Design Kingston | Irie Web Studios", d: "Fixed fee in USD, written scope, no haggling. Brand, web, WebGL, SEO and CRO from Kingston." },
   { p: "/studio", t: "The Studio - Two People, No Committee | Irie Web Studios", d: "Ryder Lee engineers every build, Nelson Denny runs the front of house. Kingston, Jamaica." },

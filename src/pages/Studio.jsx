@@ -20,7 +20,7 @@ const SKILLS = [
 
 const PROMISES = [
   "The price is agreed before you pay anything.",
-  "Landing pages go live in 7 days.",
+  "Landing pages launch in 7 days.",
   "If the first draft is wrong, round two is free.",
   "Pay 50% to start and 50% at launch. Nothing else.",
   "The code, domain and accounts are yours at launch.",

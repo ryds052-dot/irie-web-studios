@@ -17,7 +17,7 @@ export default function Services() {
     <>
       <Seo
         title="Web Design Kingston Jamaica - Services and Rates | Irie Web Studios"
-        description="Websites US$285, live in 7 days. Every rate is printed on this page in US$: web, brand, SEO, security and more. Quoted in writing before you pay."
+        description="Websites US$285, launched in 7 days. Every rate is printed on this page in US$: web, brand, SEO, security and more. Quoted in writing before you pay."
         path="/services"
       />
 
@@ -28,7 +28,7 @@ export default function Services() {
             Every price, <span className="gold">in the open.</span>
           </h1>
           <p className="lede mt-6">
-            Websites from US$285, live in 7 days. Every figure we charge is on this page — no 'contact us for pricing'.
+            Websites from US$285, launched in 7 days. Every figure we charge is on this page — no 'contact us for pricing'.
           </p>
 
           <div className="mt-14">

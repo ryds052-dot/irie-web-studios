@@ -138,7 +138,7 @@ export default function Contact() {
                   <input name="site" type="url" autoComplete="url" placeholder="https://" className="field" />
                 </label>
                 <label className="flex flex-col gap-2 sm:col-span-2">
-                  <span className="label">When do you need it live?</span>
+                  <span className="label">When do you need it launched?</span>
                   <input name="deadline" placeholder="A date, or none yet" className="field" />
                 </label>
               </div>

@@ -7,7 +7,7 @@ export default function WorkIndex() {
     <>
       <Seo
         title="Web Design Portfolio Jamaica - Selected Work | Irie Web Studios"
-        description="Two builds with the brief, the approach and the result. Private land viewings and WhatsApp ordering from Kingston, Jamaica."
+        description="Two preview builds with the brief, the approach and the result. Private land viewings and WhatsApp ordering from Kingston, Jamaica."
         path="/work"
       />
 

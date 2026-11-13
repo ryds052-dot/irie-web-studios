@@ -2,7 +2,7 @@ const p = (v) => `$${v.toLocaleString("en-US")}`;
 
 export const GROUPS = [
   { id: "web", label: "Web and build", items: [
-    ["Landing page", `${p(100)} deposit / ${p(250)}`, "Single page, art-directed, live in 10 days."],
+    ["Landing page", `${p(100)} deposit / ${p(250)}`, "Single page, art-directed, launched in 10 days."],
     ["Brochure site, 5-8 pages", `${p(480)}-${p(800)}`],
     ["Ecommerce build", `${p(950)}-${p(1275)}`],
     ["Booking / reservation site", `${p(480)}-${p(800)}`],

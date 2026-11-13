@@ -27,7 +27,7 @@ const PROMISES = [
 ];
 
 const FAQS = [
-  ["How fast is it live?", "Seven days from the day content lands. The date goes in writing before you pay. Bigger builds get a date the same way."],
+  ["How fast can it launch?", "Seven days from the day content lands. The date goes in writing before you pay. Bigger builds get a date the same way."],
   ["Who actually builds it?", "Two people, both named, both on WhatsApp. One writes the brief, one builds. No account layer."],
   ["Do I own the site?", "Yes. Code, domain, analytics, accounts. All of it, at launch, in your name."],
   ["What if I need changes later?", "Three rounds are included. After that it is US$45 a round, or a care plan."],
@@ -40,7 +40,7 @@ export default function Home() {
     <>
       <Seo
         title="Kingston Web Design for Businesses That Need Bookings | Irie Web Studios"
-        description="One page, hand-coded in Kingston, live in seven days. US$285, fixed and quoted in writing. Full ownership at launch."
+        description="One page, hand-coded in Kingston, launched in seven days. US$285, fixed and quoted in writing. Full ownership at launch."
         path="/"
       />
 
@@ -53,7 +53,7 @@ export default function Home() {
             </div>
 
             <h1 className="display mt-6">
-              <span className="block md:hidden">One page. Live in seven days.</span>
+              <span className="block md:hidden">One page. Launched in seven days.</span>
               <span className="hidden md:block">Looks expensive.</span>
               <span className="mt-2 block md:mt-0">
                 <span className="text-mute md:hidden">Looks expensive. Costs </span>
@@ -76,7 +76,7 @@ export default function Home() {
           <aside className="hero-panel">
             <p className="panel-k">Scope</p>
             <p className="panel-v">Written</p>
-            <p className="panel-k mt-6">Live in</p>
+            <p className="panel-k mt-6">Launch in</p>
             <p className="panel-v">7 days</p>
             <p className="panel-k mt-6">You own</p>
             <p className="panel-v">Everything</p>
