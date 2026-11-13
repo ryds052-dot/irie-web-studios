@@ -21,7 +21,7 @@ const offers = [
 ];
 
 const pages = [
-  { p: "/", t: "Kingston Web Design for Businesses That Need Bookings | Irie Web Studios", d: "Fixed-fee websites for Jamaican businesses. Live in 7 days, from US$285. Book a 15-minute call." },
+  { p: "/", t: "Kingston Web Design for Businesses That Need Bookings | Irie Web Studios", d: "Fixed-fee websites for Jamaican businesses. Live in 7 days. Written scope, full ownership at launch." },
   { p: "/work", t: "Work - Websites Built in Kingston | Irie Web Studios", d: "Land enquiries booked off the page, Friday-night orders without an app install. See what launched." },
   { p: "/services", t: "Every Price, In The Open - Web Design Kingston | Irie Web Studios", d: "Fixed fee in USD, written scope, no haggling. Brand, web, WebGL, SEO and CRO from Kingston." },
   { p: "/studio", t: "The Studio - Two People, No Committee | Irie Web Studios", d: "Ryder Lee engineers every build, Nelson Denny runs the front of house. Kingston, Jamaica." },
@@ -53,13 +53,13 @@ const head = (o) => {
 let count = 0;
 for (const o of pages) {
   const url = SITE + o.p;
-  let html = base
-    .replace(/<title>[^<]*<\/title>/, `<title>${o.t}</title>`)
-    .replace(/(<meta name="description" content=")[^"]*(")/, `$1${o.d}$2`)
-    .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${o.t}$2`)
-    .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${o.d}$2`)
-    .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${url}$2`)
-    .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`)
+    let html = base
+    .replace(/<title>[^<]*<\/title>/, (m) => `<title>${o.t}</title>`)
+    .replace(/(<meta name="description" content=")[^"]*(")/, (m, a, b) => a + o.d + b)
+    .replace(/(<meta property="og:title" content=")[^"]*(")/, (m, a, b) => a + o.t + b)
+    .replace(/(<meta property="og:description" content=")[^"]*(")/, (m, a, b) => a + o.d + b)
+    .replace(/(<meta property="og:url" content=")[^"]*(")/, (m, a, b) => a + url + b)
+    .replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b)
     .replace("</head>", `${head(o)}</head>`);
   const out = o.p === "/" ? "dist/index.html" : path.join("dist", o.p, "index.html");
   fs.mkdirSync(path.dirname(out), { recursive: true });
