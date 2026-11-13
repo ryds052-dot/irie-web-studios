@@ -13,9 +13,9 @@ const WORK = [
 ];
 
 const PACKAGES = [
-  ["Launch", "US$285", "One page. One offer. Art-directed, hand-coded, live in seven days.", "Choose Launch", false],
-  ["Site", "US$985", "Every section the story needs, sequenced so it gets read to the end.", "Choose Site", false],
-  ["Store", "US$2,165", "Your own shop — catalogue, checkout, orders. No marketplace skimming.", "Choose Store", true],
+  ["Launch", "US$285", "Get your business online fast with a clean, high-impact, professional site.", "Choose Launch", false],
+  ["Presence", "US$985", "A fuller website that showcases your business, services, and brand authority.", "Choose Presence", true],
+  ["Store", "US$2,165", "Sell your products online with your own automated, frictionless store.", "Choose Store", false],
 ];
 
 const PROMISES = [

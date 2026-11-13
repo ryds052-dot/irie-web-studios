@@ -5,9 +5,9 @@ import { GROUPS, RETAINERS, TERMS } from "../data/rates";
 const us = (v) => v.replace(/\$/g, "US$");
 
 const PACKAGES = [
-  ["Launch", "US$285", "One page, art-directed, live in seven days. The whole offer on one screen.", false],
-  ["Site", "US$985", "Every section the story needs, in an order that gets read to the end.", false],
-  ["Store", "US$2,165", "Your own shop. Catalogue, checkout and orders, with no marketplace taking a cut.", true],
+  ["Launch", "US$285", "Get your business online fast with a clean, high-impact, professional site.", false],
+  ["Presence", "US$985", "A fuller website that showcases your business, services, and brand authority.", true],
+  ["Store", "US$2,165", "Sell your products online with your own automated, frictionless store.", false],
 ];
 
 const n2 = (i) => String(i).padStart(2, "0");
