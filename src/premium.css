@@ -763,3 +763,25 @@ summary { transition: color .16s var(--ease-out); }
   .case-plate-art { aspect-ratio: 4 / 3; }
   .case-closer .btn { width: 100%; }
 }
+
+/* mobile type consolidation */
+@media (max-width:767px){
+  .display{font-size:clamp(25px,6.9vw,30px)!important;line-height:1.08!important;letter-spacing:-.03em!important;text-wrap:balance}
+  .hero .display{font-size:clamp(24px,6.6vw,29px)!important}
+  .h2,h2.display{font-size:clamp(19px,5vw,23px)!important;line-height:1.14!important;letter-spacing:-.022em!important}
+  .statement{font-size:clamp(20px,5.4vw,25px)!important;line-height:1.2!important;letter-spacing:-.024em!important;max-width:20ch}
+  .price{font-size:31px!important;letter-spacing:-.03em!important}
+  .lede{font-size:15px!important;line-height:1.62!important}
+  .foot-k{font-size:clamp(20px,5.4vw,25px)!important;line-height:1.2!important}
+  .closer-h,section:has(.closer-h) h2.display{font-size:clamp(20px,5.4vw,25px)!important;line-height:1.15!important}
+  .sec{margin-bottom:16px!important;padding-top:11px!important}
+  section{padding-block:34px!important}
+  .pad{padding-block:34px!important}
+  .card{padding:16px!important}
+  .hero{padding-top:84px!important;padding-bottom:14px!important}
+  .hero h1 .text-mute{display:block;font-size:.68em!important;line-height:1.32!important;margin-top:9px;letter-spacing:-.01em}
+}
+@media (max-width:380px){
+  .display,.hero .display{font-size:23px!important}
+  .statement{font-size:19px!important}
+}
