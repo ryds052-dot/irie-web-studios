@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en" class="dark">
   <head>
-    <link rel="icon" href="/logo-src.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#000000">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Web Design in Kingston, Jamaica | Irie Web Studios</title>
     <meta name="description" content="Hand-coded websites for Jamaican businesses, live in 7 days from US$285. You get the price in writing before any work starts. Kingston based." />
     <meta name="theme-color" content="#080807" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href="https://iriewebstudios.com/" />
 
@@ -20,15 +20,27 @@
     <meta property="og:title" content="Web Design in Kingston, Jamaica | Irie Web Studios" />
     <meta property="og:description" content="Hand-coded websites for Jamaican businesses, live in 7 days from US$285. You get the price in writing before any work starts. Kingston based." />
     <meta property="og:url" content="https://iriewebstudios.com/" />
+    <meta property="og:image" content="https://iriewebstudios.com/og.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     
     <meta name="twitter:title" content="Web Design in Kingston, Jamaica | Irie Web Studios" />
     <meta name="twitter:description" content="Hand-coded websites for Jamaican businesses, live in 7 days from US$285. You get the price in writing before any work starts. Kingston based." />
+    <meta name="twitter:image" content="https://iriewebstudios.com/og.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 
-            <style>
+        <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://iriewebstudios.com/#studio","name":"Irie Web Studios","alternateName":["Irie Web Studio"],"url":"https://iriewebstudios.com/","email":"iriewebstudios@iriewebstudios.com","telephone":"+18765206119","image":"https://iriewebstudios.com/og.jpg","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Kingston 6","addressRegion":"Kingston","addressCountry":"JM"},"areaServed":[{"@type":"Country","name":"Jamaica"},{"@type":"City","name":"Kingston"}],"founder":[{"@type":"Person","name":"Ryder Lee"},{"@type":"Person","name":"Nelson Denny"}],"sameAs":["https://www.instagram.com/iriewebstudios/","https://github.com/ryds052-dot"]},{"@type":"WebSite","@id":"https://iriewebstudios.com/#website","url":"https://iriewebstudios.com/","name":"Irie Web Studios","inLanguage":"en-JM","publisher":{"@id":"https://iriewebstudios.com/#studio"}}]}</script><script id="sw-nuke">
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function (rs) {
+    rs.forEach(function (r) { r.unregister(); });
+  });
+}
+if (window.caches) { caches.keys().then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); }); }
+</script>
+    <style>
       #boot { position: fixed; inset: 0; z-index: 10000; background: #080807; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
       #boot span { font-family: Syne, sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: -.03em; color: #f4f3ef; }
       #boot i { display: block; width: 0; height: 1px; background: #c8a96a; animation: bootfill 1.1s cubic-bezier(.16,1,.3,1) forwards; }
@@ -46,6 +58,11 @@
         }
       }, 5000);
     </script>
+</head>
+  <body class="bg-[#080807] text-[#f4f3ef] antialiased">
+    <div id="boot" aria-hidden="true"><span>IRIE.</span><i></i></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
 
