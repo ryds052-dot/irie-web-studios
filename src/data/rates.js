@@ -1,4 +1,4 @@
-﻿const p = (v) => `$${v.toLocaleString("en-US")}`;
+const p = (v) => `$${v.toLocaleString("en-US")}`;
 
 export const GROUPS = [
   { id: "web", label: "Web and build", items: [
@@ -45,7 +45,9 @@ export const GROUPS = [
     ["Influencer brief + outreach", `${p(115)}-${p(270)}`],
   ]},
   { id: "hosting", label: "Hosting and infrastructure, monthly", items: [
-    ["Managed hosting", `${p(25)}-${p(65)}`],
+    ["Hosting only", p(25), "Deploy, SSL, CDN and DNS. Nothing managed."],
+    ["Managed hosting", `${p(45)}-${p(95)}`],
+    ["Emergency callout, one-off", p(75)],
     ["Domain + DNS management", `${p(10)}-${p(22)}`],
     ["Business email setup", `${p(65)}-${p(135)}`],
     ["Backup + monitoring", `${p(38)}-${p(90)}`],
@@ -113,7 +115,7 @@ export const PACKAGES = [
 export const TERMS = [
   "50% deposit, non-refundable on start. Balance on launch.",
   `Three revision rounds included, then ${p(45)} each.`,
-  "Hosting and domain registered in our name, licensed for the term.",
+  "Code, domain and every account are handed to you at launch. Hosting is billed monthly and moves to your own account on request.",
   "Work is per written scope. Anything outside it is a change order at hourly rate.",
   "Rush under 7 days: +30%.",
   "Work pauses at 14 days overdue.",

@@ -51,7 +51,7 @@ export default function Services() {
           </div>
 
           <p className="mt-10 max-w-[46ch] text-sm leading-relaxed text-mute">
-            Every price here is fixed. Only domain, hosting and emergency call-outs start at a figure, because those depend on what you actually need.
+            Every price here is fixed. Only domain management starts at a figure, because it depends on what you actually need.
           </p>
 
           {GROUPS.map((g, gi) => (

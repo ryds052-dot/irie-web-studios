@@ -40,7 +40,7 @@ export default function Home() {
     <>
       <Seo
         title="Kingston Web Design for Businesses That Need Bookings | Irie Web Studios"
-        description="Fixed-price websites, hand-coded in Kingston. Live in 7 days from US$285. Written scope, full ownership at launch."
+        description="One page, hand-coded in Kingston, live in seven days. US$285, fixed and quoted in writing. Full ownership at launch."
         path="/"
       />
 
@@ -53,14 +53,18 @@ export default function Home() {
             </div>
 
             <h1 className="display mt-6">
-              <span className="block">Looks expensive.</span>
-              <span className="block gold">Costs US$285.</span>
+              <span className="block md:hidden">One page. Live in seven days.</span>
+              <span className="hidden md:block">Looks expensive.</span>
+              <span className="mt-2 block md:mt-0">
+                <span className="text-mute md:hidden">Looks expensive. Costs </span>
+                <span className="hidden md:inline">Costs </span>
+                <span className="gold">US$285.</span>
+              </span>
             </h1>
 
             <p className="lede mt-6 max-w-[19rem]">
-              One page, hand-coded in Kingston. Live in seven days, quoted in writing before you pay a dollar.
+              Hand-coded in Kingston, quoted in writing before you pay a dollar. Hosting from US$25/mo, callouts US$75 one-off. No retainer, no minimum term, nothing padded.
             </p>
-            <p className="terms mt-3">Hosting, domain and emergency callouts start at US$40/mo. Scoped to what you actually need — never padded.</p>
 
             <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary btn-block mt-7">
               Book a free 15 min call
@@ -80,6 +84,13 @@ export default function Home() {
           </aside>
         </div>
       </section>
+
+      <div className="h-20 md:hidden" />
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-ink/95 p-3 backdrop-blur md:hidden">
+        <a href={WA} target="_blank" rel="noreferrer" className="btn btn-primary w-full">
+          Book a free 15 min call · US$285
+        </a>
+      </div>
 
       <section className="pad">
         <div className="wrap rise">
