@@ -2,7 +2,7 @@ export const PROJECTS = [
   {
     slug: "earth-family-farms",
     index: "01",
-    status: "PRODUCTION LIVE",
+    status: "PREVIEW BUILD",
     title: "Earth Family Farms",
     sector: "Private estate / Pre-development land",
     year: "2026",
@@ -31,7 +31,7 @@ export const PROJECTS = [
   {
     slug: "trini-yaad",
     index: "02",
-    status: "PRODUCTION LIVE",
+    status: "PREVIEW BUILD",
     title: "Trini-Yaad",
     sector: "Street food / Takeaway",
     year: "2026",

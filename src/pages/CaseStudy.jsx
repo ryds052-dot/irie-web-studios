@@ -34,7 +34,7 @@ export default function CaseStudy() {
 
           <div className="mt-7">
             <a href={p.href} target="_blank" rel="noreferrer" className="btn btn-primary">
-              Visit live site &rarr;
+              View preview &rarr;
             </a>
           </div>
 

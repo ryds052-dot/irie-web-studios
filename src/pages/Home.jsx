@@ -94,7 +94,7 @@ export default function Home() {
 
       <section className="pad">
         <div className="wrap rise">
-          <div className="sec"><h2 className="display h2">Two builds. Both live.</h2><span className="sec-n">01</span></div>
+          <div className="sec"><h2 className="display h2">Two builds. Both clickable.</h2><span className="sec-n">01</span></div>
           <ul className="index">
             {WORK.map(([name, blurb, slug], i) => (
               <li key={slug}>

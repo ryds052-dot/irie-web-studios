@@ -15,14 +15,14 @@ export default function WorkIndex() {
         <div className="wrap">
           <p className="label">Selected work</p>
           <h1 className="display mt-4">
-            Built in Kingston, <span className="gold">live in the wild.</span>
+            Built in Kingston, <span className="gold">click through both.</span>
           </h1>
           <p className="lede mt-6">
-            Two builds, both still live. Each case study has the brief, the approach and what changed.
+            Two concept builds, both clickable. Open one and use it like a customer would. Each has the brief, the approach and what changed.
           </p>
 
           <div className="mt-14">
-            <div className="sec"><h2 className="display h2">Websites we built</h2><span className="sec-n">01</span></div>
+            <div className="sec"><h2 className="display h2">Previews</h2><span className="sec-n">01</span></div>
             <ul className="index">
               {PROJECTS.map((p, i) => (
                 <li key={p.slug}>
